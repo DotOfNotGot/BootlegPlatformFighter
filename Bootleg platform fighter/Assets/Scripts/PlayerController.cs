@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRb;
     private int airdashTime = 10;
     private float airdashForce = 50.0f;
-    [SerializeField] private float horizontalInput;
-    [SerializeField] private float verticalInput;
+    [SerializeField] public float horizontalInput;
+    [SerializeField] public float verticalInput;
     private bool jumpButton;
     private bool airdashButton;
     private Vector2 moveVector;
