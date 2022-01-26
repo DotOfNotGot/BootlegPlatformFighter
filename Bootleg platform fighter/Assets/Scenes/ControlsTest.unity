@@ -238,20 +238,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091177ef8664fa347baeecf4af4c00a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   jumpForce: 20
   shortHopForce: 10
   airControl: 0.7
   doubleJumpForce: 20
   gravityModifier: 5
-  dashForce: 30
   dashLength: 15
+  dashForce: 0
   playerState: 0
   previousPlayerState: 0
+  groundIdlingWalkCounter: 0
+  groundJumpSquattingCounter: 0
+  framesJumpButtonPressed: 0
+  groundWalkingIdleCounter: 0
+  groundRunningIdleCounter: 0
   groundDashingCounter: 0
-  horizontalInput: 0
-  verticalInput: 0
+  airdashCounter: 0
+  airborneCounter: 0
+  landingLagCounter: 0
+  playerRb: {fileID: 0}
+  airdashTime: 10
+  airdashForce: 50
+  moveVector: {x: 0, y: 0}
   angle: 0
+  airborneTrajectory: 0
+  jumpStartHorizontalInput: 0
+  jumpsquatStartHorizontalInput: 0
+  airdashStartHorizontalInput: 0
+  airdashStartVerticalInput: 0
+  dashStartHorizontalInput: 0
   isOnGround: 0
   hasAirJump: 0
   hasAirDash: 0
@@ -470,8 +486,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654243013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52926254, y: -6.9734, z: 0}
-  m_LocalScale: {x: 15.250141, y: 7.584128, z: 1}
+  m_LocalPosition: {x: 0.029262543, y: -7.2234, z: 0}
+  m_LocalScale: {x: 25.0005, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
