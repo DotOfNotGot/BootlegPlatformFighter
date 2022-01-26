@@ -6,6 +6,7 @@ namespace BootlegPlatformFighter
 {
     public class Fighting : MonoBehaviour
     {
+        public BootlegCharacterController.Controls controls;
         private BoxCollider2D attackBox;
         private float horizontalInput;
         private float verticalInput;
@@ -26,8 +27,8 @@ namespace BootlegPlatformFighter
         // Update is called once per frame
         void Update()
         {
-            horizontalInput = gameObject.GetComponent<PlayerController>().horizontalInput;
-            verticalInput = gameObject.GetComponent<PlayerController>().verticalInput;
+            horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
+            verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Attack();

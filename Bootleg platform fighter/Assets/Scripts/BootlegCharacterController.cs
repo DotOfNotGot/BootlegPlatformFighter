@@ -70,7 +70,7 @@ namespace BootlegPlatformFighter
         private int airdashTime = 10;
         private float airdashForce = 50.0f;
 
-        private Vector2 moveVector;
+        public Vector2 moveVector;
         [SerializeField] private float angle;
         private float airborneTrajectory;
         private float jumpStartHorizontalInput;
