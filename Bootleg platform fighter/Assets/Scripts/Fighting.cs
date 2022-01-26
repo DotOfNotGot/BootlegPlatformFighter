@@ -2,84 +2,87 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighting : MonoBehaviour
+namespace BootlegPlatformFighter
 {
-    private BoxCollider2D attackBox;
-    private float horizontalInput;
-    private float verticalInput;
-    private float lastHorizontalInput = 1;
-
-    bool facingLeft;
-
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask characterLayers;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Fighting : MonoBehaviour
     {
-        //attackBox = attackBoxObject.gameObject.GetComponent<BoxCollider2D>();
-    }
+        private BoxCollider2D attackBox;
+        private float horizontalInput;
+        private float verticalInput;
+        private float lastHorizontalInput = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        horizontalInput = gameObject.GetComponent<PlayerController>().horizontalInput;
-        verticalInput = gameObject.GetComponent<PlayerController>().verticalInput;
-        if (Input.GetKeyDown(KeyCode.F))
+        bool facingLeft;
+
+        public Transform attackPoint;
+        public float attackRange = 0.5f;
+        public LayerMask characterLayers;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            Attack();
+            //attackBox = attackBoxObject.gameObject.GetComponent<BoxCollider2D>();
         }
-        UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
-        HandleAttackInput();
-        void Attack()
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
 
-            foreach (Collider2D enemy in hitEnemies)
+        // Update is called once per frame
+        void Update()
+        {
+            horizontalInput = gameObject.GetComponent<PlayerController>().horizontalInput;
+            verticalInput = gameObject.GetComponent<PlayerController>().verticalInput;
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x,attackPoint.position.y - transform.position.y), 1000.0f, 1.0f);
+                Attack();
+            }
+            UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
+            HandleAttackInput();
+            void Attack()
+            {
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
+
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), 1000.0f, 1.0f);
+                }
             }
         }
-    }
 
-    public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 1.5f)
-    {
-        if (direction.x != 0)
+        public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 1.5f)
         {
-            lastHorizontalInput = direction.x;
+            if (direction.x != 0)
+            {
+                lastHorizontalInput = direction.x;
+            }
+            if (!(direction.x == 0 && direction.y == 0))
+            {
+                attackPoint.localPosition = new Vector2(xOffset * direction.x, yOffset * direction.y);
+
+            }
+            else
+            {
+                attackPoint.localPosition = new Vector2(xOffset * lastHorizontalInput, yOffset * direction.y);
+            }
         }
-        if (!(direction.x == 0 && direction.y == 0))
+
+        private void OnDrawGizmosSelected()
         {
-            attackPoint.localPosition = new Vector2(xOffset * direction.x, yOffset * direction.y);
-            
+            if (attackPoint == null)
+            {
+                return;
+            }
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
-        else
+
+        private void HandleAttackInput()
         {
-            attackPoint.localPosition = new Vector2(xOffset * lastHorizontalInput, yOffset * direction.y);
+            if (Input.GetKeyDown(KeyCode.F) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+            {
+                Debug.Log("dd");
+            }
         }
-    }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
+
+        void BasicAttack(float knockbackVelocity, float direction, float baseDamage, float hitStun, int damageMultiplier = 1)
         {
-            return;
+
         }
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
-    private void HandleAttackInput()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
-        {
-            Debug.Log("dd");
-        }
-    }
-
-
-    void BasicAttack(float knockbackVelocity, float direction, float baseDamage, float hitStun, int damageMultiplier = 1)
-    {
-
     }
 }

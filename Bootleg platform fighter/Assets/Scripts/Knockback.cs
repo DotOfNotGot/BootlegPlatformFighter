@@ -2,36 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knockback : MonoBehaviour
+namespace BootlegPlatformFighter
 {
-    Rigidbody2D rigidBody;
-
-    public float damageTakenPercent = 0.0f;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class Knockback : MonoBehaviour
     {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
-    }
+        Rigidbody2D rigidBody;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public float damageTakenPercent = 0.0f;
 
-    public void KnockBack(Vector2 direction, float knockbackVelocity, float damagePercent)
-    {
-        if (damageTakenPercent < 0.2f)
+
+        // Start is called before the first frame update
+        void Start()
         {
-            direction = new Vector2(direction.x * knockbackVelocity * 0.2f, direction.y * knockbackVelocity * 0.2f);
+            rigidBody = gameObject.GetComponent<Rigidbody2D>();
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            direction = new Vector2(direction.x * knockbackVelocity * (damageTakenPercent/2), direction.y * knockbackVelocity * (damageTakenPercent/2));
+
         }
-        damageTakenPercent += damagePercent;
-        rigidBody.AddForce(direction);
+
+        public void KnockBack(Vector2 direction, float knockbackVelocity, float damagePercent)
+        {
+            if (damageTakenPercent < 0.2f)
+            {
+                direction = new Vector2(direction.x * knockbackVelocity * 0.2f, direction.y * knockbackVelocity * 0.2f);
+            }
+            else
+            {
+                direction = new Vector2(direction.x * knockbackVelocity * (damageTakenPercent / 2), direction.y * knockbackVelocity * (damageTakenPercent / 2));
+            }
+            damageTakenPercent += damagePercent;
+            rigidBody.AddForce(direction);
+        }
     }
 }
