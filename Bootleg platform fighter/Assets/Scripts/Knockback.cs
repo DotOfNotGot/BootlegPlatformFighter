@@ -6,6 +6,9 @@ public class Knockback : MonoBehaviour
 {
     Rigidbody2D rigidBody;
 
+    public float damageTakenPercent = 0.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +21,17 @@ public class Knockback : MonoBehaviour
         
     }
 
-    public void KnockBack(Vector2 direction, float knockbackVelocity)
+    public void KnockBack(Vector2 direction, float knockbackVelocity, float damagePercent)
     {
-        direction = new Vector2(direction.x * knockbackVelocity, direction.y * knockbackVelocity);
+        if (damageTakenPercent < 0.2f)
+        {
+            direction = new Vector2(direction.x * knockbackVelocity * 0.2f, direction.y * knockbackVelocity * 0.2f);
+        }
+        else
+        {
+            direction = new Vector2(direction.x * knockbackVelocity * (damageTakenPercent/2), direction.y * knockbackVelocity * (damageTakenPercent/2));
+        }
+        damageTakenPercent += damagePercent;
         rigidBody.AddForce(direction);
     }
 }

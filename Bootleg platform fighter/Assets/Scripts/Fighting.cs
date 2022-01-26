@@ -7,7 +7,7 @@ public class Fighting : MonoBehaviour
     private BoxCollider2D attackBox;
     private float horizontalInput;
     private float verticalInput;
-    private float lastHorizontalInput;
+    private float lastHorizontalInput = 1;
 
     bool facingLeft;
 
@@ -31,14 +31,14 @@ public class Fighting : MonoBehaviour
             Attack();
         }
         UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
-
+        HandleAttackInput();
         void Attack()
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x,attackPoint.position.y - transform.position.y), 1000.0f);
+                enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x,attackPoint.position.y - transform.position.y), 1000.0f, 1.0f);
             }
         }
     }
@@ -68,6 +68,15 @@ public class Fighting : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    private void HandleAttackInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            Debug.Log("dd");
+        }
+    }
+
 
     void BasicAttack(float knockbackVelocity, float direction, float baseDamage, float hitStun, int damageMultiplier = 1)
     {
