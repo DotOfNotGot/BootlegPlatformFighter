@@ -7,6 +7,7 @@ public class Fighting : MonoBehaviour
     private BoxCollider2D attackBox;
     private float horizontalInput;
     private float verticalInput;
+    private float lastHorizontalInput;
 
     bool facingLeft;
 
@@ -29,7 +30,7 @@ public class Fighting : MonoBehaviour
         {
             Attack();
         }
-
+        UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
 
         void Attack()
         {
@@ -42,9 +43,21 @@ public class Fighting : MonoBehaviour
         }
     }
 
-    public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 0)
+    public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 1.5f)
     {
-
+        if (direction.x != 0)
+        {
+            lastHorizontalInput = direction.x;
+        }
+        if (!(direction.x == 0 && direction.y == 0))
+        {
+            attackPoint.localPosition = new Vector2(xOffset * direction.x, yOffset * direction.y);
+            
+        }
+        else
+        {
+            attackPoint.localPosition = new Vector2(xOffset * lastHorizontalInput, yOffset * direction.y);
+        }
     }
 
     private void OnDrawGizmosSelected()

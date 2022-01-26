@@ -412,7 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b050fd034e34b4eb58256fea850001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPointPosition: {x: 0.85, y: 0}
   attackPoint: {fileID: 2010147431}
   attackRange: 0.5
   characterLayers:
@@ -556,7 +555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569397099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.03, y: -1.67, z: 0}
+  m_LocalPosition: {x: -6.03, y: -1.67, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 576435378}
