@@ -7,12 +7,13 @@ namespace BootlegPlatformFighter
     public class Fighting : MonoBehaviour
     {
         public BootlegCharacterController.Controls controls;
+
+        private BootlegCharacterController characterController;
         private BoxCollider2D attackBox;
         private float horizontalInput;
         private float verticalInput;
         private float lastHorizontalInput = 1;
 
-        bool facingLeft;
 
         public Transform attackPoint;
         public float attackRange = 0.5f;
@@ -21,28 +22,28 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            //attackBox = attackBoxObject.gameObject.GetComponent<BoxCollider2D>();
+            characterController = gameObject.GetComponent<BootlegCharacterController>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            /*This gets the character's direction into 2 variables, so that can be used to
+             * determine the Vector2 of the attackPoint.*/
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Attack();
-            }
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
+            
             HandleAttackInput();
-            void Attack()
-            {
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
 
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), 1000.0f, 1.0f);
-                }
+        }
+        public void Attack()
+        {
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), 100.0f, 0.1f, 1.0f);
             }
         }
 
@@ -74,10 +75,37 @@ namespace BootlegPlatformFighter
 
         private void HandleAttackInput()
         {
-            if (Input.GetKeyDown(KeyCode.F) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+            /*
+             Depending on the current playerState in BootlegCharacterController.cs, 
+            and which attack inputs are being pressed, different variables will be 
+            used for the different attacks.
+
+            KeyCode as input is Placeholder only, should be replaced with
+            a way that allows for customizability.
+             */
+            switch (characterController.playerState)
             {
-                Debug.Log("dd");
+                #region GROUND_IDLING
+                case BootlegCharacterController.PlayerState.GroundIdling:
+                    if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.W))
+                    {
+                        Debug.Log("ww");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.S))
+                    {
+                        Debug.Log("ss");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        Attack();
+                    }
+                    break;
+                #endregion
+                default:
+                    break;
+
             }
+            
         }
 
 

@@ -281,6 +281,7 @@ MonoBehaviour:
   playerState: 0
   previousPlayerState: 0
   groundDashingCounter: 0
+  moveVector: {x: 0, y: 0}
   angle: 0
   dashStartHorizontalInput: 0
   isOnGround: 0
@@ -415,7 +416,7 @@ MonoBehaviour:
   attackRange: 0.5
   characterLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &1323377716
 MonoBehaviour:
   m_ObjectHideFlags: 0
