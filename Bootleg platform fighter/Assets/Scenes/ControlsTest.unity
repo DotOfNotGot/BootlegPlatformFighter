@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 20.985376
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1323377712}
   - component: {fileID: 1323377711}
   - component: {fileID: 1323377710}
+  - component: {fileID: 1323377715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091177ef8664fa347baeecf4af4c00a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInDeadZone: 0
   speed: 15
   jumpForce: 20
   shortHopForce: 10
@@ -248,25 +250,12 @@ MonoBehaviour:
   dashForce: 0
   playerState: 0
   previousPlayerState: 0
-  groundIdlingWalkCounter: 0
-  groundJumpSquattingCounter: 0
-  framesJumpButtonPressed: 0
-  groundWalkingIdleCounter: 0
-  groundRunningIdleCounter: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   groundDashingCounter: 0
-  airdashCounter: 0
-  airborneCounter: 0
-  landingLagCounter: 0
-  playerRb: {fileID: 0}
-  airdashTime: 10
-  airdashForce: 50
   moveVector: {x: 0, y: 0}
   angle: 0
-  airborneTrajectory: 0
-  jumpStartHorizontalInput: 0
-  jumpsquatStartHorizontalInput: 0
-  airdashStartHorizontalInput: 0
-  airdashStartVerticalInput: 0
   dashStartHorizontalInput: 0
   isOnGround: 0
   hasAirJump: 0
@@ -383,6 +372,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323377715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323377709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4165bce17f5b2ca4d852b226bb556cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1654243013
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +395,7 @@ GameObject:
   - component: {fileID: 1654243016}
   - component: {fileID: 1654243015}
   - component: {fileID: 1654243014}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stage
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -486,8 +487,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654243013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.029262543, y: -7.2234, z: 0}
-  m_LocalScale: {x: 25.0005, y: 8, z: 1}
+  m_LocalPosition: {x: 0.3, y: -14.1521, z: 0}
+  m_LocalScale: {x: 36.09348, y: 21.857695, z: 1.0095}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
