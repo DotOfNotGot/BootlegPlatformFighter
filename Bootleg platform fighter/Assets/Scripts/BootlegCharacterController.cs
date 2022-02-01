@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BootlegPlatformFighter
 {
@@ -38,13 +39,11 @@ namespace BootlegPlatformFighter
         [SerializeField] private float doubleJumpForce;
         [SerializeField] private float gravityModifier;
         [SerializeField] private int dashLength;
-        [SerializeField] private float dashForce;
-
-
 
         // State variables
         public PlayerState playerState;
         public PlayerState previousPlayerState;
+        private Animator characterAnimation;
 
         public enum PlayerState
         {
@@ -71,12 +70,14 @@ namespace BootlegPlatformFighter
         private int airborneCounter = 0;
         private int landingLagCounter = 0;
 
+        [SerializeField] private float debugAxis;
+
         private Controls previousControls;
 
         private Rigidbody2D playerRb;
         private BoxCollider2D playerCollider;
         private int airdashTime = 10;
-        private float airdashForce = 50.0f;
+        private float airdashForce = 30.0f;
 
         public Vector2 moveVector;
         [SerializeField] private float angle;
@@ -91,23 +92,38 @@ namespace BootlegPlatformFighter
         public bool isOnGround;
         public bool hasAirJump;
         public bool hasAirDash;
+        public bool isFacingLeft;
 
         // Start is called before the first frame update
         void Start()
         {
+            characterAnimation = GetComponent<Animator>();
             playerCollider = GetComponent<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
-            dashForce = speed * 1.75f;
         }
 
         public void ProcessUpdate(Controls controls)
         {
+            
+
             controls.SetStateChangeVariables(previousControls);
             moveVector.x = controls.horizontalInput;
             moveVector.y = controls.verticalInput;
 
             angle = Vector2.Angle(moveVector, Vector2.right);
+
+            if (controls.horizontalInput < -deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                isFacingLeft = true;
+            }
+            else if (controls.horizontalInput > deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+                isFacingLeft = false;
+            }
 
             if (controls.horizontalInput < deadZone && controls.horizontalInput > -deadZone)
             {
@@ -119,7 +135,7 @@ namespace BootlegPlatformFighter
             }
 
             // Handles state changes
-                GroundCheck();
+            GroundCheck();
             UpdatePlayerState(controls);
 
 
@@ -153,8 +169,6 @@ namespace BootlegPlatformFighter
                 {
                     airborneTrajectory = controls.horizontalInput * airControl;
                 }
-
-                transform.Translate((Vector2.right * airborneTrajectory * Time.deltaTime * speed));
             }
 
             // Handles physics and movement of airdashing state.
@@ -166,27 +180,23 @@ namespace BootlegPlatformFighter
                     airdashStartHorizontalInput = controls.horizontalInput;
                     airdashStartVerticalInput = controls.verticalInput;
 
-                    Vector2 airdashDirection = new Vector2(airdashStartHorizontalInput, airdashStartVerticalInput);
+                    Vector2 airdashDirection = new Vector2(airdashStartHorizontalInput, airdashStartVerticalInput).normalized;
 
-
-                    //playerRb.velocity = new Vector2(0, 0);
-                    playerRb.velocity = new Vector2(airdashStartHorizontalInput * airdashForce, airdashStartVerticalInput * airdashForce);
+                    playerRb.velocity = airdashDirection * airdashForce;
                 }
             }
 
             // Handles physics and movement of grounddashing state.
             if (playerState == PlayerState.GroundDashing)
             {
-                playerRb.velocity = new Vector2(0, playerRb.velocity.y);
-                playerRb.velocity = new Vector2(dashForce * dashStartHorizontalInput, playerRb.velocity.y);
-                //playerRb.AddForce(Vector2.right * (dashForce * dashStartHorizontalInput), ForceMode2D.Impulse);
+
+                playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
             }
 
             // Handles movement of groundrunning state.
             if (playerState == PlayerState.GroundRunning)
             {
                 playerRb.velocity = new Vector2(controls.horizontalInput * speed, playerRb.velocity.y);
-                //transform.Translate(Vector2.right * controls.horizontalInput * Time.deltaTime * speed);
             }
             if (playerState == PlayerState.GroundWalking)
             {
@@ -205,6 +215,8 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND_IDLING
                 case PlayerState.GroundIdling:
+
+                    characterAnimation.SetBool("isIdling", true);
                     bool groundIdlingWalkCounterShouldIncrease = false;
 
                     // Changes state to GroundDashing.
@@ -314,13 +326,6 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.GroundJumpSquatting;
                     }
 
-                    // Changes state to GroundDashing.
-                    if ((controls.horizontalInput > walkZone || controls.horizontalInput < -walkZone) && (previousIsInDeadZone))
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.GroundDashing;
-                    }
-
                     // Changes state to GroundIdling.
                     if (isInDeadZone)
                     {
@@ -350,6 +355,9 @@ namespace BootlegPlatformFighter
                 #region GROUND_DASHING
                 case PlayerState.GroundDashing:
 
+                    characterAnimation.SetBool("isDashing", true);
+
+
                     if (groundDashingCounter == 0)
                     {
                         dashStartHorizontalInput = controls.horizontalInput;
@@ -364,7 +372,6 @@ namespace BootlegPlatformFighter
 
                     else if (groundDashingCounter == dashLength)
                     {
-
                         // Changes state to GroundRunning if dashTimer reaches max.
                         if (controls.horizontalInput > walkZone || controls.horizontalInput < -walkZone)
                         {
@@ -375,6 +382,7 @@ namespace BootlegPlatformFighter
                         else
                         {
                             previousPlayerState = playerState;
+
                             playerState = PlayerState.GroundIdling;
                         }
                     }
@@ -417,6 +425,7 @@ namespace BootlegPlatformFighter
                 #region GROUND_RUNNING
                 case PlayerState.GroundRunning:
 
+                    characterAnimation.SetBool("isRunning", true);
                     // Changes state to GroundJumpSquatting
                     if (controls.jumpButtonPressed)
                     {
@@ -551,41 +560,46 @@ namespace BootlegPlatformFighter
                 #endregion
                 default:
                     break;
-
+            }
+            if (playerState != PlayerState.GroundIdling)
+            {
+                characterAnimation.SetBool("isIdling", false);
+            }
+            if (playerState != PlayerState.GroundDashing)
+            {
+                characterAnimation.SetBool("isDashing", false);
+            }
+            if (playerState != PlayerState.GroundRunning)
+            {
+                characterAnimation.SetBool("isRunning", false);
             }
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
 
         private void GroundCheck()
         {
 
-            float extraHeight = 1f;
-
-           
-            RaycastHit2D hit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size + new Vector3(0.000000001f,0, 0), 0f, Vector2.down, extraHeight, groundLayer);
-
-            Color rayColor;
-
-
-            if (hit.collider != null)
+            var contactPoints = new List<ContactPoint2D>();
+            playerCollider.GetContacts(contactPoints);
+            isOnGround = false;
+            foreach (var contactPoint in contactPoints)
             {
-
-                rayColor = Color.green;
-                isOnGround = true;
-                hasAirDash = true;
-                hasAirJump = true;
+                if (contactPoint.normal == Vector2.up)
+                {
+                    isOnGround = true;
+                    hasAirDash = true;
+                    hasAirJump = true;
+                    return;
+                }
             }
-            else
-            {
-                rayColor = Color.red;
-                isOnGround = false;
-            }
-
-            Debug.DrawRay(playerCollider.bounds.center, Vector2.down * (playerCollider.bounds.extents.y + extraHeight), rayColor);
         }
     }
 }
