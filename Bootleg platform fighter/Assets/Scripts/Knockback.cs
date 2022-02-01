@@ -6,6 +6,8 @@ namespace BootlegPlatformFighter
 {
     public class Knockback : MonoBehaviour
     {
+
+
         Rigidbody2D rigidBody;
 
         public float damageTakenPercent = 0.0f;
