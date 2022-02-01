@@ -5,15 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Character
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Character
+  - Player
   - 
   - 
   - 
