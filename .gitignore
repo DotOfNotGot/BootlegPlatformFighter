@@ -36,3 +36,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Bootleg platform fighter/Assets/.DS_Store
+Bootleg platform fighter/.DS_Store
+.DS_Store
