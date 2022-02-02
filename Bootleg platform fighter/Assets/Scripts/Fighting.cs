@@ -111,7 +111,7 @@ namespace BootlegPlatformFighter
              */
             switch (characterController.playerState)
             {
-                #region GROUND_IDLING
+                #region GROUND IDLING
                 case BootlegCharacterController.PlayerState.GroundIdling:
                     if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.W))
                     {
@@ -122,16 +122,20 @@ namespace BootlegPlatformFighter
                         Debug.Log("s´s");
                         Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
                     }
-                    else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && Input.GetKeyDown(KeyCode.F))
-                    {
-                        Debug.Log("ad");
-                        Attack(forwardTiltBaseKnockback,forwardTiltKnockbackScaling,forwardTiltDamage);
-
-                    }
                     else if (Input.GetKeyDown(KeyCode.F))
                     {
                         Debug.Log("ff");
                         Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+                    }
+                    break;
+                #endregion
+                #region GROUND DASH & GROUND RUN
+                case BootlegCharacterController.PlayerState.GroundDashing:
+                case BootlegCharacterController.PlayerState.GroundRunning:
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        Debug.Log("df");
+                        Attack(forwardTiltBaseKnockback, forwardTiltKnockbackScaling, forwardTiltDamage);
                     }
                     break;
                 #endregion
