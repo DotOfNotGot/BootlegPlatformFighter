@@ -12,12 +12,13 @@ namespace BootlegPlatformFighter
 
         public float damageTakenPercent = 0.0f;
 
-        private float weight = 1.0f;
+        private float weight;
 
 
         // Start is called before the first frame update
         void Start()
         {
+            weight = gameObject.GetComponent<Rigidbody2D>().mass;
             rigidBody = gameObject.GetComponent<Rigidbody2D>();
         }
 
@@ -31,8 +32,11 @@ namespace BootlegPlatformFighter
         {
             /*if (damageTakenPercent < 0.2f)
             {*/
-                direction = new Vector2(direction.x * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20) * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) * baseKnockback), direction.y * baseKnockback * 0.2f);
-            Debug.Log(direction);
+                direction = new Vector2(direction.x * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
+                    * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) * baseKnockback), 
+                    1 * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
+                    * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) * baseKnockback));
+            //Debug.Log(direction);
             //}
             /*else
             {

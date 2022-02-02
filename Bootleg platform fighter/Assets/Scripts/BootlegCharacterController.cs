@@ -9,6 +9,7 @@ namespace BootlegPlatformFighter
     {
         public struct Controls
         {
+
             public float horizontalInput;
             public float verticalInput;
             public bool jumpButton;
@@ -32,6 +33,7 @@ namespace BootlegPlatformFighter
         private const float walkZone = 0.5f;
 
         // Character specific values
+        public int playerIndex;
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
         [SerializeField] private float shortHopForce;

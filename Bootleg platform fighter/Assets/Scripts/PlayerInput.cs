@@ -19,7 +19,6 @@ namespace BootlegPlatformFighter
 
         void FixedUpdate()
         {
-
             controls.horizontalInput = Input.GetAxisRaw("Horizontal");
             controls.verticalInput = Input.GetAxisRaw("Vertical");
 

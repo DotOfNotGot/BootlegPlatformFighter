@@ -14,54 +14,80 @@ namespace BootlegPlatformFighter
         private float verticalInput;
         private float lastHorizontalInput = 1;
 
+        [SerializeField] Collider2D playerCollider;
 
         public Transform attackPoint;
         public float attackRange = 0.5f;
         public LayerMask characterLayers;
 
+        [Header("Jab")]
+        [SerializeField] private float jabDamage;
+        [SerializeField] private float jabBaseKnockback;
+        [SerializeField] private float jabKnockbackScaling = 0.1f;
+        
+        [Header("Forward Tilt")]
+        [SerializeField] private float forwardTiltDamage;
+        [SerializeField] private float forwardTiltBaseKnockback;
+        [SerializeField] private float forwardTiltKnockbackScaling = 0.1f;
+
+        [Header("Up Tilt")]
+        [SerializeField] private float upTiltDamage;
+        [SerializeField] private float upTiltBaseKnockback;
+        [SerializeField] private float upTiltKnockbackScaling = 0.1f;
+
+        [Header("Down Tilt")]
+        [SerializeField] private float downTiltDamage;
+        [SerializeField] private float downTiltBaseKnockback;
+        [SerializeField] private float downTiltKnockbackScaling = 0.1f;
+
+        [Header("Smash")]
+        [SerializeField] private float forwardSmashDamage;
+        [SerializeField] private float upSmashDamage;
+        [SerializeField] private float downSmashDamage;
+
         // Start is called before the first frame update
         void Start()
         {
             characterController = gameObject.GetComponent<BootlegCharacterController>();
+            attackPoint.localScale = new Vector3(8 * attackRange, 8 * attackRange, 8 * attackRange);
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             /*This gets the character's direction into 2 variables, so that can be used to
              * determine the Vector2 of the attackPoint.*/
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
-            
             HandleAttackInput();
 
         }
-        public void Attack()
+        public void Attack(float baseKnockback, float knockbackScaling, float baseDamage)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), 100.0f, 0.1f, 1.0f);
+                if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != characterController.playerIndex)
+                {
+                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), baseKnockback, knockbackScaling, baseDamage);
+
+                }
             }
         }
 
         public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 1.5f)
         {
-            if (direction.x != 0)
+            if (direction.y != 0)
             {
-                lastHorizontalInput = direction.x;
-            }
-            if (!(direction.x == 0 && direction.y == 0))
-            {
-                attackPoint.localPosition = new Vector2(xOffset * direction.x, yOffset * direction.y);
-
+                attackPoint.localPosition = new Vector2(0, yOffset * direction.y);
             }
             else
             {
-                attackPoint.localPosition = new Vector2(xOffset * lastHorizontalInput, yOffset * direction.y);
+                attackPoint.localPosition = new Vector2(xOffset, 0);
             }
+
         }
 
         private void OnDrawGizmosSelected()
@@ -89,15 +115,23 @@ namespace BootlegPlatformFighter
                 case BootlegCharacterController.PlayerState.GroundIdling:
                     if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.W))
                     {
-                        Debug.Log("ww");
+                        Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
                     }
                     else if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.S))
                     {
-                        Debug.Log("ss");
+                        Debug.Log("s´s");
+                        Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
+                    }
+                    else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && Input.GetKeyDown(KeyCode.F))
+                    {
+                        Debug.Log("ad");
+                        Attack(forwardTiltBaseKnockback,forwardTiltKnockbackScaling,forwardTiltDamage);
+
                     }
                     else if (Input.GetKeyDown(KeyCode.F))
                     {
-                        Attack();
+                        Debug.Log("ff");
+                        Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;
                 #endregion
