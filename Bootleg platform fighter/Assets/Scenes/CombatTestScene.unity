@@ -631,9 +631,10 @@ MonoBehaviour:
   characterLayers:
     serializedVersion: 2
     m_Bits: 64
-  jabDamage: 1
+  jabDamage: 0
   jabBaseKnockback: 100
   jabKnockbackScaling: 0.1
+  jabAngle: 50
   forwardTiltDamage: 2
   forwardTiltBaseKnockback: 100
   forwardTiltKnockbackScaling: 0.1
@@ -1013,7 +1014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010147430}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.85, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
