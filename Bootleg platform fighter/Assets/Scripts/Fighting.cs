@@ -24,6 +24,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private float jabDamage;
         [SerializeField] private float jabBaseKnockback;
         [SerializeField] private float jabKnockbackScaling = 0.1f;
+        [SerializeField] [Range(-180, 180)] private float jabAngle;
         
         [Header("Forward Tilt")]
         [SerializeField] private float forwardTiltDamage;
@@ -71,7 +72,7 @@ namespace BootlegPlatformFighter
             {
                 if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != characterController.playerIndex)
                 {
-                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), baseKnockback, knockbackScaling, baseDamage);
+                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), baseKnockback, knockbackScaling, baseDamage, jabAngle);
 
                 }
             }
