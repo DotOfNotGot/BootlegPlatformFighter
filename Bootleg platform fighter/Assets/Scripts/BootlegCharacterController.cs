@@ -7,6 +7,8 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
+        public int playerIndex;
+
         public struct Controls
         {
             public float horizontalInput;

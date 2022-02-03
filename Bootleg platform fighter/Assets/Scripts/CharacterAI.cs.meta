@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Bootleg platform fighter/Assets/Scripts/Fighting.cs.meta
+guid: 5df8fee617ef11b4f9c035797bd0ae58
+=======
 guid: 4d627378ef42e394ebfec9a4a68d5b6c
+>>>>>>> main:Bootleg platform fighter/Assets/Scripts/CharacterAI.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
