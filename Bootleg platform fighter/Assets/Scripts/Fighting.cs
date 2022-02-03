@@ -20,6 +20,8 @@ namespace BootlegPlatformFighter
         public float attackRange = 0.5f;
         public LayerMask characterLayers;
 
+        [SerializeField] private Vector2 direction;
+
         [Header("Jab")]
         [SerializeField] private float jabDamage;
         [SerializeField] private float jabBaseKnockback;
@@ -59,7 +61,7 @@ namespace BootlegPlatformFighter
             /*This gets the character's direction into 2 variables, so that can be used to
              * determine the Vector2 of the attackPoint.*/
 
-            Vector2 direction = new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad));
+            direction = new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad));
             Debug.DrawRay(transform.position, new Vector2((direction.x * 5) * horizontalInput, direction.y * 5), Color.green);
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
@@ -75,7 +77,7 @@ namespace BootlegPlatformFighter
             {
                 if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != characterController.playerIndex)
                 {
-                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y).normalized * new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad)), baseKnockback, knockbackScaling, baseDamage, jabAngle);
+                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, 1) * direction, baseKnockback, knockbackScaling, baseDamage, jabAngle);
 
                 }
             }

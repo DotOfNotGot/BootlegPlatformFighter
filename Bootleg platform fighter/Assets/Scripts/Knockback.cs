@@ -32,12 +32,13 @@ namespace BootlegPlatformFighter
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent, float angle)
         {
+            damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
             {*/
             //Debug.Log(direction);
             direction = new Vector2(direction.x * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
-                    1 * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
+                    direction.y * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
             
             Debug.Log(direction);
@@ -47,7 +48,6 @@ namespace BootlegPlatformFighter
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
             percentText.text = damageTakenPercent + "%";
-            damageTakenPercent += damagePercent;
             rigidBody.AddForce(direction);
         }
     }

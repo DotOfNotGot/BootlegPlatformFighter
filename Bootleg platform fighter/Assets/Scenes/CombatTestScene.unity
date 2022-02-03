@@ -690,7 +690,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 55
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -784,10 +784,11 @@ MonoBehaviour:
   characterLayers:
     serializedVersion: 2
     m_Bits: 64
-  jabDamage: 3
-  jabBaseKnockback: 20
-  jabKnockbackScaling: 1
-  jabAngle: 0
+  direction: {x: 0, y: 0}
+  jabDamage: 11
+  jabBaseKnockback: 0
+  jabKnockbackScaling: 20
+  jabAngle: 55
   forwardTiltDamage: 2
   forwardTiltBaseKnockback: 100
   forwardTiltKnockbackScaling: 0.1
