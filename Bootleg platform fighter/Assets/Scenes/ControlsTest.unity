@@ -245,7 +245,7 @@ MonoBehaviour:
   speed: 26.25
   jumpForce: 40
   shortHopForce: 30
-  doubleJumpForce: 25
+  doubleJumpForce: 35
   gravityModifier: 12.5
   fallSpeed: 1.3
   maxFallSpeed: 40
