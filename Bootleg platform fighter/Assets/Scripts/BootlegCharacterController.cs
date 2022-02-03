@@ -167,101 +167,7 @@ namespace BootlegPlatformFighter
             GroundCheck();
             PlayerCollisionCheck();
             UpdatePlayerState(controls);
-
-
-            // Handles physics of jumping state .
-            if (playerState == PlayerState.Jumping)
-            {
-                if (previousPlayerState == PlayerState.GroundJumpSquatting)
-                {
-                    if (framesJumpButtonPressed <= 3)
-                    {
-                        playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, shortHopForce);
-                        framesJumpButtonPressed = 0;
-                    }
-                    else if (framesJumpButtonPressed > 3)
-                    {
-                        playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, jumpForce);
-                        framesJumpButtonPressed = 0;
-                    }
-
-                }
-                else if (!hasAirJump)
-                {
-                    velocityXNew = (controls.horizontalInput * 0.5f) * airControl;
-                    playerRb.velocity = new Vector2(velocityXNew * airJumpHorizontalVelocityModifier, doubleJumpForce);
-                }
-            }
-
-            // Handles physics and movement of airborne state.
-            if (playerState == PlayerState.Airborne)
-            {
-
-
-                // If the first frame of airborne and the previous state was airdash then reset velocity to 0
-                if (airborneCounter == 0 && previousPlayerState == PlayerState.Airdashing)
-                {
-                    playerRb.velocity = new Vector2(0, 0);
-                }
-
-                velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.horizontalInput * airControl, -20, 20);
-
-                if (controls.verticalInput < -0.3 && playerRb.velocity.y < 0 && (previousIsInVerticalDeadZone || isFastFalling))
-                {
-                    isFastFalling = true;
-                    velocityYOld = playerRb.velocity.y;
-                    playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * 2, -maxFastFallSpeed, maxFastFallSpeed));
-                }
-                else if (playerRb.velocity.y < 0)
-                {
-                    velocityYOld = playerRb.velocity.y;
-                    playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
-                }
-
-                if (isInVerticalDeadZone)
-                {
-                    isFastFalling = false;
-                }
-
-                
-                playerRb.velocity = new Vector2(velocityXNew, playerRb.velocity.y);
-
-            }
-
-            // Handles physics and movement of airdashing state.
-            if (playerState == PlayerState.Airdashing)
-            {
-                if (airdashCounter == 0)
-                {
-                    playerRb.gravityScale = 0;
-                    airdashStartHorizontalInput = controls.horizontalInput;
-                    airdashStartVerticalInput = controls.verticalInput;
-
-                    Vector2 airdashDirection = new Vector2(airdashStartHorizontalInput, airdashStartVerticalInput).normalized;
-
-                    playerRb.velocity = airdashDirection * airdashForce;
-                }
-            }
-
-            // Handles physics and movement of grounddashing state.
-            if (playerState == PlayerState.GroundDashing)
-            {
-                playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
-            }
-
-            // Handles movement of groundrunning state.
-            if (playerState == PlayerState.GroundRunning)
-            {
-                playerRb.velocity = new Vector2(controls.horizontalInput * speed, playerRb.velocity.y);
-            }
-            if (playerState == PlayerState.GroundWalking)
-            {
-                playerRb.velocity = new Vector2(controls.horizontalInput * speed * 0.75f, playerRb.velocity.y);
-            }
-
-            if (playerState == PlayerState.GroundCrouching)
-            {
-            }
+            HandlePlayerState(controls);
 
             // Store current input for next frame.
             previousControls = controls;
@@ -716,6 +622,142 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.GroundCrouching)
             {
                 characterAnimation.SetBool("isCrouching", false);
+            }
+        }
+
+        private void HandlePlayerState(Controls controls)
+        {
+            switch (playerState)
+            {
+                #region GROUND_IDLING
+                case PlayerState.GroundIdling:
+                    break;
+                #endregion
+                #region GROUND_JUMPSQUATTING
+                case PlayerState.GroundJumpSquatting:
+                    break;
+                #endregion
+                #region GROUND_WALKING
+                case PlayerState.GroundWalking:
+
+                    playerRb.velocity = new Vector2(controls.horizontalInput * speed * 0.75f, playerRb.velocity.y);
+
+                    break;
+                #endregion
+                #region GROUND_DASHING
+                case PlayerState.GroundDashing:
+
+                    playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
+
+                    break;
+                #endregion
+                #region GROUND_RUNNING
+                case PlayerState.GroundRunning:
+
+                    playerRb.velocity = new Vector2(controls.horizontalInput * speed, playerRb.velocity.y);
+
+                    break;
+                #endregion
+                #region GROUND_CROUCHING
+                case PlayerState.GroundCrouching:
+                    break;
+                #endregion
+                #region GROUND_BLOCKING
+                case PlayerState.GroundBlocking:
+                    break;
+                #endregion
+                #region AIRDASHING
+                case PlayerState.Airdashing:
+
+                    if (airdashCounter == 0)
+                    {
+                        playerRb.gravityScale = 0;
+                        airdashStartHorizontalInput = controls.horizontalInput;
+                        airdashStartVerticalInput = controls.verticalInput;
+
+                        Vector2 airdashDirection = new Vector2(airdashStartHorizontalInput, airdashStartVerticalInput).normalized;
+
+                        playerRb.velocity = airdashDirection * airdashForce;
+                    }
+
+                    break;
+                #endregion
+                #region JUMPING
+                case PlayerState.Jumping:
+
+                    if (previousPlayerState == PlayerState.GroundJumpSquatting)
+                    {
+                        if (framesJumpButtonPressed <= 3)
+                        {
+                            playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, shortHopForce);
+                            framesJumpButtonPressed = 0;
+                        }
+                        else if (framesJumpButtonPressed > 3)
+                        {
+                            playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, jumpForce);
+                            framesJumpButtonPressed = 0;
+                        }
+
+                    }
+                    else if (!hasAirJump)
+                    {
+                        velocityXNew = (controls.horizontalInput * 0.5f) * airControl;
+                        playerRb.velocity = new Vector2(velocityXNew * airJumpHorizontalVelocityModifier, doubleJumpForce);
+                    }
+
+                    break;
+                #endregion
+                #region AIRBORNE
+                case PlayerState.Airborne:
+
+                    // If the first frame of airborne and the previous state was airdash then reset velocity to 0
+                    if (airborneCounter == 0 && previousPlayerState == PlayerState.Airdashing)
+                    {
+                        playerRb.velocity = new Vector2(0, 0);
+                    }
+
+                    velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.horizontalInput * airControl, -20, 20);
+
+                    if (controls.verticalInput < -0.3 && playerRb.velocity.y < 0 && (previousIsInVerticalDeadZone || isFastFalling))
+                    {
+                        isFastFalling = true;
+                        velocityYOld = playerRb.velocity.y;
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * 2, -maxFastFallSpeed, maxFastFallSpeed));
+                    }
+                    else if (playerRb.velocity.y < 0)
+                    {
+                        velocityYOld = playerRb.velocity.y;
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
+                    }
+
+                    if (isInVerticalDeadZone)
+                    {
+                        isFastFalling = false;
+                    }
+
+
+                    playerRb.velocity = new Vector2(velocityXNew, playerRb.velocity.y);
+
+                    break;
+                #endregion
+                #region LANDINGLAG
+                case PlayerState.LandingLag:
+                    break;
+                #endregion
+                #region HITSTUN
+                case PlayerState.HitStun:
+                    break;
+                #endregion
+                #region BLOCKSTUN
+                case PlayerState.BlockStun:
+                    break;
+                #endregion
+                #region TUMBLE
+                case PlayerState.Tumble:
+                    break;
+                #endregion
+                default:
+                    break;
             }
         }
 
