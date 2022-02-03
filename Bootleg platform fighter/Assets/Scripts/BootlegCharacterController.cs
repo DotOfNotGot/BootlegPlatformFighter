@@ -705,12 +705,12 @@ namespace BootlegPlatformFighter
             if ((playerRb.velocity.x > 10 || playerRb.velocity.x < -10)|| debugPlayerColissionOff)
             {
                 Physics2D.IgnoreLayerCollision(6,6, true);
-                Debug.Log("ITWORKY");
+                //Debug.Log("ITWORKY");
             }
             else
             {
                 Physics2D.IgnoreLayerCollision(6, 6, false);
-                Debug.Log("pls");
+                //Debug.Log("pls");
             }
         }
     }

@@ -24,7 +24,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private float jabDamage;
         [SerializeField] private float jabBaseKnockback;
         [SerializeField] private float jabKnockbackScaling = 0.1f;
-        [SerializeField] [Range(-180, 180)] private float jabAngle;
+        [SerializeField] [Range(-90, 90)] private float jabAngle;
         
         [Header("Forward Tilt")]
         [SerializeField] private float forwardTiltDamage;
@@ -58,6 +58,9 @@ namespace BootlegPlatformFighter
         {
             /*This gets the character's direction into 2 variables, so that can be used to
              * determine the Vector2 of the attackPoint.*/
+
+            Vector2 direction = new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad));
+            Debug.DrawRay(transform.position, new Vector2((direction.x * 5) * horizontalInput, direction.y * 5), Color.green);
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
@@ -72,7 +75,7 @@ namespace BootlegPlatformFighter
             {
                 if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != characterController.playerIndex)
                 {
-                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y), baseKnockback, knockbackScaling, baseDamage, jabAngle);
+                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, attackPoint.position.y - transform.position.y).normalized * new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad)), baseKnockback, knockbackScaling, baseDamage, jabAngle);
 
                 }
             }
@@ -114,18 +117,16 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND IDLING
                 case BootlegCharacterController.PlayerState.GroundIdling:
-                    if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.W))
+                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W))
                     {
                         Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
                     }
-                    else if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.S))
+                    else if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S))
                     {
-                        Debug.Log("s´s");
                         Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
                     }
-                    else if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        Debug.Log("ff");
+                    else if (Input.GetKeyDown(KeyCode.E))
+                    { 
                         Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;
@@ -133,9 +134,8 @@ namespace BootlegPlatformFighter
                 #region GROUND DASH & GROUND RUN
                 case BootlegCharacterController.PlayerState.GroundDashing:
                 case BootlegCharacterController.PlayerState.GroundRunning:
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        Debug.Log("df");
                         Attack(forwardTiltBaseKnockback, forwardTiltKnockbackScaling, forwardTiltDamage);
                     }
                     break;
