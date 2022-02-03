@@ -30,16 +30,22 @@ namespace BootlegPlatformFighter
         [SerializeField] private bool isInHorizontalDeadZone;
         [SerializeField] private bool isInVerticalDeadZone;
         private bool previousIsInHorizontalDeadZone;
+        private bool previousIsInVerticalDeadZone;
         private const float walkZone = 0.5f;
 
         // Character specific values
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
         [SerializeField] private float shortHopForce;
-        [SerializeField] private float airControl;
         [SerializeField] private float doubleJumpForce;
         [SerializeField] private float gravityModifier;
+        [SerializeField] private float fallSpeed;
+        [SerializeField] private float maxFallSpeed;
+        [SerializeField] private float fastFallSpeed;
+        [SerializeField] private float maxFastFallSpeed;
         [SerializeField] private int dashLength;
+        [SerializeField] private float airControl;
+
 
         // State variables
         public PlayerState playerState;
@@ -86,17 +92,26 @@ namespace BootlegPlatformFighter
         private int airdashTime = 10;
         private float airdashForce = 30.0f;
 
+        private float jumpSquatStartVelocity;
+        private float velocityXNew;
+        private float velocityYOld;
+
+        public float jumpHorizontalVelocityModifier;
+        public float airJumpHorizontalVelocityModifier;
+
         public Vector2 moveVector;
         [SerializeField] private float angle;
         private float airborneTrajectory;
         private float airdashStartHorizontalInput;
         private float airdashStartVerticalInput;
         [SerializeField] private float dashStartHorizontalInput;
+        
 
         // Bools for checking states
         public bool isOnGround;
         public bool hasAirJump;
         public bool hasAirDash;
+        public bool isFastFalling;
         public bool isFacingLeft;
 
         public bool debugPlayerColissionOff;
@@ -107,7 +122,7 @@ namespace BootlegPlatformFighter
             characterAnimation = GetComponent<Animator>();
             playerCollider = GetComponent<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
-            //playerRb.gravityScale *= gravityModifier;
+            playerRb.gravityScale *= gravityModifier;
         }
 
         public void ProcessUpdate(Controls controls)
@@ -139,7 +154,7 @@ namespace BootlegPlatformFighter
                 isInHorizontalDeadZone = false;
             }
 
-            if (controls.verticalInput < deadZone && controls.verticalInput > -deadZone)
+            if (controls.verticalInput > -deadZone)
             {
                 isInVerticalDeadZone = true;
             }
@@ -157,15 +172,24 @@ namespace BootlegPlatformFighter
             // Handles physics of jumping state .
             if (playerState == PlayerState.Jumping)
             {
-                playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
-
                 if (previousPlayerState == PlayerState.GroundJumpSquatting)
                 {
-                    playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+                    if (framesJumpButtonPressed <= 3)
+                    {
+                        playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, shortHopForce);
+                        framesJumpButtonPressed = 0;
+                    }
+                    else if (framesJumpButtonPressed > 3)
+                    {
+                        playerRb.velocity = new Vector2(jumpSquatStartVelocity * jumpHorizontalVelocityModifier, jumpForce);
+                        framesJumpButtonPressed = 0;
+                    }
+
                 }
                 else if (!hasAirJump)
                 {
-                    playerRb.velocity = new Vector2(playerRb.velocity.x, doubleJumpForce);
+                    velocityXNew = (controls.horizontalInput * 0.5f) * airControl;
+                    playerRb.velocity = new Vector2(velocityXNew * airJumpHorizontalVelocityModifier, doubleJumpForce);
                 }
             }
 
@@ -173,17 +197,35 @@ namespace BootlegPlatformFighter
             if (playerState == PlayerState.Airborne)
             {
 
+
                 // If the first frame of airborne and the previous state was airdash then reset velocity to 0
                 if (airborneCounter == 0 && previousPlayerState == PlayerState.Airdashing)
                 {
                     playerRb.velocity = new Vector2(0, 0);
                 }
 
-                // Air Control for after airdashing state.
-                if (previousPlayerState == PlayerState.Airdashing)
+                velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.horizontalInput * airControl, -20, 20);
+
+                if (controls.verticalInput < -0.3 && playerRb.velocity.y < 0 && (previousIsInVerticalDeadZone || isFastFalling))
                 {
-                    airborneTrajectory = controls.horizontalInput * airControl;
+                    isFastFalling = true;
+                    velocityYOld = playerRb.velocity.y;
+                    playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * 2, -maxFastFallSpeed, maxFastFallSpeed));
                 }
+                else if (playerRb.velocity.y < 0)
+                {
+                    velocityYOld = playerRb.velocity.y;
+                    playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
+                }
+
+                if (isInVerticalDeadZone)
+                {
+                    isFastFalling = false;
+                }
+
+                
+                playerRb.velocity = new Vector2(velocityXNew, playerRb.velocity.y);
+
             }
 
             // Handles physics and movement of airdashing state.
@@ -204,7 +246,6 @@ namespace BootlegPlatformFighter
             // Handles physics and movement of grounddashing state.
             if (playerState == PlayerState.GroundDashing)
             {
-
                 playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
             }
 
@@ -225,6 +266,7 @@ namespace BootlegPlatformFighter
             // Store current input for next frame.
             previousControls = controls;
             previousIsInHorizontalDeadZone = isInHorizontalDeadZone;
+            previousIsInVerticalDeadZone = isInVerticalDeadZone;
         }
 
         private void UpdatePlayerState(Controls controls)
@@ -304,6 +346,11 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundJumpSquatting:
                     bool groundJumpSquattingCounterShouldIncrease = false;
 
+                    if (groundJumpSquattingCounter == 0)
+                    {
+                        jumpSquatStartVelocity = playerRb.velocity.x;
+                    }
+
                     // Checks how many frames the jump button was pressed, gonna be used for differentiating shorthopping and normal jumps later.
                     if (controls.jumpButton)
                     {
@@ -319,6 +366,7 @@ namespace BootlegPlatformFighter
                     // Changes state to jumping(This state is active for 1 frame and only adds the force of the jump).
                     else if (groundJumpSquattingCounter == 5)
                     {
+                        
                         previousPlayerState = playerState;
                         playerState = PlayerState.Jumping;
                     }
@@ -503,7 +551,7 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isCrouching", true);
 
-                    if (controls.jumpButton)
+                    if (controls.jumpButtonPressed)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundJumpSquatting;
@@ -630,7 +678,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.LandingLag:
 
                     landingLagCounter++;
-                    if (landingLagCounter > 5)
+                    if (landingLagCounter > 4)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundIdling;
@@ -700,9 +748,9 @@ namespace BootlegPlatformFighter
 
         private void PlayerCollisionCheck()
         {
-            if ((playerRb.velocity.x > 10 || playerRb.velocity.x < -10)|| debugPlayerColissionOff)
+            if ((playerRb.velocity.x > 10 || playerRb.velocity.x < -10) || playerRb.velocity.y != 0 || debugPlayerColissionOff)
             {
-                Physics2D.IgnoreLayerCollision(6,6, true);
+                Physics2D.IgnoreLayerCollision(6, 6, true);
                 Debug.Log("ITWORKY");
             }
             else
