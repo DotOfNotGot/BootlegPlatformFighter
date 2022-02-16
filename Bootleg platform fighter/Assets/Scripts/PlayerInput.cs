@@ -8,13 +8,17 @@ namespace BootlegPlatformFighter
     {
 
         public BootlegCharacterController.Controls controls;
+        private BootlegCharacterController.Controls previousControls;
+
 
         private BootlegCharacterController characterController;
+        private Fighting fighting;
 
 
         private void Start()
         {
             characterController = GetComponent<BootlegCharacterController>();
+            fighting = GetComponent<Fighting>();
         }
 
         void FixedUpdate()
@@ -23,11 +27,15 @@ namespace BootlegPlatformFighter
             controls.verticalInput = Input.GetAxisRaw("Vertical");
 
             controls.jumpButton = Input.GetButton("Jump");
-
             controls.airdashButton = Input.GetButton("Airdash");
-            // For controllers
-            controls.airdashAxis = Input.GetAxisRaw("Airdash");
+            controls.normalAttackButton = Input.GetButton("Normal Attack");
+
+            controls.SetStateChangeVariables(previousControls);
+
             characterController.ProcessUpdate(controls);
+            fighting.HandleAttackInput(controls);
+
+            previousControls = controls;
         }
     }
 }

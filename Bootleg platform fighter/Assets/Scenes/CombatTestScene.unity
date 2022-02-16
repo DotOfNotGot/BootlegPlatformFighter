@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 27.760376
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -262,6 +262,7 @@ MonoBehaviour:
   playerIndex: 1
   isInHorizontalDeadZone: 0
   isInVerticalDeadZone: 0
+  debugAttackButtonCheck: 0
   speed: 26.25
   jumpForce: 40
   shortHopForce: 30
@@ -623,10 +624,11 @@ MonoBehaviour:
   playerIndex: 0
   isInHorizontalDeadZone: 0
   isInVerticalDeadZone: 0
+  debugAttackButtonCheck: 0
   speed: 26.25
   jumpForce: 40
   shortHopForce: 30
-  doubleJumpForce: 25
+  doubleJumpForce: 35
   gravityModifier: 12.5
   fallSpeed: 1.3
   maxFallSpeed: 40
@@ -785,10 +787,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   direction: {x: 0, y: 0}
-  jabDamage: 11
+  jabDamage: 15
   jabBaseKnockback: 0
   jabKnockbackScaling: 20
-  jabAngle: 55
+  jabAngle: 90
   forwardTiltDamage: 2
   forwardTiltBaseKnockback: 100
   forwardTiltKnockbackScaling: 0.1
@@ -813,7 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05766b14cd5c6b54f97aa122e7d0be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentText: {fileID: 0}
+  percentText: {fileID: 743380471}
   damageTakenPercent: 0
 --- !u!1 &1052890670
 GameObject:
@@ -1193,8 +1195,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654243013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52926254, y: -6.9734, z: 0}
-  m_LocalScale: {x: 75, y: 7.584128, z: 1}
+  m_LocalPosition: {x: -0.0759, y: -16.3767, z: 0}
+  m_LocalScale: {x: 48.275284, y: 26.390491, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
