@@ -27,7 +27,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private float jabBaseKnockback;
         [SerializeField] private float jabKnockbackScaling = 0.1f;
         [SerializeField] [Range(-90, 90)] private float jabAngle;
-        
+
         [Header("Forward Tilt")]
         [SerializeField] private float forwardTiltDamage;
         [SerializeField] private float forwardTiltBaseKnockback;
@@ -66,7 +66,7 @@ namespace BootlegPlatformFighter
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
-            HandleAttackInput();
+            HandleAttackInput(controls);
 
         }
         public void Attack(float baseKnockback, float knockbackScaling, float baseDamage)
@@ -105,7 +105,7 @@ namespace BootlegPlatformFighter
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
 
-        private void HandleAttackInput()
+        public void HandleAttackInput(BootlegCharacterController.Controls controls)
         {
             /*
              Depending on the current playerState in BootlegCharacterController.cs, 
@@ -119,16 +119,22 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND IDLING
                 case BootlegCharacterController.PlayerState.GroundIdling:
-                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W))
+
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        Debug.Log("AUISHKFJL");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
                     {
                         Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
                     }
-                    else if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S))
+                    else if ((Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S)) || (controls.normalAttackButtonPressed && controls.verticalInput < 0))
                     {
                         Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
                     }
-                    else if (Input.GetKeyDown(KeyCode.E))
-                    { 
+                    else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
+                    {
                         Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;
@@ -142,11 +148,17 @@ namespace BootlegPlatformFighter
                     }
                     break;
                 #endregion
+                case BootlegCharacterController.PlayerState.GroundCrouching:
+                    if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButton)
+                    {
+                        Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
+                    }
+                    break;
                 default:
                     break;
 
             }
-            
+
         }
 
 
