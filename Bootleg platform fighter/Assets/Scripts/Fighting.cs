@@ -120,21 +120,20 @@ namespace BootlegPlatformFighter
                 #region GROUND IDLING
                 case BootlegCharacterController.PlayerState.GroundIdling:
 
-                    if (controls.normalAttackButtonPressed)
-                    {
-                        Debug.Log("AUISHKFJL");
-                    }
 
                     if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
                     {
+                        Debug.Log("UPTILT");
                         Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
                     }
                     else if ((Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S)) || (controls.normalAttackButtonPressed && controls.verticalInput < 0))
                     {
+                        Debug.Log("DOWNTILT");
                         Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
                     }
                     else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
                     {
+                        Debug.Log("JAB");
                         Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;
@@ -151,6 +150,7 @@ namespace BootlegPlatformFighter
                 case BootlegCharacterController.PlayerState.GroundCrouching:
                     if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButton)
                     {
+                        Debug.Log("DOWNTILT");
                         Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
                     }
                     break;

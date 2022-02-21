@@ -47,8 +47,6 @@ namespace BootlegPlatformFighter
         [SerializeField] private float gravityModifier;
         [SerializeField] private float fallSpeed;
         [SerializeField] private float maxFallSpeed;
-        [SerializeField] private float fastFallSpeed;
-        [SerializeField] private float maxFastFallSpeed;
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
@@ -110,6 +108,7 @@ namespace BootlegPlatformFighter
 
         private Rigidbody2D playerRb;
         private BoxCollider2D playerCollider;
+        private SpriteRenderer spriteRenderer;
         private int airdashTime = 10;
         private float airdashForce = 30.0f;
 
@@ -142,6 +141,7 @@ namespace BootlegPlatformFighter
         void Start()
         {
             characterAnimation = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
             playerCollider = GetComponent<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
@@ -158,13 +158,15 @@ namespace BootlegPlatformFighter
 
             if (controls.horizontalInput < -deadZone && isOnGround)
             {
+
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
+                //spriteRenderer.flipX = true;
                 isFacingLeft = true;
             }
             else if (controls.horizontalInput > deadZone && isOnGround)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
-
+                //spriteRenderer.flipX = false;
                 isFacingLeft = false;
             }
 
@@ -283,7 +285,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundJumpSquatting:
                     bool groundJumpSquattingCounterShouldIncrease = false;
 
-                    
+
 
                     if (groundJumpSquattingCounter == 0)
                     {
@@ -644,7 +646,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    
+
 
                     break;
                 #endregion
@@ -825,7 +827,7 @@ namespace BootlegPlatformFighter
                     {
                         isFastFalling = true;
                         velocityYOld = playerRb.velocity.y;
-                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * 2, -maxFastFallSpeed, maxFastFallSpeed));
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * maxFallSpeed, -maxFallSpeed, maxFallSpeed));
                     }
                     else if (playerRb.velocity.y < 0)
                     {
