@@ -135,6 +135,7 @@ namespace BootlegPlatformFighter
                     }
                     else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
                     {
+                        characterController.GetComponent<Animator>().SetBool("isJabbing", true);
                         Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;

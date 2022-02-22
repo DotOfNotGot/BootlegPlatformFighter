@@ -7,7 +7,7 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
-        public ParticleSystem dust;
+       // public ParticleSystem dust;
         public int playerIndex;
 
         public struct Controls
@@ -210,7 +210,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundIdling:
 
                     bool groundIdlingWalkCounterShouldIncrease = false;
-                    dust.Stop();
+                    //dust.Stop();
 
                     //if (controls.normalAttackButtonPressed)
                     //{
@@ -983,7 +983,7 @@ namespace BootlegPlatformFighter
 
         void CreateDust()
         {
-            dust.Play();
+           // dust.Play();
         }
     }
 }
