@@ -122,7 +122,7 @@ namespace BootlegPlatformFighter
 
                     if (controls.normalAttackButtonPressed)
                     {
-                        Debug.Log("AUISHKFJL");
+                        //Debug.Log("AUISHKFJL");
                     }
 
                     if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
@@ -136,7 +136,7 @@ namespace BootlegPlatformFighter
                     else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
                     {
                         characterController.GetComponent<Animator>().SetBool("isJabbing", true);
-                        Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+                        //Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
                     }
                     break;
                 #endregion

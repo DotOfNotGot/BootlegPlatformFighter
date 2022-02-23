@@ -15,6 +15,8 @@ namespace BootlegPlatformFighter
 
         private float weight;
 
+        public bool canBeHit = true;
+
 
         // Start is called before the first frame update
         void Start()
@@ -32,6 +34,7 @@ namespace BootlegPlatformFighter
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent, float angle)
         {
+            canBeHit = false;
             damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
             {*/
@@ -41,7 +44,7 @@ namespace BootlegPlatformFighter
                     direction.y * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
             
-            Debug.Log(direction);
+           //Debug.Log(direction);
             //}
             /*else
             {
