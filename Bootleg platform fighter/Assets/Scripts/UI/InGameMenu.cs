@@ -10,7 +10,11 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private GameObject Menu;
         [SerializeField]
+        private GameObject Tint;
+        [SerializeField]
         private GameObject QuitDialog;
+        [SerializeField]
+        private GameObject OptionsMenu;
 
         // Start is called before the first frame update
         void Start()
@@ -32,8 +36,15 @@ namespace BootlegPlatformFighter
             Menu.SetActive(false);
         }
 
+        public void ShowOptions()
+        {
+            Tint.SetActive(true);
+            OptionsMenu.SetActive(true);
+        }
+
         public void QuitGame()
         {
+            Tint.SetActive(true);
             QuitDialog.SetActive(true);
         }
         public void QuitCallback(BaseEventData dat)
