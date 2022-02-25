@@ -90,7 +90,7 @@ namespace BootlegPlatformFighter
                 for (int i = 0; i < attackHitBoxes.Count; i++)
                 {
                     GameObject hitbox = attackHitBoxes[i];
-                    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().colliderRadius, characterLayers);
+                    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, characterLayers);
 
                     if (hitEnemies.Length > 0)
                     {
