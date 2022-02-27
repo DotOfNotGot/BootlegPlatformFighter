@@ -26,6 +26,8 @@ namespace BootlegPlatformFighter
 
         private List<GameObject> attackHitBoxes = new List<GameObject>() {};
 
+        [SerializeField] private int hitLag = 2;
+
 
         private int attackIndex = 0;
         // Start is called before the first frame update
@@ -96,11 +98,13 @@ namespace BootlegPlatformFighter
                     {
                         foreach (Collider2D enemy in hitEnemies)
                         {
+                            Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
                             if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != gameObject.GetComponent<BootlegCharacterController>().playerIndex)
                             {
-                                if (enemy.gameObject.GetComponent<Knockback>().canBeHit)
+                                if (enemyFighting.canBeHit)
                                 {
-                                    Debug.Log("Hit");
+                                    enemyFighting.canBeHit = false;
+                                    enemyFighting.StartCoroutine(enemyFighting.HitLag(hitLag));
                                     hitbox.GetComponent<Hitbox>().SendToKnockback(hitEnemies);
                                 }
                             }

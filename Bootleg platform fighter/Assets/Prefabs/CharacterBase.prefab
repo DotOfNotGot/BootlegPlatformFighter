@@ -97,12 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 0
   damage: 15
   baseKnockback: 0
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 0
 --- !u!1 &1727518085172142663
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,8 +127,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727518085172142663}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 0.18, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1200001, y: 0.17999999, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 1451431782269012614}
@@ -200,12 +199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 1
   damage: 15
-  baseKnockback: 0
+  baseKnockback: 10
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 0
 --- !u!1 &3457457289018515727
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,12 +334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 1
   damage: 15
-  baseKnockback: 0
+  baseKnockback: 10
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 1
 --- !u!1 &4726360612659963576
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,12 +436,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 1
   damage: 15
-  baseKnockback: 0
+  baseKnockback: 10
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 0
 --- !u!1 &5116065893946855343
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,12 +538,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 0
   damage: 15
   baseKnockback: 0
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 0
 --- !u!1 &5137981812101240262
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,23 +765,8 @@ MonoBehaviour:
   characterLayers:
     serializedVersion: 2
     m_Bits: 64
+  canBeHit: 1
   direction: {x: 0, y: 0}
-  jabDamage: 15
-  jabBaseKnockback: 0
-  jabKnockbackScaling: 20
-  jabAngle: 90
-  forwardTiltDamage: 2
-  forwardTiltBaseKnockback: 100
-  forwardTiltKnockbackScaling: 0.1
-  upTiltDamage: 3
-  upTiltBaseKnockback: 0
-  upTiltKnockbackScaling: 0.1
-  downTiltDamage: 0
-  downTiltBaseKnockback: 0
-  downTiltKnockbackScaling: 0
-  forwardSmashDamage: 0
-  upSmashDamage: 0
-  downSmashDamage: 0
 --- !u!114 &5559258806288881692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +842,7 @@ MonoBehaviour:
   characterLayers:
     serializedVersion: 2
     m_Bits: 64
+  hitLag: 2
 --- !u!1 &5559258807281665885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,9 +1115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightingScript: {fileID: 5559258806288881691}
   character: {fileID: 5559258806288881683}
-  colliderRadius: 1.1
+  attackAreaRadius: 0
   damage: 15
   baseKnockback: 0
   knockbackScaling: 20
   angle: 70.5
-  priorityIndex: 0
