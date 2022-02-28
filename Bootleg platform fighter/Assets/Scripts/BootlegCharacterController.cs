@@ -7,6 +7,7 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
+        public ParticleSystem dust;
         public int playerIndex;
 
         public struct Controls
@@ -208,6 +209,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundIdling:
 
                     bool groundIdlingWalkCounterShouldIncrease = false;
+                    dust.Stop();
 
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
@@ -382,7 +384,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundDashing:
 
                     characterAnimation.SetBool("isDashing", true);
-
+                    CreateDust();
 
                     if (groundDashingCounter == 0)
                     {
@@ -452,6 +454,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundRunning:
 
                     characterAnimation.SetBool("isRunning", true);
+                    
 
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
@@ -1018,6 +1021,11 @@ namespace BootlegPlatformFighter
             {
                 Physics2D.IgnoreLayerCollision(6, 6, false);
             }
+        }
+
+        void CreateDust()
+        {
+            dust.Play();
         }
     }
 }
