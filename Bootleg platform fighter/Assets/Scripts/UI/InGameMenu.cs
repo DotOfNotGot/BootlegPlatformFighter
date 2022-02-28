@@ -36,12 +36,6 @@ namespace BootlegPlatformFighter
             Menu.SetActive(false);
         }
 
-        public void ShowOptions()
-        {
-            Tint.SetActive(true);
-            OptionsMenu.SetActive(true);
-        }
-
         public void QuitGame()
         {
             Tint.SetActive(true);
@@ -56,6 +50,12 @@ namespace BootlegPlatformFighter
 #else
          Application.Quit();
 #endif
+        }
+
+        public void CancelQuitCallback(BaseEventData dat)
+        {
+            Tint.SetActive(false);
+            QuitDialog.SetActive(false);
         }
     }
 }
