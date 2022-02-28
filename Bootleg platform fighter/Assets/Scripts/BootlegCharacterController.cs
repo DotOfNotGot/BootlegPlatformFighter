@@ -7,11 +7,7 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
-<<<<<<< HEAD
-       // public ParticleSystem dust;
-=======
         //public ParticleSystem dust;
->>>>>>> main
         public int playerIndex;
 
         public struct Controls
@@ -1027,16 +1023,9 @@ namespace BootlegPlatformFighter
             }
         }
 
-<<<<<<< HEAD
-        void CreateDust()
-        {
-           // dust.Play();
-        }
-=======
         //void CreateDust()
         //{
         //    dust.Play();
         //}
->>>>>>> main
     }
 }
