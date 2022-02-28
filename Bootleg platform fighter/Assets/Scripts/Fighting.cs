@@ -83,6 +83,7 @@ namespace BootlegPlatformFighter
                 #region GROUND IDLING
                 case BootlegCharacterController.PlayerState.GroundIdling:
 
+<<<<<<< HEAD
                     if (controls.normalAttackButtonPressed)
                     {
 
@@ -100,6 +101,23 @@ namespace BootlegPlatformFighter
                     {
                         characterController.GetComponent<Animator>().SetBool("isJabbing", true);
                         //Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+=======
+
+                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
+                    {
+                        Debug.Log("UPTILT");
+                        Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
+                    }
+                    else if ((Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S)) || (controls.normalAttackButtonPressed && controls.verticalInput < 0))
+                    {
+                        Debug.Log("DOWNTILT");
+                        Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
+                    {
+                        Debug.Log("JAB");
+                        Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+>>>>>>> main
                     }
                     break;
                 #endregion
@@ -115,7 +133,7 @@ namespace BootlegPlatformFighter
                 case BootlegCharacterController.PlayerState.GroundCrouching:
                     if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButton)
                     {
-                        
+
                     }
                     break;
                 default:

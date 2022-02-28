@@ -7,7 +7,11 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
+<<<<<<< HEAD
        // public ParticleSystem dust;
+=======
+        //public ParticleSystem dust;
+>>>>>>> main
         public int playerIndex;
 
         public struct Controls
@@ -38,7 +42,6 @@ namespace BootlegPlatformFighter
         private bool previousIsInVerticalDeadZone;
         private const float walkZone = 0.5f;
 
-        [SerializeField] private bool debugAttackButtonCheck;
 
         // Character specific values
         [SerializeField] private float speed;
@@ -48,8 +51,6 @@ namespace BootlegPlatformFighter
         [SerializeField] private float gravityModifier;
         [SerializeField] private float fallSpeed;
         [SerializeField] private float maxFallSpeed;
-        [SerializeField] private float fastFallSpeed;
-        [SerializeField] private float maxFastFallSpeed;
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
@@ -105,6 +106,8 @@ namespace BootlegPlatformFighter
         private int airdashCounter = 0;
         private int airborneCounter = 0;
         private int landingLagCounter = 0;
+        private int crouchParryCounter = 0;
+
 
         [SerializeField] private float debugAxis;
 
@@ -116,14 +119,12 @@ namespace BootlegPlatformFighter
 
         private float jumpSquatStartVelocity;
         private float velocityXNew;
-        private float velocityYOld;
 
         public float jumpHorizontalVelocityModifier;
         public float airJumpHorizontalVelocityModifier;
 
         public Vector2 moveVector;
         [SerializeField] private float angle;
-        private float airborneTrajectory;
         private float airdashStartHorizontalInput;
         private float airdashStartVerticalInput;
         [SerializeField] private float dashStartHorizontalInput;
@@ -135,6 +136,8 @@ namespace BootlegPlatformFighter
         public bool hasAirDash;
         public bool isFastFalling;
         public bool isFacingLeft;
+        public bool canMove;
+        public bool isParrying;
 
         public bool debugPlayerColissionOff;
 
@@ -155,17 +158,17 @@ namespace BootlegPlatformFighter
 
             angle = Vector2.Angle(moveVector, Vector2.right);
 
-            debugAttackButtonCheck = controls.normalAttackButtonPressed;
-
             if (controls.horizontalInput < -deadZone && isOnGround)
             {
+
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
+                //spriteRenderer.flipX = true;
                 isFacingLeft = true;
             }
             else if (controls.horizontalInput > deadZone && isOnGround)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
-
+                //spriteRenderer.flipX = false;
                 isFacingLeft = false;
             }
 
@@ -212,11 +215,12 @@ namespace BootlegPlatformFighter
                     bool groundIdlingWalkCounterShouldIncrease = false;
                     //dust.Stop();
 
-                    //if (controls.normalAttackButtonPressed)
-                    //{
-                    //    previousPlayerState = playerState;
-                    //    playerState = PlayerState.Jab;
-                    //}
+                    // Changes state to GroundBlocking
+                    if (controls.airdashButton)
+                    {
+                        playerState = PlayerState.GroundBlocking;
+                        previousPlayerState = playerState;
+                    }
 
                     // Changes state to GroundCrouching.
                     if (controls.verticalInput < -deadZone)
@@ -285,7 +289,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundJumpSquatting:
                     bool groundJumpSquattingCounterShouldIncrease = false;
 
-                    
+
 
                     if (groundJumpSquattingCounter == 0)
                     {
@@ -333,6 +337,12 @@ namespace BootlegPlatformFighter
                 #region GROUND_WALKING
                 case PlayerState.GroundWalking:
 
+                    // Changes state to GroundBlocking
+                    if (controls.airdashButton)
+                    {
+                        playerState = PlayerState.GroundBlocking;
+                        previousPlayerState = playerState;
+                    }
 
                     // Changes state to GroundCrouching.
                     if (controls.verticalInput < -deadZone)
@@ -378,7 +388,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundDashing:
 
                     characterAnimation.SetBool("isDashing", true);
-                    CreateDust();
+                    //CreateDust();
 
                     if (groundDashingCounter == 0)
                     {
@@ -450,6 +460,13 @@ namespace BootlegPlatformFighter
                     characterAnimation.SetBool("isRunning", true);
                     
 
+                    // Changes state to GroundBlocking
+                    if (controls.airdashButton)
+                    {
+                        playerState = PlayerState.GroundBlocking;
+                        previousPlayerState = playerState;
+                    }
+
                     // Changes state to GroundCrouching.
                     if (controls.verticalInput < -deadZone)
                     {
@@ -493,38 +510,70 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isCrouching", true);
 
-                    if (controls.jumpButtonPressed)
+                    if (crouchParryCounter <= 2)
                     {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.GroundJumpSquatting;
+                        isParrying = true;
+                    }
+                    else if (crouchParryCounter > 2)
+                    {
+                        // Changes state to GroundBlocking
+                        if (controls.airdashButton)
+                        {
+                            playerState = PlayerState.GroundBlocking;
+                            previousPlayerState = playerState;
+                        }
+
+                        if (controls.jumpButtonPressed)
+                        {
+                            previousPlayerState = playerState;
+                            playerState = PlayerState.GroundJumpSquatting;
+                        }
+
+                        if (controls.verticalInput > -deadZone && isInHorizontalDeadZone)
+                        {
+                            previousPlayerState = playerState;
+                            playerState = PlayerState.GroundIdling;
+                        }
+                        else if (controls.verticalInput > -deadZone && !isInHorizontalDeadZone && previousIsInHorizontalDeadZone)
+                        {
+                            previousPlayerState = playerState;
+                            playerState = PlayerState.GroundDashing;
+                        }
+                        else if (controls.verticalInput > -deadZone && !isInHorizontalDeadZone && !previousIsInHorizontalDeadZone)
+                        {
+                            previousPlayerState = playerState;
+                            playerState = PlayerState.GroundWalking;
+                        }
+
+                        if (!isOnGround)
+                        {
+                            previousPlayerState = playerState;
+                            playerState = PlayerState.Airborne;
+                        }
+                        isParrying = false;
                     }
 
-                    if (controls.verticalInput > -deadZone && isInHorizontalDeadZone)
+                    if (playerState != PlayerState.GroundCrouching)
                     {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.GroundIdling;
+                        crouchParryCounter = 0;
                     }
-                    else if (controls.verticalInput > -deadZone && !isInHorizontalDeadZone && previousIsInHorizontalDeadZone)
+                    else
                     {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.GroundDashing;
-                    }
-                    else if (controls.verticalInput > -deadZone && !isInHorizontalDeadZone && !previousIsInHorizontalDeadZone)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.GroundWalking;
-                    }
-
-                    if (!isOnGround)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.Airborne;
+                        crouchParryCounter++;
                     }
 
                     break;
                 #endregion
                 #region GROUND_BLOCKING
                 case PlayerState.GroundBlocking:
+
+                    // Changes playerstate to GroundIdling.
+                    if (!controls.airdashButton)
+                    {
+                        playerState = PlayerState.GroundIdling;
+                        previousPlayerState = playerState;
+                    }
+
                     break;
                 #endregion
                 #region AIRDASHING
@@ -574,7 +623,6 @@ namespace BootlegPlatformFighter
                     else
                     {
                         previousPlayerState = playerState;
-                        airborneTrajectory = controls.horizontalInput;
                         playerState = PlayerState.Airborne;
                     }
 
@@ -647,7 +695,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    
+
 
                     break;
                 #endregion
@@ -725,7 +773,7 @@ namespace BootlegPlatformFighter
             {
                 characterAnimation.SetBool("isRunning", false);
             }
-            if (playerState != PlayerState.GroundCrouching)
+            if (playerState != PlayerState.GroundCrouching && !isParrying)
             {
                 characterAnimation.SetBool("isCrouching", false);
             }
@@ -827,12 +875,10 @@ namespace BootlegPlatformFighter
                     if (controls.verticalInput < -0.3 && playerRb.velocity.y <= 0 && (previousIsInVerticalDeadZone || isFastFalling))
                     {
                         isFastFalling = true;
-                        velocityYOld = playerRb.velocity.y;
-                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * 2, -maxFastFallSpeed, maxFastFallSpeed));
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * maxFallSpeed, -maxFallSpeed, maxFallSpeed));
                     }
                     else if (playerRb.velocity.y < 0)
                     {
-                        velocityYOld = playerRb.velocity.y;
                         playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
                     }
 
@@ -981,9 +1027,16 @@ namespace BootlegPlatformFighter
             }
         }
 
+<<<<<<< HEAD
         void CreateDust()
         {
            // dust.Play();
         }
+=======
+        //void CreateDust()
+        //{
+        //    dust.Play();
+        //}
+>>>>>>> main
     }
 }
