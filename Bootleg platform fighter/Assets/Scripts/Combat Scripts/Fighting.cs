@@ -12,7 +12,7 @@ namespace BootlegPlatformFighter
         private BoxCollider2D attackBox;
         private float horizontalInput;
         private float verticalInput;
-        private float lastHorizontalInput = 1;
+       
 
         [SerializeField] Collider2D playerCollider;
 
@@ -20,33 +20,10 @@ namespace BootlegPlatformFighter
         public float attackRange = 0.5f;
         public LayerMask characterLayers;
 
+        public bool canBeHit = true;
+
         [SerializeField] private Vector2 direction;
 
-        [Header("Jab")]
-        [SerializeField] private float jabDamage;
-        [SerializeField] private float jabBaseKnockback;
-        [SerializeField] private float jabKnockbackScaling = 0.1f;
-        [SerializeField] [Range(-90, 90)] private float jabAngle;
-
-        [Header("Forward Tilt")]
-        [SerializeField] private float forwardTiltDamage;
-        [SerializeField] private float forwardTiltBaseKnockback;
-        [SerializeField] private float forwardTiltKnockbackScaling = 0.1f;
-
-        [Header("Up Tilt")]
-        [SerializeField] private float upTiltDamage;
-        [SerializeField] private float upTiltBaseKnockback;
-        [SerializeField] private float upTiltKnockbackScaling = 0.1f;
-
-        [Header("Down Tilt")]
-        [SerializeField] private float downTiltDamage;
-        [SerializeField] private float downTiltBaseKnockback;
-        [SerializeField] private float downTiltKnockbackScaling = 0.1f;
-
-        [Header("Smash")]
-        [SerializeField] private float forwardSmashDamage;
-        [SerializeField] private float upSmashDamage;
-        [SerializeField] private float downSmashDamage;
 
         // Start is called before the first frame update
         void Start()
@@ -61,26 +38,12 @@ namespace BootlegPlatformFighter
             /*This gets the character's direction into 2 variables, so that can be used to
              * determine the Vector2 of the attackPoint.*/
 
-            direction = new Vector2(Mathf.Cos(jabAngle * Mathf.Deg2Rad), Mathf.Sin(jabAngle * Mathf.Deg2Rad));
             Debug.DrawRay(transform.position, new Vector2((direction.x * 5) * horizontalInput, direction.y * 5), Color.green);
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
             HandleAttackInput(controls);
 
-        }
-        public void Attack(float baseKnockback, float knockbackScaling, float baseDamage)
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, characterLayers);
-
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != characterController.playerIndex)
-                {
-                    enemy.GetComponent<Knockback>().KnockBack(new Vector2(attackPoint.position.x - transform.position.x, 1) * direction, baseKnockback, knockbackScaling, baseDamage, jabAngle);
-
-                }
-            }
         }
 
         public void UpdateAttackPoint(Vector2 direction, float xOffset = 0.85f, float yOffset = 1.5f)
@@ -96,14 +59,7 @@ namespace BootlegPlatformFighter
 
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            if (attackPoint == null)
-            {
-                return;
-            }
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
+        
 
         public void HandleAttackInput(BootlegCharacterController.Controls controls)
         {
@@ -121,20 +77,23 @@ namespace BootlegPlatformFighter
                 case BootlegCharacterController.PlayerState.GroundIdling:
 
 
-                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
+                    if (controls.normalAttackButtonPressed)
                     {
-                        Debug.Log("UPTILT");
-                        Attack(upTiltBaseKnockback, upTiltKnockbackScaling, upTiltDamage);
+
                     }
-                    else if ((Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S)) || (controls.normalAttackButtonPressed && controls.verticalInput < 0))
+
+                    if ((controls.normalAttackButtonPressed && controls.verticalInput > 0))
                     {
-                        Debug.Log("DOWNTILT");
-                        Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
+                        
                     }
-                    else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
+                    else if ((controls.normalAttackButtonPressed && controls.verticalInput < 0))
                     {
-                        Debug.Log("JAB");
-                        Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+                        
+                    }
+                    else if (controls.normalAttackButtonPressed)
+                    {
+                        characterController.GetComponent<Animator>().SetBool("isJabbing", true);
+                        
                     }
                     break;
                 #endregion
@@ -143,15 +102,14 @@ namespace BootlegPlatformFighter
                 case BootlegCharacterController.PlayerState.GroundRunning:
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        Attack(forwardTiltBaseKnockback, forwardTiltKnockbackScaling, forwardTiltDamage);
+
                     }
                     break;
                 #endregion
                 case BootlegCharacterController.PlayerState.GroundCrouching:
                     if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButton)
                     {
-                        Debug.Log("DOWNTILT");
-                        Attack(downTiltBaseKnockback, downTiltKnockbackScaling, downTiltDamage);
+
                     }
                     break;
                 default:
@@ -162,9 +120,25 @@ namespace BootlegPlatformFighter
         }
 
 
-        void BasicAttack(float knockbackVelocity, float direction, float baseDamage, float hitStun, int damageMultiplier = 1)
+        public IEnumerator HitLag(int frameCount)
         {
 
+            yield return new WaitForSeconds(0.2f);
+            //yield return StartCoroutine(WaitFor.Frames(frameCount));
+            canBeHit = true;
+        }
+    }
+
+    public static class WaitFor
+    {
+        public static IEnumerator Frames(int frameCount)
+        {
+            while (frameCount > 0)
+            {
+                frameCount--;
+                yield return null;
+
+            }
         }
     }
 }
