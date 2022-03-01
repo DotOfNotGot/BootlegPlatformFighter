@@ -10,8 +10,8 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
-        private Vector2 direction;
         private HitBoxHandler hitboxHandler;
+        private Vector2 direction;
 
         [Header("Collider")]
         [SerializeField] public float attackAreaRadius;
@@ -23,10 +23,12 @@ namespace BootlegPlatformFighter
         [SerializeField] [Range(-90, 90)] public float angle;
 
 
+
         void Start()
         {
             hitboxHandler = character.GetComponent<HitBoxHandler>();
             characterController = character.GetComponent<BootlegCharacterController>();
+            direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         }
 
         void FixedUpdate()
