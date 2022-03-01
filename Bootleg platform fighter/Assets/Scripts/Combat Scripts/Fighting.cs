@@ -12,7 +12,7 @@ namespace BootlegPlatformFighter
         private BoxCollider2D attackBox;
         private float horizontalInput;
         private float verticalInput;
-        private float lastHorizontalInput = 1;
+       
 
         [SerializeField] Collider2D playerCollider;
 
@@ -59,14 +59,7 @@ namespace BootlegPlatformFighter
 
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            if (attackPoint == null)
-            {
-                return;
-            }
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
+        
 
         public void HandleAttackInput(BootlegCharacterController.Controls controls)
         {
@@ -89,18 +82,18 @@ namespace BootlegPlatformFighter
 
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.W) || (controls.normalAttackButtonPressed && controls.verticalInput > 0))
+                    if ((controls.normalAttackButtonPressed && controls.verticalInput > 0))
                     {
                         
                     }
-                    else if ((Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.S)) || (controls.normalAttackButtonPressed && controls.verticalInput < 0))
+                    else if ((controls.normalAttackButtonPressed && controls.verticalInput < 0))
                     {
                         
                     }
-                    else if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButtonPressed)
+                    else if (controls.normalAttackButtonPressed)
                     {
                         characterController.GetComponent<Animator>().SetBool("isJabbing", true);
-                        //Attack(jabBaseKnockback, jabKnockbackScaling, jabDamage);
+                        
                     }
                     break;
                 #endregion
@@ -129,7 +122,9 @@ namespace BootlegPlatformFighter
 
         public IEnumerator HitLag(int frameCount)
         {
-            yield return StartCoroutine(WaitFor.Frames(frameCount));
+
+            yield return new WaitForSeconds(0.2f);
+            //yield return StartCoroutine(WaitFor.Frames(frameCount));
             canBeHit = true;
         }
     }

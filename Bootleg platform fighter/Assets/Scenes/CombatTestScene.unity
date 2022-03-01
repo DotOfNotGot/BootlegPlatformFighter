@@ -130,9 +130,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 792086959826942155, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715908914586934173, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab1 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727518085172142663, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab0 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182054081299670137, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861696326833184983, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab0 Hitbox 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589600155252536483, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4589600155252536483, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: attackAreaRadius
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726360612659963576, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab0 Hitbox 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116065893946855343, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab1 Hitbox 0
       objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881683, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Name
@@ -187,12 +219,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 743380471}
     - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: attackAreaRadius
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: attackAreaRadius
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520479863837684665, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929887545513609422, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Player_Jab1 Hitbox 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}

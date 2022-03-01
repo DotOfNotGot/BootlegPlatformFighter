@@ -26,7 +26,7 @@ namespace BootlegPlatformFighter
 
         private List<GameObject> attackHitBoxes = new List<GameObject>() {};
 
-        [SerializeField] private int hitLag = 2;
+        [SerializeField] private int hitLag = 4;
 
 
         private int attackIndex = 0;
@@ -99,13 +99,15 @@ namespace BootlegPlatformFighter
                         foreach (Collider2D enemy in hitEnemies)
                         {
                             Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
+                            
                             if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != gameObject.GetComponent<BootlegCharacterController>().playerIndex)
                             {
                                 if (enemyFighting.canBeHit)
                                 {
                                     enemyFighting.canBeHit = false;
                                     enemyFighting.StartCoroutine(enemyFighting.HitLag(hitLag));
-                                    hitbox.GetComponent<Hitbox>().SendToKnockback(hitEnemies);
+                                    hitbox.GetComponent<Hitbox>().SendToKnockback(enemy);
+                                    Debug.Log("Hit " + enemy.name +  "with " + hitbox.name);
                                 }
                             }
                         }
@@ -127,6 +129,7 @@ namespace BootlegPlatformFighter
                     frame.gameObject.SetActive(false);
                 }
             }
+            attackHitBoxes.Clear();
         }
         #endregion
 

@@ -22,26 +22,23 @@ namespace BootlegPlatformFighter
         [SerializeField] public float knockbackScaling = 0.1f;
         [SerializeField] [Range(-90, 90)] public float angle;
 
-        // Start is called before the first frame update
+
         void Start()
         {
             hitboxHandler = character.GetComponent<HitBoxHandler>();
             characterController = character.GetComponent<BootlegCharacterController>();
         }
 
-        // Update is called once per frame
         void FixedUpdate()
         {
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             
         }
 
-        public void SendToKnockback(Collider2D[] hitEnemies)
+        public void SendToKnockback(Collider2D hitEnemy)
         {
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                enemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage, angle);
-            }
+            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage, angle);
+            
         }
 
 

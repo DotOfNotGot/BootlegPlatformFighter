@@ -17,16 +17,20 @@ namespace BootlegPlatformFighter
             public bool jumpButton;
             public bool airdashButton;
             public bool normalAttackButton;
+            public bool grabButton;
 
             // State change variables
             public bool jumpButtonPressed;
             public bool airdashButtonPressed;
             public bool normalAttackButtonPressed;
+            public bool grabButtonPressed;
+
             public void SetStateChangeVariables(Controls previousControls)
             {
                 jumpButtonPressed = !previousControls.jumpButton && jumpButton;
                 airdashButtonPressed = !previousControls.airdashButton && airdashButton;
                 normalAttackButtonPressed = !previousControls.normalAttackButton && normalAttackButton;
+                grabButtonPressed = !previousControls.grabButton && grabButton;
             }
         }
 
