@@ -631,6 +631,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1480727808855945378, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487833306764953976, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802716338690384512, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802716338690384512, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210681179050193898, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210681179050193898, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954858431341113906, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378751822517413446, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378751822517413446, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: baseKnockback
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378751822517413446, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819587711094994013, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915746815555356451, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010835404319399242, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294267329109414822, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.593542
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294267329109414822, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.46575
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294267329109414822, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294267329109414822, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209713, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59531d15ab8deb746a00ca458642e321, type: 2}
+    - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 12.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -686,6 +770,70 @@ PrefabInstance:
     - target: {fileID: 5644011976999209727, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469373397891354553, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469373397891354553, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.9048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469373397891354553, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469373397891354553, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6873793910332482849, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6873793910332482849, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260018623002695944, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260018623002695944, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: baseKnockback
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260018623002695944, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: attackAreaRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260018623002695944, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177813217832850087, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: angle
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177813217832850087, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: damage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177813217832850087, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: baseKnockback
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177813217832850087, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: attackAreaRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177813217832850087, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689888975812237867, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
@@ -840,11 +988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.030926704
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.53
+      value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_LocalPosition.z
