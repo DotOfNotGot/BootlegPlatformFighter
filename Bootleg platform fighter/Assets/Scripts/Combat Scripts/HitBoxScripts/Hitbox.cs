@@ -20,7 +20,8 @@ namespace BootlegPlatformFighter
         [SerializeField] public float damage;
         [SerializeField] public float baseKnockback;
         [SerializeField] public float knockbackScaling = 0.1f;
-        [SerializeField] [Range(-90, 90)] public float angle;
+        [SerializeField] [Range(-180, 180)] public float angle;
+        [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
 
 
 
@@ -46,7 +47,9 @@ namespace BootlegPlatformFighter
 
         private void OnDrawGizmosSelected()
         {
+            
             Gizmos.DrawWireSphere(transform.position, attackAreaRadius);
+            Debug.DrawLine(transform.position, new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) *lineLengthDEBUG + transform.position.x, Mathf.Sin(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.y), Color.red);
         }
     }
 }

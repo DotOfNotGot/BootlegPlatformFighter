@@ -915,7 +915,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    characterAnimation.SetBool("isJabbing", false);
+                    
 
                     break;
                 #endregion

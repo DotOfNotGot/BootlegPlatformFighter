@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3457457289018515727, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3861696326833184983, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Name
       value: Player_Jab0 Hitbox 2
@@ -219,8 +223,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 743380471}
     - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: angle
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: damage
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: lineLengthDEBUG
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: attackAreaRadius
