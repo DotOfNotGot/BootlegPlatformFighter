@@ -93,7 +93,7 @@ namespace BootlegPlatformFighter
                     else if (controls.normalAttackButtonPressed)
                     {
                         characterController.GetComponent<Animator>().SetBool("isJabbing", true);
-                        
+                        characterController.playerState = BootlegCharacterController.PlayerState.Jab;
                     }
                     break;
                 #endregion

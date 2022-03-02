@@ -158,19 +158,7 @@ namespace BootlegPlatformFighter
 
             angle = Vector2.Angle(moveVector, Vector2.right);
 
-            if (controls.horizontalInput < -deadZone && isOnGround)
-            {
-
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-                //spriteRenderer.flipX = true;
-                isFacingLeft = true;
-            }
-            else if (controls.horizontalInput > deadZone && isOnGround)
-            {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                //spriteRenderer.flipX = false;
-                isFacingLeft = false;
-            }
+            
 
             if (controls.horizontalInput < deadZone && controls.horizontalInput > -deadZone)
             {
@@ -336,6 +324,8 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GROUND_WALKING
                 case PlayerState.GroundWalking:
+
+                    
 
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
@@ -794,6 +784,7 @@ namespace BootlegPlatformFighter
                 #region GROUND_WALKING
                 case PlayerState.GroundWalking:
 
+                    TurnAround(controls);
                     playerRb.velocity = new Vector2(controls.horizontalInput * speed * 0.75f, playerRb.velocity.y);
 
                     break;
@@ -801,6 +792,7 @@ namespace BootlegPlatformFighter
                 #region GROUND_DASHING
                 case PlayerState.GroundDashing:
 
+                    TurnAround(controls);
                     playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
 
                     break;
@@ -808,6 +800,7 @@ namespace BootlegPlatformFighter
                 #region GROUND_RUNNING
                 case PlayerState.GroundRunning:
 
+                    TurnAround(controls);
                     playerRb.velocity = new Vector2(controls.horizontalInput * speed, playerRb.velocity.y);
 
                     break;
@@ -915,7 +908,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    
+
 
                     break;
                 #endregion
@@ -996,6 +989,7 @@ namespace BootlegPlatformFighter
         private void JabExit()
         {
             characterAnimation.SetBool("isJabbing", false);
+            playerState = PlayerState.GroundIdling;
         }
 
         private void GroundCheck()
@@ -1024,6 +1018,20 @@ namespace BootlegPlatformFighter
             else
             {
                 Physics2D.IgnoreLayerCollision(6, 6, false);
+            }
+        }
+
+        void TurnAround(Controls controls)
+        {
+            if (controls.horizontalInput < -deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                isFacingLeft = true;
+            }
+            else if (controls.horizontalInput > deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                isFacingLeft = false;
             }
         }
 

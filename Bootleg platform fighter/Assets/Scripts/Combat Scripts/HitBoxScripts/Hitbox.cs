@@ -41,7 +41,6 @@ namespace BootlegPlatformFighter
         public void SendToKnockback(Collider2D hitEnemy)
         {
             hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage, angle);
-            
         }
 
 
@@ -49,7 +48,7 @@ namespace BootlegPlatformFighter
         {
             
             Gizmos.DrawWireSphere(transform.position, attackAreaRadius);
-            Debug.DrawLine(transform.position, new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) *lineLengthDEBUG + transform.position.x, Mathf.Sin(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.y), Color.red);
+            Debug.DrawLine(transform.position, new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.x, Mathf.Sin(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.y), Color.red);
         }
     }
 }
