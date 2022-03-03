@@ -203,6 +203,13 @@ namespace BootlegPlatformFighter
                     bool groundIdlingWalkCounterShouldIncrease = false;
                     //dust.Stop();
 
+                    // Changes state to Jab
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Jab;
+                    }
+
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
                     {
@@ -910,6 +917,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.Jab:
                     GetComponent<Animator>().SetBool("isJabbing", true);
 
+                    characterAnimation.SetBool("isJabbing", true);
 
                     break;
                 #endregion

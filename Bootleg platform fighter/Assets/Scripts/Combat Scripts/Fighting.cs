@@ -94,6 +94,7 @@ namespace BootlegPlatformFighter
                     {
                         characterController.playerState = BootlegCharacterController.PlayerState.Jab;
                     }
+
                     break;
                 #endregion
                 #region GROUND DASH & GROUND RUN
