@@ -8,6 +8,7 @@ namespace BootlegPlatformFighter
     {
 
         private Fighting fightingScript;
+        public BootlegCharacterController.Controls controls;
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
@@ -27,7 +28,7 @@ namespace BootlegPlatformFighter
 
         private void FixedUpdate()
         {
-            
+            HandleInput(controls);
         }
 
         public void FindEnemyInArea()
@@ -43,20 +44,29 @@ namespace BootlegPlatformFighter
 
                     if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != gameObject.GetComponent<BootlegCharacterController>().playerIndex)
                     {
-                        if (enemyFighting.canBeHit)
-                        {
-                            TurnOffMovement(enemy);
-                        }
+
+                            enemy.gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.Grabbed;
+                            gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.Grab;
+                        Debug.Log("Grabbed");
+                        
                     }
                 }
             }
         }
 
-        public void TurnOffMovement(Collider2D enemy)
+        private void HandleInput(BootlegCharacterController.Controls controls)
         {
-            BootlegCharacterController enemyController = enemy.gameObject.GetComponent<BootlegCharacterController>();
-            enemyController.canMove = false;
-            characterController.canMove = false;
+            switch (characterController.playerState)
+            {
+                case BootlegCharacterController.PlayerState.GroundIdling:
+                    if (controls.grabButtonPressed)
+                    {
+                        FindEnemyInArea();
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void OnDrawGizmosSelected()

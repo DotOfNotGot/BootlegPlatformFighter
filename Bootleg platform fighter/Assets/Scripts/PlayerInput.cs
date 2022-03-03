@@ -32,6 +32,7 @@ namespace BootlegPlatformFighter
             controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
             controls.airdashButton = Input.GetButton("Airdash_" + playerIndex);
             controls.normalAttackButton = Input.GetButton("Normal Attack_" + playerIndex);
+            controls.grabButton = Input.GetButton("Grab_" + playerIndex);
 
             controls.SetStateChangeVariables(previousControls);
 

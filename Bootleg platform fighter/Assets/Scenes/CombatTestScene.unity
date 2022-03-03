@@ -148,7 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3457457289018515727, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791265814473038648, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: characterLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3861696326833184983, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Name
@@ -244,6 +248,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: attackAreaRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255494608153968923, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8520479863837684665, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
