@@ -90,7 +90,11 @@ namespace BootlegPlatformFighter
             SideSpecial,
             UpSpecial,
             DownSpecial,
-            Grab
+            Grab,
+            UpThrow,
+            DownThrow,
+            BackThrow,
+            ForwardThrow
         }
 
         public LayerMask groundLayer;
@@ -708,6 +712,22 @@ namespace BootlegPlatformFighter
                 case PlayerState.Grab:
                     break;
                 #endregion
+                #region UPTHROW
+                case PlayerState.UpThrow:
+                    break;
+                #endregion
+                #region DOWNTHROW
+                case PlayerState.DownThrow:
+                    break;
+                #endregion
+                #region FORWARDTHROW
+                case PlayerState.ForwardThrow:
+                    break;
+                #endregion
+                #region BACKTHROW
+                case PlayerState.BackThrow:
+                    break;
+                #endregion
                 default:
                     break;
             }
@@ -928,6 +948,22 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GRAB
                 case PlayerState.Grab:
+                    break;
+                #endregion
+                #region UPTHROW
+                case PlayerState.UpThrow:
+                    break;
+                #endregion
+                #region DOWNTHROW
+                case PlayerState.DownThrow:
+                    break;
+                #endregion
+                #region FORWARDTHROW
+                case PlayerState.ForwardThrow:
+                    break;
+                #endregion
+                #region BACKTHROW
+                case PlayerState.BackThrow:
                     break;
                 #endregion
                 default:
