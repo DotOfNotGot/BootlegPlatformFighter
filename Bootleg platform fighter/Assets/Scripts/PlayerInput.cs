@@ -13,6 +13,7 @@ namespace BootlegPlatformFighter
 
         private BootlegCharacterController characterController;
         private Fighting fighting;
+        [SerializeField] private Grab grab;
 
         private int playerIndex;
 
@@ -22,6 +23,7 @@ namespace BootlegPlatformFighter
             characterController = GetComponent<BootlegCharacterController>();
             fighting = GetComponent<Fighting>();
             playerIndex = characterController.playerIndex;
+
         }
 
         void FixedUpdate()
@@ -38,6 +40,7 @@ namespace BootlegPlatformFighter
 
             characterController.ProcessUpdate(controls);
             fighting.HandleAttackInput(controls);
+            grab.HandleInput(controls);
 
             previousControls = controls;
         }
