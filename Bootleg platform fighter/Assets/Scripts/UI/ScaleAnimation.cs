@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace BootlegPlatformFighter
 {
@@ -28,7 +29,8 @@ namespace BootlegPlatformFighter
         private void OnEnable()
         {
             gameObject.transform.localScale = new Vector3(startScale, startScale);
-            transform.LeanScale(Vector2.one, animationTime).setEaseOutQuad();
+
+            transform.DOScale(Vector2.one, animationTime);
         }
     }
 }
