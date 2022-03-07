@@ -28,7 +28,7 @@ namespace BootlegPlatformFighter
 
         private void FixedUpdate()
         {
-            HandleInput(controls);
+            
         }
 
         public void FindEnemyInArea()

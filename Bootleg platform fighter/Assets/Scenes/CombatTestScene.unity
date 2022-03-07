@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: attackAreaRadius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8255494608153968923, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
 --- !u!1 &1052890670
