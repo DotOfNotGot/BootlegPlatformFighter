@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &249380865775833829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1509292359655318957, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: audioArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509292359655318957, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: audioArray.Array.data[0].Name
+      value: Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509292359655318957, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: audioArray.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5018c5b20a5d28e4dbe7245b5650e98a, type: 3}
+    - target: {fileID: 1715908914586934173, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727518085172142663, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706880230618558565, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706880230618558565, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457457289018515727, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861696326833184983, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589600155252536483, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589600155252536483, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: baseKnockback
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589600155252536483, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726360612659963576, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab0 Hitbox 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116065893946855343, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137981812101240262, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5335919512554094915, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.593542
+      objectReference: {fileID: 0}
+    - target: {fileID: 5335919512554094915, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.46575
+      objectReference: {fileID: 0}
+    - target: {fileID: 5335919512554094915, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5335919512554094915, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881683, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881684, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59531d15ab8deb746a00ca458642e321, type: 2}
+    - target: {fileID: 5559258806288881686, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: playerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535336892734643548, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535336892734643548, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.9048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535336892734643548, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535336892734643548, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634195562793367492, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: baseKnockback
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: attackAreaRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: angle
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: damage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: baseKnockback
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: attackAreaRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: knockbackScaling
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929887545513609422, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Jab1 Hitbox 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}

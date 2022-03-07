@@ -133,6 +133,7 @@ MonoBehaviour:
   baseKnockback: 10
   knockbackScaling: 20
   angle: 70.5
+  lineLengthDEBUG: 2
 --- !u!1 &5559258806288881683
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +152,7 @@ GameObject:
   - component: {fileID: 5559258806288881692}
   - component: {fileID: 5559258806288881686}
   - component: {fileID: 5820525074009720691}
+  - component: {fileID: 1509292359655318957}
   m_Layer: 6
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -400,6 +402,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hitLag: 2
+--- !u!114 &1509292359655318957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559258806288881683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959bc7c751ff88641b0fc7cc10dc7fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioArray: []
 --- !u!1 &5559258807281665885
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -142,6 +143,7 @@ namespace BootlegPlatformFighter
         public bool isFacingLeft;
         public bool canMove;
         public bool isParrying;
+
 
         public bool debugPlayerColissionOff;
 
@@ -935,7 +937,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    characterAnimation.SetBool("isJabbing", true);
+                    characterAnimation.SetBool("isJabing", true);
 
                     break;
                 #endregion
@@ -1029,10 +1031,23 @@ namespace BootlegPlatformFighter
             }
         }
 
-        private void JabExit()
+        private void ExitAnimation()
         {
-            characterAnimation.SetBool("isJabbing", false);
+            string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            string animationRegex = @".*_(\D*)";
+            Match animationMatch = Regex.Match(animationName, animationRegex);
+            string matchResult = animationMatch.Groups[1].Value.ToLower();
+            Debug.Log(matchResult);
+            char[] matchLetters = matchResult.ToCharArray();
+            matchLetters[0] = char.ToUpper(matchLetters[0]);
+            matchResult = new string(matchLetters);
+
+            string animationBoolName = "is" + matchResult + "ing";
+            characterAnimation.SetBool(animationBoolName, false);
             playerState = PlayerState.GroundIdling;
+
+            AudioManager audioManager = GetComponent<AudioManager>();
+            audioManager.audioIndex = 0;
         }
 
         private void GroundCheck()
