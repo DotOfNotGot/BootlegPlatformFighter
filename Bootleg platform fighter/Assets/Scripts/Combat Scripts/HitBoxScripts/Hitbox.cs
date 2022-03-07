@@ -21,7 +21,8 @@ namespace BootlegPlatformFighter
         [SerializeField] public float baseKnockback;
         [SerializeField] public float knockbackScaling = 0.1f;
         [SerializeField] [Range(-180, 180)] public float angle;
-        [SerializeField] [Range(1,10)]private int lineLengthDEBUG = 2;
+        [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
+
 
 
         void Start()

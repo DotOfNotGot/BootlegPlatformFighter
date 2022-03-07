@@ -687,6 +687,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region TUMBLE
                 case PlayerState.Tumble:
+
                     break;
                 #endregion
                 #region GRABBED
@@ -934,6 +935,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region JAB
                 case PlayerState.Jab:
+                    GetComponent<Animator>().SetBool("isJabbing", true);
 
                     characterAnimation.SetBool("isJabbing", true);
 
@@ -997,6 +999,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GRAB
                 case PlayerState.Grab:
+                    GetComponent<Animator>().SetBool("isGrabbing", true);
                     break;
                 #endregion
                 #region UPTHROW

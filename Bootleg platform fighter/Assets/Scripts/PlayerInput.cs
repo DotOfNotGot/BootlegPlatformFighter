@@ -13,6 +13,7 @@ namespace BootlegPlatformFighter
 
         private BootlegCharacterController characterController;
         private Fighting fighting;
+        [SerializeField] private Grab grab;
 
         private int playerIndex;
 
@@ -22,6 +23,7 @@ namespace BootlegPlatformFighter
             characterController = GetComponent<BootlegCharacterController>();
             fighting = GetComponent<Fighting>();
             playerIndex = characterController.playerIndex;
+
         }
 
         void FixedUpdate()
@@ -32,11 +34,13 @@ namespace BootlegPlatformFighter
             controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
             controls.airdashButton = Input.GetButton("Airdash_" + playerIndex);
             controls.normalAttackButton = Input.GetButton("Normal Attack_" + playerIndex);
+            controls.grabButton = Input.GetButton("Grab_" + playerIndex);
 
             controls.SetStateChangeVariables(previousControls);
 
             characterController.ProcessUpdate(controls);
             fighting.HandleAttackInput(controls);
+            grab.HandleInput(controls);
 
             previousControls = controls;
         }

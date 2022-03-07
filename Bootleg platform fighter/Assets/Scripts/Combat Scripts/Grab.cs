@@ -8,6 +8,7 @@ namespace BootlegPlatformFighter
     {
 
         private Fighting fightingScript;
+        public BootlegCharacterController.Controls controls;
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
@@ -41,22 +42,41 @@ namespace BootlegPlatformFighter
                     Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
 
 
-                    if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != gameObject.GetComponent<BootlegCharacterController>().playerIndex)
+                    if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != character.gameObject.GetComponent<BootlegCharacterController>().playerIndex)
                     {
-                        if (enemyFighting.canBeHit)
-                        {
-                            TurnOffMovement(enemy);
-                        }
+
+                            enemy.gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.Grabbed;
+                            characterController.playerState = BootlegCharacterController.PlayerState.Grab;
+                        StartCoroutine(GrabTimer(5, enemy));
+                        Debug.Log("Grabbed");
+                        
                     }
                 }
             }
         }
 
-        public void TurnOffMovement(Collider2D enemy)
+        public void HandleInput(BootlegCharacterController.Controls controls)
         {
-            BootlegCharacterController enemyController = enemy.gameObject.GetComponent<BootlegCharacterController>();
-            enemyController.canMove = false;
-            characterController.canMove = false;
+            switch (characterController.playerState)
+            {
+                case BootlegCharacterController.PlayerState.GroundIdling:
+                    if (controls.grabButtonPressed)
+                    {
+                        FindEnemyInArea();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        IEnumerator GrabTimer(float seconds, Collider2D enemy)
+        {
+            yield return new WaitForSeconds(seconds);
+            character.GetComponent<Animator>().SetBool("isGrabbing", false);
+            characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
+            enemy.gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.GroundIdling;
+
         }
 
         private void OnDrawGizmosSelected()

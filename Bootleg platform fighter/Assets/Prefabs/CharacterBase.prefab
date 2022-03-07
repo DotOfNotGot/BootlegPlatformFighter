@@ -133,6 +133,7 @@ MonoBehaviour:
   baseKnockback: 10
   knockbackScaling: 20
   angle: 70.5
+  lineLengthDEBUG: 2
 --- !u!1 &5559258806288881683
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4165bce17f5b2ca4d852b226bb556cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grab: {fileID: 3791265814473038648}
 --- !u!95 &5559258806288881684
 Animator:
   serializedVersion: 3
@@ -560,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9134937548949882305
 Transform:
   m_ObjectHideFlags: 0
@@ -641,7 +643,7 @@ MonoBehaviour:
   character: {fileID: 5559258806288881683}
   characterLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   grabAreaRadius: 1
 --- !u!1 &8765829771548519079
 GameObject:
