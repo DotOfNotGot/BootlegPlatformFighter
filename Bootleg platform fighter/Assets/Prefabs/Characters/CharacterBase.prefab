@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 5559258806288881692}
   - component: {fileID: 5559258806288881686}
   - component: {fileID: 5820525074009720691}
+  - component: {fileID: 1509292359655318957}
   m_Layer: 6
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -385,6 +386,21 @@ MonoBehaviour:
   canMove: 0
   isParrying: 0
   debugPlayerColissionOff: 1
+  grabEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3791265814473038648}
+        m_TargetAssemblyTypeName: BootlegPlatformFighter.Grab, Assembly-CSharp
+        m_MethodName: FindEnemyInArea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5820525074009720691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +418,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hitLag: 2
+--- !u!114 &1509292359655318957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559258806288881683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959bc7c751ff88641b0fc7cc10dc7fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioArray: []
+  audioIndex: 0
 --- !u!1 &5559258807281665885
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +675,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   grabAreaRadius: 1
+  damage: 15
+  baseKnockback: 10
+  knockbackScaling: 20
 --- !u!1 &8765829771548519079
 GameObject:
   m_ObjectHideFlags: 0

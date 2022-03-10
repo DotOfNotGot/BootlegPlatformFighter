@@ -1282,6 +1282,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[0].Name
+      value: Jab0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].Name
+      value: Jab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8794d70930957634c8f82d2af258fdab, type: 3}
     - target: {fileID: 3210681179050193898, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_IsActive
       value: 0
