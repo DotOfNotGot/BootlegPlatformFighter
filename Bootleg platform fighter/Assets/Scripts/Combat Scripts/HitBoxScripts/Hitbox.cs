@@ -39,7 +39,7 @@ namespace BootlegPlatformFighter
 
         public void SendToKnockback(Collider2D hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage, angle);
+            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
         }
 
 
