@@ -73,7 +73,7 @@ namespace BootlegPlatformFighter
                     enemyKnockback = enemy.gameObject.GetComponent<Knockback>();
                     enemyController = enemy.gameObject.GetComponent<BootlegCharacterController>();
 
-                    if (enemyController.playerIndex != characterController.playerIndex)
+                    if (enemyController.characterIndex != characterController.characterIndex)
                     {
                         if (enemyFighting.canBeHit)
                         {

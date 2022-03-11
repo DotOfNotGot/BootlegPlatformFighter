@@ -10,7 +10,7 @@ namespace BootlegPlatformFighter
     public class BootlegCharacterController : MonoBehaviour
     {
         //public ParticleSystem dust;
-        public int playerIndex;
+        public int characterIndex;
 
         public struct Controls
         {
@@ -160,6 +160,7 @@ namespace BootlegPlatformFighter
 
         public UnityEvent grabEvent;
 
+        public float damageTakenPercent = 0.0f;
 
         // Start is called before the first frame update
         void Start()
