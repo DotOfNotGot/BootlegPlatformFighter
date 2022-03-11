@@ -35,7 +35,7 @@ namespace BootlegPlatformFighter
 
             controls.SetStateChangeVariables(previousControls);
 
-            characterController.ProcessUpdate(controls);
+            characterController.ProcessUpdate(controls, previousControls);
             fighting.HandleAttackInput(controls);
 
             previousControls = controls;
