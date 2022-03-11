@@ -58,8 +58,6 @@ namespace BootlegPlatformFighter
 
         }
 
-
-
         public IEnumerator HitLag(int frameCount)
         {
 
