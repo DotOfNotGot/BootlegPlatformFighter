@@ -82,11 +82,11 @@ namespace BootlegPlatformFighter
 
                     }
 
-                    if ((controls.normalAttackButtonPressed && controls.verticalInput > 0))
+                    if ((controls.normalAttackButtonPressed && controls.movementVerticalInput > 0))
                     {
                         
                     }
-                    else if ((controls.normalAttackButtonPressed && controls.verticalInput < 0))
+                    else if ((controls.normalAttackButtonPressed && controls.movementVerticalInput < 0))
                     {
                         
                     }

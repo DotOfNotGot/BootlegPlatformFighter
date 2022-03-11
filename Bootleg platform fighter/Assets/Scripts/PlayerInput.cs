@@ -26,8 +26,8 @@ namespace BootlegPlatformFighter
 
         void FixedUpdate()
         {
-            controls.horizontalInput = Input.GetAxisRaw("Horizontal_" + playerIndex);
-            controls.verticalInput = Input.GetAxisRaw("Vertical_" + playerIndex);
+            controls.movementHorizontalInput = Input.GetAxisRaw("Horizontal_" + playerIndex);
+            controls.movementVerticalInput = Input.GetAxisRaw("Vertical_" + playerIndex);
 
             controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
             controls.airdashButton = Input.GetButton("Airdash_" + playerIndex);
