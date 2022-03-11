@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 namespace BootlegPlatformFighter
 {
@@ -22,7 +24,6 @@ namespace BootlegPlatformFighter
             public bool specialAttackButton;
             public bool grabButton;
             public bool pauseButton;
-
             // State change variables
             public bool jumpButtonPressed;
             public bool airdashButtonPressed;
@@ -152,7 +153,10 @@ namespace BootlegPlatformFighter
         public bool canMove;
         public bool isParrying;
 
+
         public bool debugPlayerColissionOff;
+
+        public UnityEvent grabEvent;
 
 
         // Start is called before the first frame update
@@ -222,6 +226,13 @@ namespace BootlegPlatformFighter
 
                     bool groundIdlingWalkCounterShouldIncrease = false;
                     //dust.Stop();
+
+                    // Changes state to Grab
+                    if (controls.grabButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Grab;
+                    }
 
                     // Changes state to Jab
                     if (controls.normalAttackButtonPressed)
@@ -771,6 +782,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GRAB
                 case PlayerState.Grab:
+                    //Debug.Log(moveVector);
                     break;
                 #endregion
                 #region UPTHROW
@@ -975,7 +987,7 @@ namespace BootlegPlatformFighter
                 #region JAB
                 case PlayerState.Jab:
 
-                    characterAnimation.SetBool("isJabbing", true);
+                    characterAnimation.SetBool("isJabing", true);
 
                     break;
                 #endregion
@@ -1037,6 +1049,8 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GRAB
                 case PlayerState.Grab:
+                    characterAnimation.SetBool("isGrabing", true);
+
                     break;
                 #endregion
                 #region UPTHROW
@@ -1069,10 +1083,22 @@ namespace BootlegPlatformFighter
             }
         }
 
-        private void JabExit()
+        public void ExitAnimation()
         {
-            characterAnimation.SetBool("isJabbing", false);
+            string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            string animationRegex = @".*_(\D*)";
+            Match animationMatch = Regex.Match(animationName, animationRegex);
+            string matchResult = animationMatch.Groups[1].Value.ToLower();
+            char[] matchLetters = matchResult.ToCharArray();
+            matchLetters[0] = char.ToUpper(matchLetters[0]);
+            matchResult = new string(matchLetters);
+
+            string animationBoolName = "is" + matchResult + "ing";
+            characterAnimation.SetBool(animationBoolName, false);
             playerState = PlayerState.GroundIdling;
+
+            AudioManager audioManager = GetComponent<AudioManager>();
+            audioManager.audioIndex = 0;
         }
 
         private void GroundCheck()
@@ -1116,6 +1142,11 @@ namespace BootlegPlatformFighter
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
                 isFacingLeft = false;
             }
+        }
+
+        public void CallGrabScript()
+        {
+            grabEvent.Invoke();
         }
 
         //void CreateDust()

@@ -1309,6 +1309,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[0].Name
+      value: Jab0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].Name
+      value: Jab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8794d70930957634c8f82d2af258fdab, type: 3}
     - target: {fileID: 3210681179050193898, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1332,6 +1348,10 @@ PrefabInstance:
     - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: playerIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209718, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_Name
@@ -1396,6 +1416,10 @@ PrefabInstance:
     - target: {fileID: 7260018623002695944, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: knockbackScaling
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206844984879649790, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
@@ -1672,6 +1696,10 @@ PrefabInstance:
     - target: {fileID: 5559258806288881683, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Name
       value: CharacterBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881686, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: playerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_RootOrder

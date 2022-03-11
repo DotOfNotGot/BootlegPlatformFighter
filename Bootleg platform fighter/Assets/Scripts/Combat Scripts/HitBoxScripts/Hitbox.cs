@@ -21,7 +21,8 @@ namespace BootlegPlatformFighter
         [SerializeField] public float baseKnockback;
         [SerializeField] public float knockbackScaling = 0.1f;
         [SerializeField] [Range(-180, 180)] public float angle;
-        [SerializeField] [Range(1,10)]private int lineLengthDEBUG = 2;
+        [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
+
 
 
         void Start()
@@ -39,7 +40,7 @@ namespace BootlegPlatformFighter
 
         public void SendToKnockback(Collider2D hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage, angle);
+            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
         }
 
 

@@ -31,7 +31,7 @@ namespace BootlegPlatformFighter
 
         }
 
-        public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent, float angle)
+        public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
             damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
