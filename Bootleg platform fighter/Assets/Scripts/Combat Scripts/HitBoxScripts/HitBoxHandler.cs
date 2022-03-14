@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BootlegPlatformFighter
 {
-    struct HitBoxStruct
+    struct HitHurtBoxStruct
     {
         public string Name;
-        public List<GameObject> HitboxList;
+        public List<GameObject> BoxList;
 
-        public HitBoxStruct(string name)
+        public HitHurtBoxStruct(string name)
         {
             Name = name;
-            HitboxList = new List<GameObject>();
+            BoxList = new List<GameObject>();
         }
     }
     public class HitBoxHandler : MonoBehaviour
@@ -20,9 +21,9 @@ namespace BootlegPlatformFighter
 
         private Animator animator;
         [SerializeField] private GameObject hitBoxEmpty;
-        [SerializeField] private LayerMask characterLayers;
+        [SerializeField] private LayerMask hurtBoxLayers;
         private List<GameObject> moveList = new List<GameObject>();
-        private List<HitBoxStruct> moveStructures = new List<HitBoxStruct>();
+        private List<HitHurtBoxStruct> moveStructures = new List<HitHurtBoxStruct>();
 
         private List<GameObject> attackHitBoxes = new List<GameObject>() {};
 
@@ -40,11 +41,11 @@ namespace BootlegPlatformFighter
             }
             for (int i = 0; i < moveList.Count; i++)
             {
-                HitBoxStruct newStruct = new HitBoxStruct(moveList[i].name);
+                HitHurtBoxStruct newStruct = new HitHurtBoxStruct(moveList[i].name);
                 for (int x = 0; x < moveList[i].transform.childCount; x++)
                 {
                     GameObject currentAttack = moveList[i];
-                    newStruct.HitboxList.Add(currentAttack.transform.GetChild(x).gameObject);
+                    newStruct.BoxList.Add(currentAttack.transform.GetChild(x).gameObject);
                 }
                 moveStructures.Add(newStruct);
             }
@@ -56,11 +57,11 @@ namespace BootlegPlatformFighter
         public void AnimationHitboxTrigger()
         {
             string animationName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-            foreach (HitBoxStruct attack in moveStructures)
+            foreach (HitHurtBoxStruct attack in moveStructures)
             {
                 if (attack.Name == animationName)
                 {
-                    foreach (GameObject frame in attack.HitboxList)
+                    foreach (GameObject frame in attack.BoxList)
                     {
                         if (attackIndex > 0)
                         {
@@ -92,22 +93,23 @@ namespace BootlegPlatformFighter
                 for (int i = 0; i < attackHitBoxes.Count; i++)
                 {
                     GameObject hitbox = attackHitBoxes[i];
-                    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, characterLayers);
+                    List<Collider2D> hurtBoxes = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, hurtBoxLayers).ToList();
 
-                    if (hitEnemies.Length > 0)
+                    if (hurtBoxes.Count > 0)
                     {
-                        foreach (Collider2D enemy in hitEnemies)
+                        foreach (Collider2D hurtBox in hurtBoxes)
                         {
-                            Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
+                            HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+                            Fighting enemyFighting = hurtScript.character.GetComponent<Fighting>();
                             
-                            if (enemy.gameObject.GetComponent<BootlegCharacterController>().characterIndex != gameObject.GetComponent<BootlegCharacterController>().characterIndex)
+                            if (hurtScript.characterIndex != gameObject.GetComponent<BootlegCharacterController>().characterIndex)
                             {
                                 if (enemyFighting.canBeHit)
                                 {
                                     enemyFighting.canBeHit = false;
                                     enemyFighting.StartCoroutine(enemyFighting.HitLag(hitLag));
-                                    hitbox.GetComponent<Hitbox>().SendToKnockback(enemy);
-                                    Debug.Log("Hit " + enemy.name +  "with " + hitbox.name);
+                                    hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
+                                    Debug.Log("Hit " + hurtBox.name +  "with " + hitbox.name);
                                 }
                             }
                         }
@@ -122,9 +124,9 @@ namespace BootlegPlatformFighter
         public void ResetAttackIndex()
         {
             attackIndex = 0;
-            foreach (HitBoxStruct attack in moveStructures)
+            foreach (HitHurtBoxStruct attack in moveStructures)
             {
-                foreach (GameObject frame in attack.HitboxList)
+                foreach (GameObject frame in attack.BoxList)
                 {
                     frame.gameObject.SetActive(false);
                 }
