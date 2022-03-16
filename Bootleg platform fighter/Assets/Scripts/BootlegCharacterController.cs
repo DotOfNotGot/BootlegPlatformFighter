@@ -44,7 +44,7 @@ namespace BootlegPlatformFighter
         }
 
         // Constant values
-        private const float deadZone = 0.1f;
+        private const float deadZone = 0.2f;
         [SerializeField] private bool isInHorizontalDeadZone;
         [SerializeField] private bool isInVerticalDeadZone;
         [SerializeField] private bool isInWalkZone;
@@ -806,6 +806,7 @@ namespace BootlegPlatformFighter
             }
 
             characterAnimation.SetFloat("PlayerVelocityX", playerRb.velocity.x);
+            characterAnimation.SetFloat("PlayerVelocityY", playerRb.velocity.y);
 
             if (playerState != PlayerState.GroundIdling)
             {
@@ -877,7 +878,10 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isRunning", true);
                     TurnAround(controls);
-                    playerRb.velocity = new Vector2(controls.movementHorizontalInput , playerRb.velocity.y).normalized * speed;
+                    if (!isInHorizontalDeadZone)
+                    {
+                        playerRb.velocity = new Vector2(controls.movementHorizontalInput, playerRb.velocity.y).normalized * speed;
+                    }
 
                     break;
                 #endregion
