@@ -6,7 +6,7 @@ namespace BootlegPlatformFighter
 {
     public class Hitbox : MonoBehaviour
     {
-        [SerializeField] private MonoBehaviour fightingScript;
+        private Fighting fightingScript;
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
@@ -29,6 +29,7 @@ namespace BootlegPlatformFighter
         {
             hitboxHandler = character.GetComponent<HitBoxHandler>();
             characterController = character.GetComponent<BootlegCharacterController>();
+            fightingScript = character.GetComponent<Fighting>();
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         }
 
@@ -38,7 +39,7 @@ namespace BootlegPlatformFighter
             
         }
 
-        public void SendToKnockback(Collider2D hitEnemy)
+        public void SendToKnockback(GameObject hitEnemy)
         {
             hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BootlegPlatformFighter
@@ -11,7 +12,7 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
-        [SerializeField] private LayerMask characterLayers;
+        [SerializeField] private LayerMask hurtBoxLayer;
         private HitBoxHandler hitboxHandler;
 
         private BootlegCharacterController enemyController;
@@ -63,19 +64,20 @@ namespace BootlegPlatformFighter
 
         public void FindEnemyInArea()
         {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, grabAreaRadius, characterLayers);
+            List<Collider2D> hitHurtBoxes = Physics2D.OverlapCircleAll(transform.position, grabAreaRadius, hurtBoxLayer).ToList();
 
-            if (hitEnemies.Length > 0)
+            if (hitHurtBoxes.Count > 0)
             {
-                foreach (Collider2D enemy in hitEnemies)
+                foreach (Collider2D hurtBox in hitHurtBoxes)
                 {
-                    Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
-                    enemyKnockback = enemy.gameObject.GetComponent<Knockback>();
-                    enemyController = enemy.gameObject.GetComponent<BootlegCharacterController>();
+                    HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+                    Fighting enemyFighting = hurtScript.character.GetComponent<Fighting>();
+                    enemyKnockback = enemyFighting.gameObject.GetComponent<Knockback>();
+                    enemyController = enemyFighting.gameObject.GetComponent<BootlegCharacterController>();
 
-                    if (enemyController.playerIndex != characterController.playerIndex)
+                    if (enemyController.characterIndex != characterController.characterIndex)
                     {
-                        if (enemyFighting.canBeHit)
+                        if (enemyFighting.canBeHit && hurtScript.canBeGrabbed)
                         {
                             
                             SetEnemyState(BootlegCharacterController.PlayerState.Grabbed);

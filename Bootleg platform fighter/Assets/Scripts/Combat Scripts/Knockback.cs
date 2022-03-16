@@ -11,7 +11,7 @@ namespace BootlegPlatformFighter
 
         Rigidbody2D rigidBody;
 
-        public float damageTakenPercent = 0.0f;
+        private BootlegCharacterController characterController;
 
         private float weight;
 
@@ -20,6 +20,7 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
+            characterController = GetComponent<BootlegCharacterController>();
             weight = gameObject.GetComponent<Rigidbody2D>().mass;
             rigidBody = gameObject.GetComponent<Rigidbody2D>();
             percentText.text = "0%";
@@ -33,13 +34,13 @@ namespace BootlegPlatformFighter
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
-            damageTakenPercent += damagePercent;
+            characterController.damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
             {*/
             //Debug.Log(direction);
-            direction = new Vector2(direction.x * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
+            direction = new Vector2(direction.x * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
-                    direction.y * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
+                    direction.y * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
             
            //Debug.Log(direction);
@@ -48,7 +49,7 @@ namespace BootlegPlatformFighter
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
-            percentText.text = damageTakenPercent + "%";
+            percentText.text = characterController.damageTakenPercent + "%";
             rigidBody.AddForce(direction);
         }
     }

@@ -21,7 +21,7 @@ namespace BootlegPlatformFighter
         {
             characterController = GetComponent<BootlegCharacterController>();
             fighting = GetComponent<Fighting>();
-            playerIndex = characterController.playerIndex;
+            playerIndex = characterController.characterIndex;
         }
 
         void FixedUpdate()
