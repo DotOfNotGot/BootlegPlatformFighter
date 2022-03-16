@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Metallic Material
+  m_Shader: {fileID: -6465566751694194690, guid: a6b8c91f1764f1f4984ee3b716aba3c1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2DArray_13ab76a2fa064f209365fa0720f4778e:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_c902e121b4e949b28452ad239da47fc1:
+        m_Texture: {fileID: 2800000, guid: 0fab9ec5286af0244bb62d135ab4da71, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_15dd0a98b2334ef896f374a41586001d_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8fe94d57690351947aaedb21895123a2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_45acac3d506b42a2b4ad00fc11e33e30_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8af5c94727f9728438523e91ff3e8109, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_7c648638062b4753bb6b805b23a80c4e: 1
+    m_Colors:
+    - Vector2_2458c7a933204ac28e7ae4963423a65d: {r: 40, g: 8, b: 0, a: 0}
+  m_BuildTextureStacks: []

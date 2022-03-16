@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metalic Pallete
-    second: {fileID: 2100000, guid: 37cd89d49a57532418b57b9d552e2647, type: 2}
+    second: {fileID: 2100000, guid: 1745bc900d5049d44b8b91afa9a63ad9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
