@@ -30,8 +30,6 @@ namespace BootlegPlatformFighter
             controls.movementVerticalInput = Input.GetAxisRaw("Movement_Vertical_" + playerIndex);
             controls.macroHorizontalInput = Input.GetAxisRaw("Macro_Horizontal_" + playerIndex);
             controls.macroVerticalInput = Input.GetAxisRaw("Macro_Vertical_" + playerIndex);
-
-
             controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
             controls.airdashButton = Input.GetButton("AirDash_&_Block_" + playerIndex);
             controls.normalAttackButton = Input.GetButton("Normal_Attack_" + playerIndex);
@@ -41,9 +39,7 @@ namespace BootlegPlatformFighter
 
             controls.SetStateChangeVariables(previousControls);
 
-            characterController.ProcessUpdate(controls);
-
-
+            characterController.ProcessUpdate(controls, previousControls);
             previousControls = controls;
         }
     }
