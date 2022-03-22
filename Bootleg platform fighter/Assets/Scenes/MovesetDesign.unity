@@ -1359,6 +1359,14 @@ PrefabInstance:
       propertyPath: percentText
       value: 
       objectReference: {fileID: 1449888272}
+    - target: {fileID: 5644011976999209724, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e2ca2122fe780747b844070d372c2a3, type: 3}
+    - target: {fileID: 5644011976999209724, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db35ca0d1319ca240a60afd5d755acf4, type: 2}
     - target: {fileID: 5644011976999209727, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1720,6 +1728,10 @@ PrefabInstance:
       propertyPath: characterIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881689, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db35ca0d1319ca240a60afd5d755acf4, type: 2}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_RootOrder
       value: 6
