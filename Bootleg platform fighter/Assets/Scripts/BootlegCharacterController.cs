@@ -7,7 +7,12 @@ namespace BootlegPlatformFighter
 {
     public class BootlegCharacterController : MonoBehaviour
     {
+<<<<<<< Updated upstream
         public int playerIndex;
+=======
+        //public ParticleSystem dust;
+        public int characterIndex; 
+>>>>>>> Stashed changes
 
         public struct Controls
         {
@@ -147,7 +152,11 @@ namespace BootlegPlatformFighter
                 isFacingLeft = false;
             }
 
+<<<<<<< Updated upstream
             if (controls.horizontalInput < deadZone && controls.horizontalInput > -deadZone)
+=======
+            if (controls.movementHorizontalInput < deadZone && controls.movementHorizontalInput > -deadZone)
+>>>>>>> Stashed changes
             {
                 isInHorizontalDeadZone = true;
             }
@@ -197,6 +206,7 @@ namespace BootlegPlatformFighter
                     // Changes state to GroundDashing.
                     if ((controls.horizontalInput > walkZone || controls.horizontalInput < -walkZone) && (previousIsInHorizontalDeadZone))
                     {
+<<<<<<< Updated upstream
 
                         if (previousPlayerState != PlayerState.LandingLag)
                         {
@@ -209,6 +219,10 @@ namespace BootlegPlatformFighter
                             playerState = PlayerState.GroundRunning;
                         }
 
+=======
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.GroundDashing;
+>>>>>>> Stashed changes
                     }
                     // Changes state to GroundWalking.
                     else if (!isInHorizontalDeadZone)
@@ -436,7 +450,19 @@ namespace BootlegPlatformFighter
                         if (groundRunningIdleCounter == 5)
                         {
                             previousPlayerState = playerState;
+<<<<<<< Updated upstream
                             playerState = PlayerState.GroundIdling;
+=======
+                            if (isInHorizontalDeadZone)
+                            {
+                                playerState = PlayerState.GroundIdling;
+                            }
+                            else
+                            {
+                                playerState = PlayerState.GroundWalking;
+                            }
+
+>>>>>>> Stashed changes
                             groundRunningIdleCounter = 0;
                         }
                     }
@@ -633,6 +659,12 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND_IDLING
                 case PlayerState.GroundIdling:
+<<<<<<< Updated upstream
+=======
+
+                    characterAnimation.SetBool("isIdling", true);
+
+>>>>>>> Stashed changes
                     break;
                 #endregion
                 #region GROUND_JUMPSQUATTING
@@ -649,6 +681,16 @@ namespace BootlegPlatformFighter
                 #region GROUND_DASHING
                 case PlayerState.GroundDashing:
 
+<<<<<<< Updated upstream
+=======
+                    characterAnimation.SetBool("isDashing", true);
+
+                    if (groundDashingCounter == 1)
+                    {
+                        TurnAround(controls);
+                    }
+
+>>>>>>> Stashed changes
                     playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
 
                     break;
@@ -801,5 +843,47 @@ namespace BootlegPlatformFighter
                 Physics2D.IgnoreLayerCollision(6, 6, false);
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Collided with " + collision.transform.name);
+            if (collision.transform.name.Contains("DeathZone"))
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        void TurnAround(Controls controls)
+        {
+            if (controls.movementHorizontalInput < -deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                isFacingLeft = true;
+            }
+            else if (controls.movementHorizontalInput > deadZone && isOnGround)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                isFacingLeft = false;
+            }
+        }
+
+        public void CallGrabScript()
+        {
+            grabEvent.Invoke();
+        }
+
+        //void CreateDust()
+        //{
+        //    dust.Play();
+        //}
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            transform.position = new Vector2(0, 20);
+            playerRb.velocity = new Vector2(0, 0);
+        }
+>>>>>>> Stashed changes
     }
 }
