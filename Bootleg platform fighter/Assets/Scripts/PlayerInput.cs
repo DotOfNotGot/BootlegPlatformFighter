@@ -13,7 +13,6 @@ namespace BootlegPlatformFighter
 
         private BootlegCharacterController characterController;
         private Fighting fighting;
-        [SerializeField] private Grab grab;
 
         private int playerIndex;
 
@@ -22,26 +21,25 @@ namespace BootlegPlatformFighter
         {
             characterController = GetComponent<BootlegCharacterController>();
             fighting = GetComponent<Fighting>();
-            playerIndex = characterController.playerIndex;
-
+            playerIndex = characterController.characterIndex;
         }
 
         void FixedUpdate()
         {
-            controls.horizontalInput = Input.GetAxisRaw("Horizontal_" + playerIndex);
-            controls.verticalInput = Input.GetAxisRaw("Vertical_" + playerIndex);
-
+            controls.movementHorizontalInput = Input.GetAxisRaw("Movement_Horizontal_" + playerIndex);
+            controls.movementVerticalInput = Input.GetAxisRaw("Movement_Vertical_" + playerIndex);
+            controls.macroHorizontalInput = Input.GetAxisRaw("Macro_Horizontal_" + playerIndex);
+            controls.macroVerticalInput = Input.GetAxisRaw("Macro_Vertical_" + playerIndex);
             controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
-            controls.airdashButton = Input.GetButton("Airdash_" + playerIndex);
-            controls.normalAttackButton = Input.GetButton("Normal Attack_" + playerIndex);
+            controls.airdashButton = Input.GetButton("AirDash_&_Block_" + playerIndex);
+            controls.normalAttackButton = Input.GetButton("Normal_Attack_" + playerIndex);
+            controls.specialAttackButton = Input.GetButton("Special_Attack_" + playerIndex);
             controls.grabButton = Input.GetButton("Grab_" + playerIndex);
+
 
             controls.SetStateChangeVariables(previousControls);
 
-            characterController.ProcessUpdate(controls);
-            fighting.HandleAttackInput(controls);
-            grab.HandleInput(controls);
-
+            characterController.ProcessUpdate(controls, previousControls);
             previousControls = controls;
         }
     }
