@@ -59,7 +59,7 @@ Material:
     - Cloth_Hue: 0
     m_Colors:
     - Color_3d12d9891a3541ef9a6cd49fe7de78ec: {r: 1, g: 0.7394291, b: 0, a: 0}
-    - Color_7c990e5e80044245a84769fd4ecd4fa1: {r: 0.3066038, g: 0.76200217, b: 1, a: 0}
+    - Color_7c990e5e80044245a84769fd4ecd4fa1: {r: 1, g: 0.7241976, b: 0, a: 0}
     - Color_d9e55ed2b0e449ee8d2134680fac10e3: {r: 1, g: 0.53550136, b: 0.5235849, a: 0}
     - _HairColor: {r: 0.83137256, g: 0.37254903, b: 0.5104583, a: 0}
   m_BuildTextureStacks: []
