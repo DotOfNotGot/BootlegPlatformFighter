@@ -10,7 +10,7 @@ namespace BootlegPlatformFighter
     public class BootlegCharacterController : MonoBehaviour
     {
         //public ParticleSystem dust;
-        public int characterIndex;
+        public int characterIndex; 
 
         public struct Controls
         {
@@ -1132,6 +1132,15 @@ namespace BootlegPlatformFighter
             else
             {
                 Physics2D.IgnoreLayerCollision(6, 6, false);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Collided with " + collision.transform.name);
+            if (collision.transform.name.Contains("DeathZone"))
+            {
+                Destroy(gameObject);
             }
         }
 

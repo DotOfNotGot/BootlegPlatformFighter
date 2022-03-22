@@ -7,14 +7,17 @@ namespace BootlegPlatformFighter
 {
     public class Knockback : MonoBehaviour
     {
-        [SerializeField] private TMP_Text percentText;
-
         Rigidbody2D rigidBody;
 
         private BootlegCharacterController characterController;
 
         private float weight;
 
+        // HUD STUFF
+        private GameObject _hudAvatar;
+        private TextMeshProUGUI _nameText;
+        private TextMeshProUGUI _healthText;
+        private GameObject _lifePanel;
 
 
         // Start is called before the first frame update
@@ -23,13 +26,13 @@ namespace BootlegPlatformFighter
             characterController = GetComponent<BootlegCharacterController>();
             weight = gameObject.GetComponent<Rigidbody2D>().mass;
             rigidBody = gameObject.GetComponent<Rigidbody2D>();
-            percentText.text = "0%";
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
+            if (!SetupHUD())
+            {
+                Debug.LogError("Didn't find any available HUDAvatars");
+            }
 
+            _healthText.text = "0%";
         }
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
@@ -49,8 +52,39 @@ namespace BootlegPlatformFighter
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
-            percentText.text = characterController.damageTakenPercent + "%";
+            _healthText.text = characterController.damageTakenPercent + "%";
             rigidBody.AddForce(direction);
+        }
+
+        private bool SetupHUD()
+        {
+            void makeSetup(GameObject avatar)
+            {
+                _hudAvatar = avatar;
+                _nameText = avatar.transform.Find("NamePanel").Find("NameText").GetComponent<TextMeshProUGUI>();
+                _healthText = avatar.transform.Find("DataPanel").Find("HealthText").GetComponent<TextMeshProUGUI>();
+                _lifePanel = avatar.transform.Find("DataPanel").Find("LifePanel").gameObject;
+            }
+
+            GameObject backupObject = null;
+            var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
+            foreach (var avatar in avatars)
+            {
+                var hudscript = avatar.GetComponent<HUDAvatar>();
+                if (hudscript.getCharacterIndex() == -1)
+                {
+                    hudscript.setCharacterIndex(characterController.characterIndex);
+                    makeSetup(avatar);
+                    return true;
+                }
+                if (hudscript.getCharacterIndex() == characterController.characterIndex)
+                    backupObject = avatar;
+            }
+            if (backupObject != null) {
+                makeSetup(backupObject);
+                return true;
+            }
+            return false;
         }
     }
 }
