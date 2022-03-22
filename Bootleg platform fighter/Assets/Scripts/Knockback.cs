@@ -13,14 +13,11 @@ namespace BootlegPlatformFighter
 
         private float weight;
 
-<<<<<<< Updated upstream:Bootleg platform fighter/Assets/Scripts/Knockback.cs
-=======
         // HUD STUFF
         private GameObject _hudAvatar;
         private TextMeshProUGUI _nameText;
         private TextMeshProUGUI _healthText;
         private GameObject _lifePanel;
->>>>>>> Stashed changes:Bootleg platform fighter/Assets/Scripts/Combat Scripts/Knockback.cs
 
         // Start is called before the first frame update
         void Start()
@@ -36,42 +33,25 @@ namespace BootlegPlatformFighter
             _healthText.text = "0%";
         }
 
-<<<<<<< Updated upstream:Bootleg platform fighter/Assets/Scripts/Knockback.cs
-        public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent, float angle)
-=======
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling, float damagePercent)
->>>>>>> Stashed changes:Bootleg platform fighter/Assets/Scripts/Combat Scripts/Knockback.cs
         {
             damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
             {*/
             //Debug.Log(direction);
-<<<<<<< Updated upstream:Bootleg platform fighter/Assets/Scripts/Knockback.cs
-            direction = new Vector2(direction.x * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
-                    * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
-                    direction.y * (((((damageTakenPercent / 10 + (damageTakenPercent * damagePercent) / 20)
-                    * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
-            
-            Debug.Log(direction);
-=======
             direction = new Vector2(direction.x * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback),
                     direction.y * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
 
             //Debug.Log(direction);
->>>>>>> Stashed changes:Bootleg platform fighter/Assets/Scripts/Combat Scripts/Knockback.cs
             //}
             /*else
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
-<<<<<<< Updated upstream:Bootleg platform fighter/Assets/Scripts/Knockback.cs
-            percentText.text = damageTakenPercent + "%";
-=======
             _healthText.text = characterController.damageTakenPercent + "%";
->>>>>>> Stashed changes:Bootleg platform fighter/Assets/Scripts/Combat Scripts/Knockback.cs
             rigidBody.AddForce(direction);
         }
 
