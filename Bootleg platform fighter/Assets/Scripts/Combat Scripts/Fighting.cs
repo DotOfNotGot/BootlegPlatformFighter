@@ -42,7 +42,6 @@ namespace BootlegPlatformFighter
             horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
             verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
-            HandleAttackInput(controls);
 
         }
 
@@ -58,67 +57,6 @@ namespace BootlegPlatformFighter
             }
 
         }
-
-        
-
-        public void HandleAttackInput(BootlegCharacterController.Controls controls)
-        {
-            /*
-             Depending on the current playerState in BootlegCharacterController.cs, 
-            and which attack inputs are being pressed, different variables will be 
-            used for the different attacks.
-
-            KeyCode as input is Placeholder only, should be replaced with
-            a way that allows for customizability.
-             */
-            switch (characterController.playerState)
-            {
-                #region GROUND IDLING
-                case BootlegCharacterController.PlayerState.GroundIdling:
-
-
-                    if (controls.normalAttackButtonPressed)
-                    {
-
-                    }
-
-                    if ((controls.normalAttackButtonPressed && controls.verticalInput > 0))
-                    {
-                        
-                    }
-                    else if ((controls.normalAttackButtonPressed && controls.verticalInput < 0))
-                    {
-                        
-                    }
-                    else if (controls.normalAttackButtonPressed)
-                    {
-                        characterController.playerState = BootlegCharacterController.PlayerState.Jab;
-                    }
-
-                    break;
-                #endregion
-                #region GROUND DASH & GROUND RUN
-                case BootlegCharacterController.PlayerState.GroundDashing:
-                case BootlegCharacterController.PlayerState.GroundRunning:
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-
-                    }
-                    break;
-                #endregion
-                case BootlegCharacterController.PlayerState.GroundCrouching:
-                    if (Input.GetKeyDown(KeyCode.E) || controls.normalAttackButton)
-                    {
-
-                    }
-                    break;
-                default:
-                    break;
-
-            }
-
-        }
-
 
         public IEnumerator HitLag(int frameCount)
         {

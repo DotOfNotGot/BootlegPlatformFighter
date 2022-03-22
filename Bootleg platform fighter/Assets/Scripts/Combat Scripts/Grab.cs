@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BootlegPlatformFighter
@@ -8,15 +9,22 @@ namespace BootlegPlatformFighter
     {
 
         private Fighting fightingScript;
-        public BootlegCharacterController.Controls controls;
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
-        [SerializeField] private LayerMask characterLayers;
+        [SerializeField] private LayerMask hurtBoxLayer;
         private HitBoxHandler hitboxHandler;
+
+        private BootlegCharacterController enemyController;
+        private Knockback enemyKnockback;
 
         [Header("Collider")]
         [SerializeField] public float grabAreaRadius;
+
+        [Header("Damage")]
+        [SerializeField] public float damage;
+        [SerializeField] public float baseKnockback;
+        [SerializeField] public float knockbackScaling = 0.1f;
 
 
         void Start()
@@ -28,55 +36,68 @@ namespace BootlegPlatformFighter
 
         private void FixedUpdate()
         {
-            
+            if (enemyController != null)
+            {
+                if (enemyController.playerState == BootlegCharacterController.PlayerState.Grabbed && characterController.playerState == BootlegCharacterController.PlayerState.Grab)
+                {
+                    if (characterController.moveVector.x != 0)
+                    {
+                        enemyKnockback.KnockBack(new Vector2(characterController.moveVector.x, 0), baseKnockback, knockbackScaling, damage);
+                        ResetEnemy();
+                        characterController.ExitAnimation();
+
+                    }
+                    else if (characterController.moveVector.y != 0)
+                    {
+                        enemyKnockback.KnockBack(new Vector2(0,characterController.moveVector.y), baseKnockback, knockbackScaling, damage);
+                        ResetEnemy();
+                        characterController.ExitAnimation();
+                    }
+                }
+                else if (characterController.playerState == BootlegCharacterController.PlayerState.Grab)
+                {
+                    ResetEnemy();
+
+                }
+            }
         }
 
         public void FindEnemyInArea()
         {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, grabAreaRadius, characterLayers);
+            List<Collider2D> hitHurtBoxes = Physics2D.OverlapCircleAll(transform.position, grabAreaRadius, hurtBoxLayer).ToList();
 
-            if (hitEnemies.Length > 0)
+            if (hitHurtBoxes.Count > 0)
             {
-                foreach (Collider2D enemy in hitEnemies)
+                foreach (Collider2D hurtBox in hitHurtBoxes)
                 {
-                    Fighting enemyFighting = enemy.gameObject.GetComponent<Fighting>();
+                    HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+                    Fighting enemyFighting = hurtScript.character.GetComponent<Fighting>();
+                    enemyKnockback = enemyFighting.gameObject.GetComponent<Knockback>();
+                    enemyController = enemyFighting.gameObject.GetComponent<BootlegCharacterController>();
 
-
-                    if (enemy.gameObject.GetComponent<BootlegCharacterController>().playerIndex != character.gameObject.GetComponent<BootlegCharacterController>().playerIndex)
+                    if (enemyController.characterIndex != characterController.characterIndex)
                     {
-
-                            enemy.gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.Grabbed;
-                            characterController.playerState = BootlegCharacterController.PlayerState.Grab;
-                        StartCoroutine(GrabTimer(5, enemy));
-                        Debug.Log("Grabbed");
-                        
+                        if (enemyFighting.canBeHit && hurtScript.canBeGrabbed)
+                        {
+                            
+                            SetEnemyState(BootlegCharacterController.PlayerState.Grabbed);
+                            break;
+                        }
                     }
                 }
             }
         }
 
-        public void HandleInput(BootlegCharacterController.Controls controls)
+        private void ResetEnemy()
         {
-            switch (characterController.playerState)
-            {
-                case BootlegCharacterController.PlayerState.GroundIdling:
-                    if (controls.grabButtonPressed)
-                    {
-                        FindEnemyInArea();
-                    }
-                    break;
-                default:
-                    break;
-            }
+            enemyController = null;
+            enemyKnockback = null;
         }
 
-        IEnumerator GrabTimer(float seconds, Collider2D enemy)
+        public void SetEnemyState(BootlegCharacterController.PlayerState playerState)
         {
-            yield return new WaitForSeconds(seconds);
-            character.GetComponent<Animator>().SetBool("isGrabbing", false);
-            characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
-            enemy.gameObject.GetComponent<BootlegCharacterController>().playerState = BootlegCharacterController.PlayerState.GroundIdling;
-
+            
+            enemyController.playerState = playerState;
         }
 
         private void OnDrawGizmosSelected()

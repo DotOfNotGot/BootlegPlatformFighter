@@ -7,6 +7,7 @@ namespace BootlegPlatformFighter
     public class CharacterAI : MonoBehaviour
     {
         public BootlegCharacterController.Controls controls;
+        private BootlegCharacterController.Controls previousControls;
 
         private BootlegCharacterController characterController;
 
@@ -19,7 +20,8 @@ namespace BootlegPlatformFighter
         {
 
             // TODO: Set controls by AI.
-            characterController.ProcessUpdate(controls);
+            characterController.ProcessUpdate(controls, previousControls);
+            previousControls = controls;
         }
     }
 }
