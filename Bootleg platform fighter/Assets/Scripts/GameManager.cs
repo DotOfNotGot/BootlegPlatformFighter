@@ -34,18 +34,18 @@ namespace BootlegPlatformFighter
             colliderpoints[1] = new Vector2(rTCorner.x, lBCorner.y);
             lowerEdge.points = colliderpoints;
 
-            EdgeCollider2D leftEdge = new GameObject("rightDeathZone").AddComponent<EdgeCollider2D>();
-            colliderpoints = leftEdge.points;
+            EdgeCollider2D rightEdge = new GameObject("rightDeathZone").AddComponent<EdgeCollider2D>();
+            colliderpoints = rightEdge.points;
             colliderpoints[0] = new Vector2(rTCorner.x, rTCorner.y);
             colliderpoints[1] = new Vector2(rTCorner.x, lBCorner.y);
-            leftEdge.points = colliderpoints;
+            rightEdge.points = colliderpoints;
 
-            EdgeCollider2D rightEdge = new GameObject("leftDeathZone").AddComponent<EdgeCollider2D>();
+            EdgeCollider2D leftEdge = new GameObject("leftDeathZone").AddComponent<EdgeCollider2D>();
 
-            colliderpoints = rightEdge.points;
+            colliderpoints = leftEdge.points;
             colliderpoints[0] = new Vector2(lBCorner.x, rTCorner.y);
             colliderpoints[1] = new Vector2(lBCorner.x, lBCorner.y);
-            rightEdge.points = colliderpoints;
+            leftEdge.points = colliderpoints;
         }
     }
 }
