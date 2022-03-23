@@ -13,11 +13,7 @@ namespace BootlegPlatformFighter
 
         private float weight;
 
-        // HUD STUFF
-        private GameObject _hudAvatar;
-        private TextMeshProUGUI _nameText;
-        private TextMeshProUGUI _healthText;
-        private GameObject _lifePanel;
+        private HUDAvatar _HUDAvatar;
 
 
         // Start is called before the first frame update
@@ -32,7 +28,7 @@ namespace BootlegPlatformFighter
                 Debug.LogError("Didn't find any available HUDAvatars");
             }
 
-            _healthText.text = "0%";
+            _HUDAvatar.SetHealth(0);
         }
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
@@ -45,28 +41,20 @@ namespace BootlegPlatformFighter
                     * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
                     direction.y * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
-            
-           //Debug.Log(direction);
+
+            //Debug.Log(direction);
             //}
             /*else
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
-            _healthText.text = characterController.damageTakenPercent + "%";
+            _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
         }
 
         private bool SetupHUD()
         {
-            void makeSetup(GameObject avatar)
-            {
-                _hudAvatar = avatar;
-                _nameText = avatar.transform.Find("NamePanel").Find("NameText").GetComponent<TextMeshProUGUI>();
-                _healthText = avatar.transform.Find("DataPanel").Find("HealthText").GetComponent<TextMeshProUGUI>();
-                _lifePanel = avatar.transform.Find("DataPanel").Find("LifePanel").gameObject;
-            }
-
-            GameObject backupObject = null;
+            HUDAvatar backupObject = null;
             var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
             foreach (var avatar in avatars)
             {
@@ -74,14 +62,14 @@ namespace BootlegPlatformFighter
                 if (hudscript.getCharacterIndex() == -1)
                 {
                     hudscript.setCharacterIndex(characterController.characterIndex);
-                    makeSetup(avatar);
+                    _HUDAvatar = hudscript;
                     return true;
                 }
                 if (hudscript.getCharacterIndex() == characterController.characterIndex)
-                    backupObject = avatar;
+                    backupObject = hudscript;
             }
             if (backupObject != null) {
-                makeSetup(backupObject);
+                _HUDAvatar = backupObject;
                 return true;
             }
             return false;
