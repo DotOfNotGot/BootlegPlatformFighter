@@ -10,7 +10,7 @@ namespace BootlegPlatformFighter
     public class BootlegCharacterController : MonoBehaviour
     {
         //public ParticleSystem dust;
-        public int characterIndex; 
+        public int characterIndex;
 
         public struct Controls
         {
@@ -186,7 +186,7 @@ namespace BootlegPlatformFighter
             {
                 isInWalkZone = false;
             }
-            
+
             if (controls.movementHorizontalInput < deadZone && controls.movementHorizontalInput > -deadZone)
             {
                 isInHorizontalDeadZone = true;
@@ -261,8 +261,8 @@ namespace BootlegPlatformFighter
                     // Changes state to GroundDashing.
                     if ((controls.movementHorizontalInput > walkZone || controls.movementHorizontalInput < -walkZone) && (previousIsInHorizontalDeadZone))
                     {
-                            previousPlayerState = playerState;
-                            playerState = PlayerState.GroundDashing;
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.GroundDashing;
                     }
                     // Changes state to GroundWalking.
                     else if (!isInHorizontalDeadZone)
@@ -517,7 +517,7 @@ namespace BootlegPlatformFighter
                             {
                                 playerState = PlayerState.GroundWalking;
                             }
-                            
+
                             groundRunningIdleCounter = 0;
                         }
                     }
@@ -844,8 +844,8 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND_IDLING
                 case PlayerState.GroundIdling:
-                   
-                        characterAnimation.SetBool("isIdling", true);
+
+                    characterAnimation.SetBool("isIdling", true);
 
                     break;
                 #endregion
@@ -871,7 +871,7 @@ namespace BootlegPlatformFighter
                     {
                         TurnAround(controls);
                     }
-                    
+
                     playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
 
                     break;
@@ -1125,21 +1125,20 @@ namespace BootlegPlatformFighter
             }
         }
 
-        private void PlayerCollisionCheck()
+        private bool PlayerCollisionCheck()
         {
             if ((playerRb.velocity.x > 10 || playerRb.velocity.x < -10) || playerRb.velocity.y != 0 || debugPlayerColissionOff)
             {
                 Physics2D.IgnoreLayerCollision(6, 6, true);
+                return true;
             }
-            else
-            {
-                Physics2D.IgnoreLayerCollision(6, 6, false);
-            }
+            Physics2D.IgnoreLayerCollision(6, 6, false);
+            return false;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Collided with " + collision.transform.name);
+            //Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
                 gameManager.RespawnPlayer(gameObject, characterIndex);
