@@ -10,32 +10,14 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private int _CharacterIndex = -1; // CharacterIndex it's displaying data for
 
-        private TextMeshProUGUI _nameText;
-        private TextMeshProUGUI _healthText;
         private GameObject _lifePanel;
-
-        private bool hasBeenInitialized = false;
-        private void Start()
+        private TextMeshProUGUI HealthText { get; set; }
+        private TextMeshProUGUI NameText { get; set; }
+        private void Awake()
         {
-            if (!hasBeenInitialized)
-            {
-                _nameText = transform.Find("NamePanel").Find("NameText").GetComponent<TextMeshProUGUI>();
-                _healthText = transform.Find("DataPanel").Find("HealthText").GetComponent<TextMeshProUGUI>();
-                _lifePanel = transform.Find("DataPanel").Find("LifePanel").gameObject;
-                hasBeenInitialized = true;
-            }
-        }
-        private TextMeshProUGUI getHealthText()
-        {
-            if (!_healthText)
-                Start();
-            return _healthText;
-        }
-        private TextMeshProUGUI getNameText()
-        {
-            if (!_nameText)
-                Start();
-            return _nameText;
+            NameText = transform.Find("NamePanel").Find("NameText").GetComponent<TextMeshProUGUI>();
+            HealthText = transform.Find("DataPanel").Find("HealthText").GetComponent<TextMeshProUGUI>();
+            _lifePanel = transform.Find("DataPanel").Find("LifePanel").gameObject;
         }
         public void setCharacterIndex(int idx)
         {
@@ -47,8 +29,6 @@ namespace BootlegPlatformFighter
         }
         public int getHealthCount()
         {
-            if (!_lifePanel)
-                Start();
             return _lifePanel.transform.childCount;
         }
         public void RemoveOneHeart()
@@ -58,11 +38,11 @@ namespace BootlegPlatformFighter
         }
         public void SetName(string text)
         {
-            getNameText().text = text;
+            NameText.text = text;
         }
         public void SetHealth(float percentage)
         {
-            getHealthText().text = percentage + "%";
+            HealthText.text = percentage + "%";
         }
     }
 }
