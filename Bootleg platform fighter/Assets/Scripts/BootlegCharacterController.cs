@@ -64,6 +64,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
+        private GameManager gameManager;
 
         // State variables
         public PlayerState playerState;
@@ -167,6 +168,7 @@ namespace BootlegPlatformFighter
             playerCollider = GetComponent<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
         public void ProcessUpdate(Controls controls, Controls previousControls)
@@ -1140,7 +1142,7 @@ namespace BootlegPlatformFighter
             Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
-                Destroy(gameObject);
+                gameManager.RespawnPlayer(gameObject, characterIndex);
             }
         }
 

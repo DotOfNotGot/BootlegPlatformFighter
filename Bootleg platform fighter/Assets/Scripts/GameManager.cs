@@ -6,6 +6,12 @@ namespace BootlegPlatformFighter
 {
     public class GameManager : MonoBehaviour
     {
+        public Transform spawnPosition1;
+        public Transform spawnPosition2;
+        public Transform spawnPosition3;
+        public Transform spawnPosition4;
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -13,7 +19,27 @@ namespace BootlegPlatformFighter
             GenerateCollidersAcrossScreen();
         }
 
-       
+        HUDAvatar findHudAvatarByIdx(int idx)
+        {
+            var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
+            foreach (var avatar in avatars)
+            {
+                var script = avatar.GetComponent<HUDAvatar>();
+                if (idx == script.getCharacterIndex())
+                    return script;
+            }
+            return null;
+        }
+       public void RespawnPlayer(GameObject player, int index)
+        {
+            player.transform.position = spawnPosition1.position;
+            var hud = findHudAvatarByIdx(index);
+            if (!hud){
+                Debug.Log("Missing HUD in RespawnPlayer");
+                return;
+            }
+            hud.RemoveOneHeart();
+        }
 
         void GenerateCollidersAcrossScreen()
         {
