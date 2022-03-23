@@ -8,26 +8,39 @@ namespace BootlegPlatformFighter
     {
 
         public BootlegCharacterController.Controls controls;
+        private BootlegCharacterController.Controls previousControls;
+
 
         private BootlegCharacterController characterController;
+        private Fighting fighting;
+
+        private int playerIndex;
 
 
         private void Start()
         {
             characterController = GetComponent<BootlegCharacterController>();
+            fighting = GetComponent<Fighting>();
+            playerIndex = characterController.characterIndex;
         }
 
         void FixedUpdate()
         {
-            controls.horizontalInput = Input.GetAxisRaw("Horizontal");
-            controls.verticalInput = Input.GetAxisRaw("Vertical");
+            controls.movementHorizontalInput = Input.GetAxisRaw("Movement_Horizontal_" + playerIndex);
+            controls.movementVerticalInput = Input.GetAxisRaw("Movement_Vertical_" + playerIndex);
+            controls.macroHorizontalInput = Input.GetAxisRaw("Macro_Horizontal_" + playerIndex);
+            controls.macroVerticalInput = Input.GetAxisRaw("Macro_Vertical_" + playerIndex);
+            controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
+            controls.airdashButton = Input.GetButton("AirDash_&_Block_" + playerIndex);
+            controls.normalAttackButton = Input.GetButton("Normal_Attack_" + playerIndex);
+            controls.specialAttackButton = Input.GetButton("Special_Attack_" + playerIndex);
+            controls.grabButton = Input.GetButton("Grab_" + playerIndex);
 
-            controls.jumpButton = Input.GetButton("Jump");
 
-            controls.airdashButton = Input.GetButton("Airdash");
-            // For controllers
-            controls.airdashAxis = Input.GetAxisRaw("Airdash");
-            characterController.ProcessUpdate(controls);
+            controls.SetStateChangeVariables(previousControls);
+
+            characterController.ProcessUpdate(controls, previousControls);
+            previousControls = controls;
         }
     }
 }

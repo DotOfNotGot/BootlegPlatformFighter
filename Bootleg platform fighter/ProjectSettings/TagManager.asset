@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Character
-  - 
-  - 
+  - PostProcessing
+  - Hurtbox
   - 
   - 
   - 
@@ -43,4 +43,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4215163987
+    locked: 0
+  - name: MiddleGround 1
+    uniqueID: 1611230191
+    locked: 0
+  - name: MiddleGround 2
+    uniqueID: 3274978525
+    locked: 0
+  - name: Stage
+    uniqueID: 2949326271
+    locked: 0
+  - name: Doodads
+    uniqueID: 1483775707
+    locked: 0
+  - name: Foreground
+    uniqueID: 4276066951
+    locked: 0
+  - name: Characters
+    uniqueID: 3017004865
     locked: 0
