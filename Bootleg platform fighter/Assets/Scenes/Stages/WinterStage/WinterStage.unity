@@ -5599,6 +5599,10 @@ PrefabInstance:
       propertyPath: playerIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: characterIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209718, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_Name
       value: Huldra

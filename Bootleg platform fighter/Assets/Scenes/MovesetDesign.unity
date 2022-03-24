@@ -1308,9 +1308,17 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[0].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5018c5b20a5d28e4dbe7245b5650e98a, type: 3}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: audioArray.Array.data[0].Name
       value: Jab0
       objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8794d70930957634c8f82d2af258fdab, type: 3}
     - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: audioArray.Array.data[1].Name
       value: Jab1
@@ -1319,6 +1327,14 @@ PrefabInstance:
       propertyPath: audioArray.Array.data[1].clip
       value: 
       objectReference: {fileID: 8300000, guid: 8794d70930957634c8f82d2af258fdab, type: 3}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[0].Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695587620025694024, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: audioArray.Array.data[1].Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3210681179050193898, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1333,15 +1349,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0.155
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: playerIndex
@@ -1354,6 +1370,10 @@ PrefabInstance:
     - target: {fileID: 5644011976999209718, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_Name
       value: Huldra
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209718, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209721, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: percentText
@@ -1720,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterBase
       objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881683, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5559258806288881686, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -1731,7 +1755,7 @@ PrefabInstance:
     - target: {fileID: 5559258806288881689, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: db35ca0d1319ca240a60afd5d755acf4, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_RootOrder
       value: 6
