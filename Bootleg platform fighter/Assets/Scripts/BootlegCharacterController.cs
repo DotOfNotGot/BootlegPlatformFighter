@@ -1136,12 +1136,18 @@ namespace BootlegPlatformFighter
             return false;
         }
 
+        private IEnumerator DelayRespawn() 
+        {
+            yield return new WaitForSeconds(3);
+            gameManager.RespawnPlayer(gameObject, characterIndex);
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             //Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
-                gameManager.RespawnPlayer(gameObject, characterIndex);
+                StartCoroutine(DelayRespawn());
             }
         }
 
