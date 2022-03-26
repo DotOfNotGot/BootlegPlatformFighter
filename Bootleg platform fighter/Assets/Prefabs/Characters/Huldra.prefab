@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4395057139521266, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395057139521266, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991075854784640626, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle
+      objectReference: {fileID: 0}
     - target: {fileID: 1509292359655318957, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: audioArray.Array.size
       value: 1
@@ -34,6 +46,10 @@ PrefabInstance:
     - target: {fileID: 2706880230618558565, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116409042722791702, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Radius
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 3457457289018515727, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_Name
@@ -95,6 +111,22 @@ PrefabInstance:
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881687, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881687, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 12.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881687, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559258806288881689, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e76dcc031e5c1e447b8c2449e7d58148, type: 3}
     - target: {fileID: 5559258806288881690, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -139,6 +171,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6398172742296583590, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398172742296583590, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398172742296583590, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398172742296583590, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.24
+      objectReference: {fileID: 0}
     - target: {fileID: 6535336892734643548, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.072
@@ -174,6 +222,10 @@ PrefabInstance:
     - target: {fileID: 7472948338154982381, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: knockbackScaling
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597576684099252921, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle0_Hurtbox0
       objectReference: {fileID: 0}
     - target: {fileID: 8216983925662335042, guid: aba443a8bf89a564cb0be62e5f769602, type: 3}
       propertyPath: angle

@@ -5579,6 +5579,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 250626891747722263, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059745239951910039, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle
+      objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209714, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.21
@@ -5598,6 +5606,10 @@ PrefabInstance:
     - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: playerIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644011976999209715, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: characterIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5644011976999209718, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_Name
@@ -5686,6 +5698,10 @@ PrefabInstance:
     - target: {fileID: 5644011976999209727, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639786322892136540, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}
+      propertyPath: m_Name
+      value: Huldra_Idle0_Hurtbox0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da19aa1c4c11aea4480fb77e1616dd0a, type: 3}

@@ -36,6 +36,7 @@ namespace BootlegPlatformFighter
                 }
                 moveStructures.Add(newStruct);
             }
+            defaultHurtBoxSet.SetActive(true);
         }
 
         private void FixedUpdate()
