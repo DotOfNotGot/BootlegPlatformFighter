@@ -108,8 +108,8 @@ namespace BootlegPlatformFighter
                                 {
                                     enemyFighting.canBeHit = false;
                                     enemyFighting.StartCoroutine(enemyFighting.HitLag(hitLag));
+                                    Debug.Log("Hit " + hurtBox.name + " Belonging to " + hurtScript.character.name + " with " + hitbox.name + " belonging to " + gameObject.name);
                                     hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
-                                    Debug.Log("Hit " + hurtBox.name +  "with " + hitbox.name);
                                 }
                             }
                         }

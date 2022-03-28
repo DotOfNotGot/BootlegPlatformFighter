@@ -1169,10 +1169,6 @@ namespace BootlegPlatformFighter
         //    dust.Play();
         //}
 
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            transform.position = new Vector2(0, 20);
-            playerRb.velocity = new Vector2(0, 0);
-        }
+
     }
 }
