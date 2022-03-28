@@ -54,8 +54,7 @@ namespace BootlegPlatformFighter
             
         }
 
-
-        private void PlaySound(AudioClip clip)
+        private void PlaySound(AudioClip clip, float Volume = 1.0f)
         {
             source.PlayOneShot(clip);
         }
