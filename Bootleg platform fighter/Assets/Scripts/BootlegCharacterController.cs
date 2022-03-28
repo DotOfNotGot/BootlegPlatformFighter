@@ -64,6 +64,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
+        private GameManager gameManager;
 
         // State variables
         public PlayerState playerState;
@@ -167,6 +168,7 @@ namespace BootlegPlatformFighter
             playerCollider = GetComponent<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
         public void ProcessUpdate(Controls controls, Controls previousControls)
@@ -184,7 +186,7 @@ namespace BootlegPlatformFighter
             {
                 isInWalkZone = false;
             }
-            
+
             if (controls.movementHorizontalInput < deadZone && controls.movementHorizontalInput > -deadZone)
             {
                 isInHorizontalDeadZone = true;
@@ -259,8 +261,8 @@ namespace BootlegPlatformFighter
                     // Changes state to GroundDashing.
                     if ((controls.movementHorizontalInput > walkZone || controls.movementHorizontalInput < -walkZone) && (previousIsInHorizontalDeadZone))
                     {
-                            previousPlayerState = playerState;
-                            playerState = PlayerState.GroundDashing;
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.GroundDashing;
                     }
                     // Changes state to GroundWalking.
                     else if (!isInHorizontalDeadZone)
@@ -515,7 +517,7 @@ namespace BootlegPlatformFighter
                             {
                                 playerState = PlayerState.GroundWalking;
                             }
-                            
+
                             groundRunningIdleCounter = 0;
                         }
                     }
@@ -842,8 +844,8 @@ namespace BootlegPlatformFighter
             {
                 #region GROUND_IDLING
                 case PlayerState.GroundIdling:
-                   
-                        characterAnimation.SetBool("isIdling", true);
+
+                    characterAnimation.SetBool("isIdling", true);
 
                     break;
                 #endregion
@@ -869,7 +871,7 @@ namespace BootlegPlatformFighter
                     {
                         TurnAround(controls);
                     }
-                    
+
                     playerRb.velocity = new Vector2(dashStartHorizontalInput, playerRb.velocity.y).normalized * speed;
 
                     break;
@@ -1123,15 +1125,23 @@ namespace BootlegPlatformFighter
             }
         }
 
-        private void PlayerCollisionCheck()
+        private bool PlayerCollisionCheck()
         {
             if ((playerRb.velocity.x > 10 || playerRb.velocity.x < -10) || playerRb.velocity.y != 0 || debugPlayerColissionOff)
             {
                 Physics2D.IgnoreLayerCollision(6, 6, true);
+                return true;
             }
-            else
+            Physics2D.IgnoreLayerCollision(6, 6, false);
+            return false;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            //Debug.Log("Collided with " + collision.transform.name);
+            if (collision.transform.name.Contains("DeathZone"))
             {
-                Physics2D.IgnoreLayerCollision(6, 6, false);
+                gameManager.RespawnPlayer(gameObject, characterIndex);
             }
         }
 

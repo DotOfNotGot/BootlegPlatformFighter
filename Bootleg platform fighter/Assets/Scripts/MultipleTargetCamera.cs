@@ -27,10 +27,13 @@ namespace BootlegPlatformFighter
 
         void LateUpdate()
         {
-            if (targets.Count == 0)
+            if (targets.Count == 0) // will be false because you've set size to 2 in the editor
             {
                 return;
             }
+
+            if (targets[0] == null) // this check will work tho
+                return;
 
             Move();
             Zoom();
