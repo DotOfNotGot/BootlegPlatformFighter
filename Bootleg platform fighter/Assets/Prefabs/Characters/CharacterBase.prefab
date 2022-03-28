@@ -449,6 +449,7 @@ MonoBehaviour:
   characterIndex: 0
   isInHorizontalDeadZone: 0
   isInVerticalDeadZone: 0
+  isInWalkZone: 0
   speed: 26.25
   jumpForce: 40
   shortHopForce: 30

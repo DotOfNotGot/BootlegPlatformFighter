@@ -49,7 +49,7 @@ namespace BootlegPlatformFighter
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
-            percentText.text = characterController.damageTakenPercent + "%";
+            //percentText.text = characterController.damageTakenPercent + "%";
             rigidBody.AddForce(direction);
         }
     }
