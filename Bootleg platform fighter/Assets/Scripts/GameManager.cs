@@ -12,6 +12,11 @@ namespace BootlegPlatformFighter
         public Transform spawnPosition3;
         public Transform spawnPosition4;
 
+        [SerializeField]
+        private GameObject explosionPrefab;
+
+        public GameObject ExplosionPrefab { get { return explosionPrefab; } }
+
 
         // Start is called before the first frame update
         void Start()

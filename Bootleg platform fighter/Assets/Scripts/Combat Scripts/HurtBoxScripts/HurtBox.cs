@@ -17,7 +17,7 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            characterController = character.GetComponent<BootlegCharacterController>();
+            characterController = character.GetComponentInParent<BootlegCharacterController>();
             characterIndex = characterController.characterIndex;
         }
 
