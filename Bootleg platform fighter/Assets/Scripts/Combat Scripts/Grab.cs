@@ -12,6 +12,7 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
+        private AnimationHandler animationHandler;
         [SerializeField] private LayerMask hurtBoxLayer;
         private HitBoxHandler hitboxHandler;
 
@@ -32,6 +33,7 @@ namespace BootlegPlatformFighter
             hitboxHandler = character.GetComponent<HitBoxHandler>();
             characterController = character.GetComponent<BootlegCharacterController>();
             fightingScript = character.GetComponent<Fighting>();
+            animationHandler = GetComponent<AnimationHandler>();
         }
 
         private void FixedUpdate()
@@ -44,14 +46,14 @@ namespace BootlegPlatformFighter
                     {
                         enemyKnockback.KnockBack(new Vector2(characterController.moveVector.x, 0), baseKnockback, knockbackScaling, damage);
                         ResetEnemy();
-                        characterController.ExitAnimation();
+                        animationHandler.ExitAnimation();
 
                     }
                     else if (characterController.moveVector.y != 0)
                     {
                         enemyKnockback.KnockBack(new Vector2(0,characterController.moveVector.y), baseKnockback, knockbackScaling, damage);
                         ResetEnemy();
-                        characterController.ExitAnimation();
+                        animationHandler.ExitAnimation();
                     }
                 }
                 else if (characterController.playerState == BootlegCharacterController.PlayerState.Grab)
@@ -79,7 +81,6 @@ namespace BootlegPlatformFighter
                     {
                         if (enemyFighting.canBeHit && hurtScript.canBeGrabbed)
                         {
-                            
                             SetEnemyState(BootlegCharacterController.PlayerState.Grabbed);
                             break;
                         }

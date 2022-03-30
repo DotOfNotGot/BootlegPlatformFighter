@@ -28,7 +28,7 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            characterController = gameObject.GetComponent<BootlegCharacterController>();
+            characterController = gameObject.GetComponentInParent<BootlegCharacterController>();
             attackPoint.localScale = new Vector3(8 * attackRange, 8 * attackRange, 8 * attackRange);
         }
 
@@ -39,8 +39,8 @@ namespace BootlegPlatformFighter
              * determine the Vector2 of the attackPoint.*/
 
             Debug.DrawRay(transform.position, new Vector2((direction.x * 5) * horizontalInput, direction.y * 5), Color.green);
-            horizontalInput = GetComponent<BootlegCharacterController>().moveVector.x;
-            verticalInput = GetComponent<BootlegCharacterController>().moveVector.y;
+            horizontalInput = characterController.moveVector.x;
+            verticalInput = characterController.moveVector.y;
             UpdateAttackPoint(new Vector2(horizontalInput, verticalInput));
 
         }

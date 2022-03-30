@@ -19,13 +19,13 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            characterController = GetComponent<BootlegCharacterController>();
-            weight = gameObject.GetComponent<Rigidbody2D>().mass;
-            rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            characterController = GetComponentInParent<BootlegCharacterController>();
+            weight = gameObject.GetComponentInParent<Rigidbody2D>().mass;
+            rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
 
             if (!SetupHUD())
             {
-                Debug.LogError("Didn't find any available HUDAvatars");
+                Debug.LogError("Knockback.cs: Didn't find any available HUDAvatars");
             }
 
             _HUDAvatar.SetHealth(0);

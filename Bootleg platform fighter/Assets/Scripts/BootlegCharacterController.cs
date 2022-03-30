@@ -43,6 +43,8 @@ namespace BootlegPlatformFighter
             }
         }
 
+        private GameManager gameManager;
+
         // Constant values
         private const float deadZone = 0.2f;
         [SerializeField] private bool isInHorizontalDeadZone;
@@ -63,8 +65,6 @@ namespace BootlegPlatformFighter
         [SerializeField] private float maxFallSpeed;
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
-
-        private GameManager gameManager;
 
         // State variables
         public PlayerState playerState;
@@ -164,8 +164,8 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            characterAnimation = GetComponent<Animator>();
-            playerCollider = GetComponent<BoxCollider2D>();
+            characterAnimation = GetComponentInChildren<Animator>();
+            playerCollider = GetComponentInChildren<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -1090,24 +1090,6 @@ namespace BootlegPlatformFighter
             }
         }
 
-        public void ExitAnimation()
-        {
-            string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-            string animationRegex = @".*_(\D*)";
-            Match animationMatch = Regex.Match(animationName, animationRegex);
-            string matchResult = animationMatch.Groups[1].Value.ToLower();
-            char[] matchLetters = matchResult.ToCharArray();
-            matchLetters[0] = char.ToUpper(matchLetters[0]);
-            matchResult = new string(matchLetters);
-
-            string animationBoolName = "is" + matchResult + "ing";
-            characterAnimation.SetBool(animationBoolName, false);
-            playerState = PlayerState.GroundIdling;
-
-            AudioManager audioManager = GetComponent<AudioManager>();
-            audioManager.audioIndex = 0;
-        }
-
         private void GroundCheck()
         {
             var contactPoints = new List<ContactPoint2D>();
@@ -1136,12 +1118,19 @@ namespace BootlegPlatformFighter
             return false;
         }
 
+        private IEnumerator DelayRespawn() 
+        {
+            yield return new WaitForSeconds(3);
+            gameManager.RespawnPlayer(gameObject, characterIndex);
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             //Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
-                gameManager.RespawnPlayer(gameObject, characterIndex);
+                Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
+                StartCoroutine(DelayRespawn());
             }
         }
 

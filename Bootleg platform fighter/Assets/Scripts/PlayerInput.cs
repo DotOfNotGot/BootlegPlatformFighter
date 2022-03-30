@@ -19,7 +19,7 @@ namespace BootlegPlatformFighter
 
         private void Start()
         {
-            characterController = GetComponent<BootlegCharacterController>();
+            characterController = GetComponentInParent<BootlegCharacterController>();
             fighting = GetComponent<Fighting>();
             playerIndex = characterController.characterIndex;
         }
