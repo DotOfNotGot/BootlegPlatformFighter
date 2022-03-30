@@ -1118,10 +1118,19 @@ namespace BootlegPlatformFighter
             return false;
         }
 
-        private IEnumerator DelayRespawn() 
+        public IEnumerator DelayRespawn()
         {
             yield return new WaitForSeconds(3);
-            gameManager.RespawnPlayer(gameObject, characterIndex);
+            if (gameManager.FindHUDAvatarByIndex(characterIndex).getHealthCount() > 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                    transform.GetChild(i).gameObject.SetActive(true);
+                gameManager.RespawnPlayer(gameObject, characterIndex);
+            } else
+            {
+                // Player had 1 heart. Now he will have 0.
+                // TODO: transition to game over screen blabla
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -1129,6 +1138,8 @@ namespace BootlegPlatformFighter
             //Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
+                for (int i = 0; i < transform.childCount; i++)
+                    transform.GetChild(i).gameObject.SetActive(false);
                 Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
                 StartCoroutine(DelayRespawn());
             }
