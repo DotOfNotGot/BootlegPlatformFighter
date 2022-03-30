@@ -25,7 +25,7 @@ namespace BootlegPlatformFighter
             GenerateCollidersAcrossScreen();
         }
 
-        HUDAvatar findHudAvatarByIdx(int idx)
+        public HUDAvatar FindHUDAvatarByIndex(int idx)
         {
             var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
             foreach (var avatar in avatars)
@@ -40,7 +40,7 @@ namespace BootlegPlatformFighter
         {
             player.transform.position = new Vector3(spawnPosition1.position.x, spawnPosition1.position.y + 30);
             player.transform.DOMove(spawnPosition1.position, 1f).SetEase(Ease.OutQuint);
-            var hud = findHudAvatarByIdx(index);
+            var hud = FindHUDAvatarByIndex(index);
             if (!hud){
                 Debug.Log("Missing HUD in RespawnPlayer");
                 return;
