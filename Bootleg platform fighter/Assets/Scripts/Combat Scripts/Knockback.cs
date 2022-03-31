@@ -14,18 +14,20 @@ namespace BootlegPlatformFighter
         private float weight;
 
         private HUDAvatar _HUDAvatar;
+        private GameManager gameManager;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            characterController = GetComponent<BootlegCharacterController>();
-            weight = gameObject.GetComponent<Rigidbody2D>().mass;
-            rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            characterController = GetComponentInParent<BootlegCharacterController>();
+            weight = gameObject.GetComponentInParent<Rigidbody2D>().mass;
+            rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>( );
 
             if (!SetupHUD())
             {
-                Debug.LogError("Didn't find any available HUDAvatars");
+                Debug.LogError("Knockback.cs: Didn't find any available HUDAvatars");
             }
 
             _HUDAvatar.SetHealth(0);
@@ -50,6 +52,18 @@ namespace BootlegPlatformFighter
             }*/
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
+            if (characterController.damageTakenPercent > 100) {
+                StartCoroutine(DelayedDeath());
+            }
+        }
+
+        IEnumerator DelayedDeath()
+        {
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
+            for (int i = 0; i < transform.childCount; i++)
+                transform.GetChild(i).gameObject.SetActive(false);
+            StartCoroutine(characterController.DelayRespawn());
         }
 
         private bool SetupHUD()

@@ -29,11 +29,13 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private int hitLag = 4;
 
+        private BootlegCharacterController bootlegCharacterController;
 
         private int attackIndex = 0;
         // Start is called before the first frame update
         void Start()
         {
+            bootlegCharacterController = GetComponentInParent<BootlegCharacterController>();
             animator = gameObject.GetComponent<Animator>();
             for (int i = 0; i < hitBoxEmpty.transform.childCount; i++)
             {
@@ -102,7 +104,7 @@ namespace BootlegPlatformFighter
                             HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
                             Fighting enemyFighting = hurtScript.character.GetComponent<Fighting>();
                             
-                            if (hurtScript.characterIndex != gameObject.GetComponent<BootlegCharacterController>().characterIndex)
+                            if (hurtScript.characterIndex != bootlegCharacterController.characterIndex)
                             {
                                 if (enemyFighting.canBeHit)
                                 {

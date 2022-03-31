@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 namespace BootlegPlatformFighter
 {
@@ -15,6 +16,8 @@ namespace BootlegPlatformFighter
         private TextMeshProUGUI NameText { get; set; }
         private void Awake()
         {
+            DOTween.Init();
+            DOTween.defaultEaseType = Ease.Linear;
             NameText = transform.Find("NamePanel").Find("NameText").GetComponent<TextMeshProUGUI>();
             HealthText = transform.Find("DataPanel").Find("HealthText").GetComponent<TextMeshProUGUI>();
             _lifePanel = transform.Find("DataPanel").Find("LifePanel").gameObject;
@@ -33,8 +36,10 @@ namespace BootlegPlatformFighter
         }
         public void RemoveOneHeart()
         {
-            if (getHealthCount() > 0)
-                Destroy(_lifePanel.transform.GetChild(getHealthCount() - 1).gameObject);
+            if (getHealthCount() > 0) {
+                var badheart = _lifePanel.transform.GetChild(getHealthCount() - 1);
+                badheart.DOScale(0f, 1f).onComplete = () => Destroy(badheart.gameObject);
+            }
         }
         public void SetName(string text)
         {

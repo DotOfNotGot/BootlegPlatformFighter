@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace BootlegPlatformFighter
 {
@@ -11,6 +12,11 @@ namespace BootlegPlatformFighter
         public Transform spawnPosition3;
         public Transform spawnPosition4;
 
+        [SerializeField]
+        private GameObject explosionPrefab;
+
+        public GameObject ExplosionPrefab { get { return explosionPrefab; } }
+
 
         // Start is called before the first frame update
         void Start()
@@ -19,7 +25,7 @@ namespace BootlegPlatformFighter
             GenerateCollidersAcrossScreen();
         }
 
-        HUDAvatar findHudAvatarByIdx(int idx)
+        public HUDAvatar FindHUDAvatarByIndex(int idx)
         {
             var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
             foreach (var avatar in avatars)
@@ -32,8 +38,9 @@ namespace BootlegPlatformFighter
         }
        public void RespawnPlayer(GameObject player, int index)
         {
-            player.transform.position = spawnPosition1.position;
-            var hud = findHudAvatarByIdx(index);
+            player.transform.position = new Vector3(spawnPosition1.position.x, spawnPosition1.position.y + 30);
+            player.transform.DOMove(spawnPosition1.position, 1f).SetEase(Ease.OutQuint);
+            var hud = FindHUDAvatarByIndex(index);
             if (!hud){
                 Debug.Log("Missing HUD in RespawnPlayer");
                 return;
