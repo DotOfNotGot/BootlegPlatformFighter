@@ -1024,6 +1024,8 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region NEUTRALAIR
                 case PlayerState.NeutralAir:
+
+                    characterAnimation.SetBool("isNeutralAiring", true);
                     break;
                 #endregion
                 #region FORWARDAIR
