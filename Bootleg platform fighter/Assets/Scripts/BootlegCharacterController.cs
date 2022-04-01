@@ -237,6 +237,9 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Grab;
                     }
 
+                    // Changes state to ForwardStrong
+
+
                     // Changes state to Jab
                     if (controls.normalAttackButtonPressed)
                     {
@@ -653,6 +656,18 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
                     }
+                    if (controls.normalAttackButton)
+                    {
+                        previousPlayerState = playerState;
+                        if (moveVector.x != 0)
+                        {
+                            playerState = PlayerState.ForwardAir;
+                        }
+                        else
+                        {
+                            playerState = PlayerState.NeutralAir;
+                        }
+                    }
 
                     break;
                 #endregion
@@ -689,6 +704,18 @@ namespace BootlegPlatformFighter
                     if (playerState != PlayerState.Airborne)
                     {
                         airborneCounter = 0;
+                    }
+                    if (controls.normalAttackButton)
+                    {
+                        previousPlayerState = playerState;
+                        if (moveVector.x != 0 || controls.movementHorizontalInput != 0)
+                        {
+                            playerState = PlayerState.ForwardAir;
+                        }
+                        else
+                        {
+                            playerState = PlayerState.NeutralAir;
+                        }
                     }
                     break;
                 #endregion
@@ -753,6 +780,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region NEUTRALAIR
                 case PlayerState.NeutralAir:
+
                     break;
                 #endregion
                 #region FORWARDAIR
@@ -1025,11 +1053,12 @@ namespace BootlegPlatformFighter
                 #region NEUTRALAIR
                 case PlayerState.NeutralAir:
 
-                    characterAnimation.SetBool("isNeutralAiring", true);
+                    characterAnimation.SetBool("isNeutralairing", true);
                     break;
                 #endregion
                 #region FORWARDAIR
                 case PlayerState.ForwardAir:
+                    characterAnimation.SetBool("isForwardairing",true);
                     break;
                 #endregion
                 #region UPAIR

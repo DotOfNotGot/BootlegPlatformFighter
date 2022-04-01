@@ -80,7 +80,8 @@ namespace BootlegPlatformFighter
                             {
                                 attackHitBoxes.Add(frame.transform.GetChild(i).gameObject);
                             }
-                            
+
+
                         }
                     }
                 }
