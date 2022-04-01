@@ -46,6 +46,7 @@ namespace BootlegPlatformFighter
                 return;
             }
             hud.RemoveOneHeart();
+            hud.SetHealth(0);
         }
 
         void GenerateCollidersAcrossScreen()
