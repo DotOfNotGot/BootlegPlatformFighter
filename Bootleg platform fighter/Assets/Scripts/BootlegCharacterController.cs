@@ -414,10 +414,12 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundDashing:
 
                     //CreateDust();
+                    characterAnimation.SetInteger("DashTimer", groundDashingCounter);
 
                     if (groundDashingCounter == 0)
                     {
                         dashStartHorizontalInput = controls.movementHorizontalInput;
+                        
                     }
 
                     // Changes state to GroundJumpSquatting
