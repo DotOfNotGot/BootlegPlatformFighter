@@ -36,7 +36,6 @@ namespace BootlegPlatformFighter
         void FixedUpdate()
         {
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-            
         }
 
         public void SendToKnockback(GameObject hitEnemy)
@@ -47,7 +46,7 @@ namespace BootlegPlatformFighter
 
         private void OnDrawGizmosSelected()
         {
-            
+
             Gizmos.DrawWireSphere(transform.position, attackAreaRadius);
             Debug.DrawLine(transform.position, new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.x, Mathf.Sin(angle * Mathf.Deg2Rad) * lineLengthDEBUG + transform.position.y), Color.red);
         }

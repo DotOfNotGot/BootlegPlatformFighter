@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4224724745938504238, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Name
-      value: Huldra
+      value: Huldra 1
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193776, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Sprite
@@ -63,6 +63,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: jumpForce
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770014806974169562, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitLagFrames
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8990505757914991397, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -77,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8990505757914991397, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -18.03
       objectReference: {fileID: 0}
     - target: {fileID: 8990505757914991397, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 17.81
       objectReference: {fileID: 0}
     - target: {fileID: 8990505757914991397, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_LocalPosition.z
