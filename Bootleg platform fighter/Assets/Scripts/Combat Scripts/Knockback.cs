@@ -52,15 +52,13 @@ namespace BootlegPlatformFighter
             }*/
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
-            if (characterController.damageTakenPercent > 100) {
-                StartCoroutine(DelayedDeath());
-            }
         }
 
         IEnumerator DelayedDeath()
         {
             yield return new WaitForSeconds(0.3f);
             Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
+            // Probably disables wrong children
             for (int i = 0; i < transform.childCount; i++)
                 transform.GetChild(i).gameObject.SetActive(false);
             StartCoroutine(characterController.DelayRespawn());
