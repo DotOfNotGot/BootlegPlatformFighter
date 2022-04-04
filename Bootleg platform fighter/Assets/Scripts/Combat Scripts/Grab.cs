@@ -79,7 +79,7 @@ namespace BootlegPlatformFighter
 
                     if (enemyController.characterIndex != characterController.characterIndex)
                     {
-                        if (enemyFighting.canBeHit && hurtScript.canBeGrabbed)
+                        if (/*enemyFighting.canBeHit &&*/ hurtScript.canBeGrabbed)
                         {
                             SetEnemyState(BootlegCharacterController.PlayerState.Grabbed);
                             break;

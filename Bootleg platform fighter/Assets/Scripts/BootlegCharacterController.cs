@@ -417,10 +417,12 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundDashing:
 
                     //CreateDust();
+                    characterAnimation.SetInteger("DashTimer", groundDashingCounter);
 
                     if (groundDashingCounter == 0)
                     {
                         dashStartHorizontalInput = controls.movementHorizontalInput;
+                        
                     }
 
                     // Changes state to GroundJumpSquatting
@@ -1157,6 +1159,7 @@ namespace BootlegPlatformFighter
                 for (int i = 0; i < transform.childCount; i++)
                     transform.GetChild(i).gameObject.SetActive(true);
                 gameManager.RespawnPlayer(gameObject, characterIndex);
+                damageTakenPercent = 0;
             } else
             {
                 // Player had 1 heart. Now he will have 0.
