@@ -20,8 +20,6 @@ namespace BootlegPlatformFighter
         public float attackRange = 0.5f;
         public LayerMask characterLayers;
 
-        public bool canBeHit = true;
-
         [SerializeField] private Vector2 direction;
 
 
@@ -58,13 +56,6 @@ namespace BootlegPlatformFighter
 
         }
 
-        public IEnumerator HitLag(int frameCount)
-        {
-
-            yield return new WaitForSeconds(0.2f);
-            //yield return StartCoroutine(WaitFor.Frames(frameCount));
-            canBeHit = true;
-        }
     }
 
     public static class WaitFor

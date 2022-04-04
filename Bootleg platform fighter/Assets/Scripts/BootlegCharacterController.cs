@@ -1126,6 +1126,7 @@ namespace BootlegPlatformFighter
                 for (int i = 0; i < transform.childCount; i++)
                     transform.GetChild(i).gameObject.SetActive(true);
                 gameManager.RespawnPlayer(gameObject, characterIndex);
+                damageTakenPercent = 0;
             } else
             {
                 // Player had 1 heart. Now he will have 0.
