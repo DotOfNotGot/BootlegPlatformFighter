@@ -92,9 +92,9 @@ namespace BootlegPlatformFighter
             ForwardTilt,
             UpTilt,
             DownTilt,
-            ForwardSmash,
-            UpSmash,
-            DownSmash,
+            ForwardStrong,
+            UpStrong,
+            DownStrong,
             NeutralAir,
             ForwardAir,
             UpAir,
@@ -256,6 +256,13 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Jab;
                     }
 
+                    // Changes state to ForwardStrong.
+                    if (controls.normalAttackButtonPressed && !isInHorizontalDeadZone)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.ForwardStrong;
+                    }
+
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
                     {
@@ -373,6 +380,13 @@ namespace BootlegPlatformFighter
                     {
                         playerState = PlayerState.GroundBlocking;
                         previousPlayerState = playerState;
+                    }
+
+                    // Changes state to ForwardStrong.
+                    if (controls.normalAttackButtonPressed && !isInHorizontalDeadZone)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.ForwardStrong;
                     }
 
                     // Changes state to GroundCrouching.
@@ -775,91 +789,6 @@ namespace BootlegPlatformFighter
                 case PlayerState.Grabbed:
                     break;
                 #endregion
-                #region JAB
-                case PlayerState.Jab:
-
-
-
-                    break;
-                #endregion
-                #region FORWARDTILT
-                case PlayerState.ForwardTilt:
-                    break;
-                #endregion
-                #region UPTILT
-                case PlayerState.UpTilt:
-                    break;
-                #endregion
-                #region DOWNTILT
-                case PlayerState.DownTilt:
-                    break;
-                #endregion
-                #region FORWARDSMASH
-                case PlayerState.ForwardSmash:
-                    break;
-                #endregion
-                #region UPSMASH
-                case PlayerState.UpSmash:
-                    break;
-                #endregion
-                #region DOWNSMASH
-                case PlayerState.DownSmash:
-                    break;
-                #endregion
-                #region NEUTRALAIR
-                case PlayerState.NeutralAir:
-
-                    break;
-                #endregion
-                #region FORWARDAIR
-                case PlayerState.ForwardAir:
-                    break;
-                #endregion
-                #region UPAIR
-                case PlayerState.UpAir:
-                    break;
-                #endregion
-                #region DOWNAIR
-                case PlayerState.DownAir:
-                    break;
-                #endregion
-                #region NEUTRALSPECIAL
-                case PlayerState.NeutralSpecial:
-                    break;
-                #endregion
-                #region SIDESPECIAL
-                case PlayerState.SideSpecial:
-                    break;
-                #endregion
-                #region UPSPECIAL
-                case PlayerState.UpSpecial:
-                    break;
-                #endregion
-                #region DOWNSPECIAL
-                case PlayerState.DownSpecial:
-                    break;
-                #endregion
-                #region GRAB
-                case PlayerState.Grab:
-                    //Debug.Log(moveVector);
-                    break;
-                #endregion
-                #region UPTHROW
-                case PlayerState.UpThrow:
-                    break;
-                #endregion
-                #region DOWNTHROW
-                case PlayerState.DownThrow:
-                    break;
-                #endregion
-                #region FORWARDTHROW
-                case PlayerState.ForwardThrow:
-                    break;
-                #endregion
-                #region BACKTHROW
-                case PlayerState.BackThrow:
-                    break;
-                #endregion
                 default:
                     break;
             }
@@ -1070,16 +999,19 @@ namespace BootlegPlatformFighter
                 case PlayerState.DownTilt:
                     break;
                 #endregion
-                #region FORWARDSMASH
-                case PlayerState.ForwardSmash:
+                #region FORWARDSTRONG
+                case PlayerState.ForwardStrong:
+
+                    characterAnimation.SetBool("isForwardStronging", true);
+
                     break;
                 #endregion
                 #region UPSMASH
-                case PlayerState.UpSmash:
+                case PlayerState.UpStrong:
                     break;
                 #endregion
                 #region DOWNSMASH
-                case PlayerState.DownSmash:
+                case PlayerState.DownStrong:
                     break;
                 #endregion
                 #region NEUTRALAIR
