@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Huldra_NeutralAir
+  m_Name: Huldra_ForwardAir
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,25 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 570d8a0724da2d94b8ab29b8ea4b88db, type: 3}
+      value: {fileID: 21300000, guid: 085ea911e4a9cd247a10fe3db4504ac1, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 9b8bbd4484c13e64084b4e61fd8f6d59, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: b91e262b3a6af294dbb6c1024124a868, type: 3}
+      value: {fileID: 21300000, guid: 83f31325e56a7054f9fea3834d3dee39, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: fc60f8cb981d1504bac5b33d05867b03, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 07fa285822277004aade17c289787fb3, type: 3}
+      value: {fileID: 21300000, guid: eac88d798c5f5fb47b9e75059c8fea72, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: 0edbb8af1a352ae4da033b47483fb8ea, type: 3}
+      value: {fileID: 21300000, guid: f01bde76c0d2f3745a487080628e48dc, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: dcefffb4a3aaeab4b87e78988aaee45d, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: fb0fbe827f4e4bf469d6a2fca0ea1cf5, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 142d1e380c033284b8dc2afcb631cc36, type: 3}
-    - time: 0.8333333
-      value: {fileID: 21300000, guid: cd052f04911bae84d8c424d8851a2892, type: 3}
-    - time: 1
-      value: {fileID: 21300000, guid: 1b3dbcb588fa39245a7c46af92f17991, type: 3}
+      value: {fileID: 21300000, guid: 929788f299a2954459f5d1c81444f663, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,27 +50,23 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 570d8a0724da2d94b8ab29b8ea4b88db, type: 3}
-    - {fileID: 21300000, guid: b91e262b3a6af294dbb6c1024124a868, type: 3}
-    - {fileID: 21300000, guid: fc60f8cb981d1504bac5b33d05867b03, type: 3}
-    - {fileID: 21300000, guid: 07fa285822277004aade17c289787fb3, type: 3}
-    - {fileID: 21300000, guid: 0edbb8af1a352ae4da033b47483fb8ea, type: 3}
-    - {fileID: 21300000, guid: dcefffb4a3aaeab4b87e78988aaee45d, type: 3}
-    - {fileID: 21300000, guid: fb0fbe827f4e4bf469d6a2fca0ea1cf5, type: 3}
-    - {fileID: 21300000, guid: 142d1e380c033284b8dc2afcb631cc36, type: 3}
-    - {fileID: 21300000, guid: cd052f04911bae84d8c424d8851a2892, type: 3}
-    - {fileID: 21300000, guid: 1b3dbcb588fa39245a7c46af92f17991, type: 3}
+    - {fileID: 21300000, guid: 085ea911e4a9cd247a10fe3db4504ac1, type: 3}
+    - {fileID: 21300000, guid: 9b8bbd4484c13e64084b4e61fd8f6d59, type: 3}
+    - {fileID: 21300000, guid: 83f31325e56a7054f9fea3834d3dee39, type: 3}
+    - {fileID: 21300000, guid: eac88d798c5f5fb47b9e75059c8fea72, type: 3}
+    - {fileID: 21300000, guid: f01bde76c0d2f3745a487080628e48dc, type: 3}
+    - {fileID: 21300000, guid: 929788f299a2954459f5d1c81444f663, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0833334
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -93,15 +81,29 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1
-    functionName: ExitAnimation
+  - time: 0.16666667
+    functionName: AnimationHitboxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
+  - time: 0.33333334
+    functionName: AnimationHitboxTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: ResetAttackIndex
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: ExitAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -16,6 +16,8 @@ namespace BootlegPlatformFighter
         private HUDAvatar _HUDAvatar;
         private GameManager gameManager;
 
+        private AnimationHandler animHandler;
+
 
         // Start is called before the first frame update
         void Start()
@@ -24,6 +26,7 @@ namespace BootlegPlatformFighter
             weight = gameObject.GetComponentInParent<Rigidbody2D>().mass;
             rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>( );
+            animHandler = gameObject.GetComponent<AnimationHandler>();
 
             if (!SetupHUD())
             {
@@ -35,6 +38,7 @@ namespace BootlegPlatformFighter
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
+
             characterController.damageTakenPercent += damagePercent;
             /*if (damageTakenPercent < 0.2f)
             {*/
@@ -50,6 +54,7 @@ namespace BootlegPlatformFighter
             {
                 direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
             }*/
+
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
         }
@@ -85,6 +90,11 @@ namespace BootlegPlatformFighter
                 return true;
             }
             return false;
+        }
+
+        public void HitStun()
+        {
+
         }
     }
 }
