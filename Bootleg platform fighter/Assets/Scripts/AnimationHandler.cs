@@ -24,20 +24,31 @@ namespace BootlegPlatformFighter
             return "is" + matchResult + "ing";
         }
 
-        public void ExitAnimation()
+        public void ExitAnimation(string returnToIdle = null)
         {
             string animationBoolName = GetAnimationName();
             characterAnimation.SetBool(animationBoolName, false);
             characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
-
             AudioManager audioManager = GetComponent<AudioManager>();
             audioManager.audioIndex = 0;
+
+            //Get which state to enter into
+            if (returnToIdle != null)
+            {
+                EnterNewAnimation("Huldra_Idle");
+            }
+
+        }
+
+        public void EnterNewAnimation(string newAnim)
+        {
+            characterAnimation.Play(newAnim);
         }
 
         public void CancelAnimation(string newAnim)
         {
             ExitAnimation();
-            characterAnimation.Play(newAnim);
+            EnterNewAnimation(newAnim);
             characterController.GetComponent<HurtBoxHandler>().ResetFrameIndex();
             characterController.GetComponent<HitBoxHandler>().ResetAttackIndex();
             string animationBoolName = GetAnimationName();
