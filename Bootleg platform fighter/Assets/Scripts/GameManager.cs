@@ -82,4 +82,12 @@ namespace BootlegPlatformFighter
             leftEdge.points = colliderpoints;
         }
     }
+    public struct Player_t
+    {
+        public string name;
+    }
+    public static class GameManagerData
+    {
+        static public List<Player_t> Players = new List<Player_t>();
+    }
 }

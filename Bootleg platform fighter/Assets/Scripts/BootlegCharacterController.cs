@@ -1130,7 +1130,7 @@ namespace BootlegPlatformFighter
             } else
             {
                 // Player had 1 heart. Now he will have 0.
-                // TODO: transition to game over screen blabla
+                SceneManager.LoadScene("GameOver");
             }
         }
 
