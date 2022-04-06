@@ -171,7 +171,7 @@ namespace BootlegPlatformFighter
             playerCollider = GetComponentInChildren<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
             playerRb.gravityScale *= gravityModifier;
-            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
         }
@@ -728,8 +728,11 @@ namespace BootlegPlatformFighter
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.Jumping;
-                        animationHandler.CancelAnimation("Huldra_Jump");
                         hasAirJump = false;
+                        if (playerRb.velocity.y > 0.5)
+                        {
+                            animationHandler.CancelAnimation("Huldra_Jump");
+                        }
                     }
 
                     // GroundIdling state check
