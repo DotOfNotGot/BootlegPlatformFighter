@@ -349,7 +349,6 @@ namespace BootlegPlatformFighter
                     // Changes state to jumping(This state is active for 1 frame and only adds the force of the jump).
                     else if (groundJumpSquattingCounter == 5)
                     {
-
                         previousPlayerState = playerState;
                         playerState = PlayerState.Jumping;
                     }
@@ -729,6 +728,7 @@ namespace BootlegPlatformFighter
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.Jumping;
+                        animationHandler.CancelAnimation("Huldra_Jump");
                         hasAirJump = false;
                     }
 
@@ -769,6 +769,7 @@ namespace BootlegPlatformFighter
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundIdling;
+                        landingLagCounter = 0;
                     }
 
                     break;
@@ -821,6 +822,11 @@ namespace BootlegPlatformFighter
                 characterAnimation.SetBool("isWalking", false);
             }
 
+            if (playerState != PlayerState.GroundJumpSquatting)
+            {
+                characterAnimation.SetBool("isJumpSquatting", false);
+            }
+
         }
 
         private void HandlePlayerState(Controls controls)
@@ -836,6 +842,9 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region GROUND_JUMPSQUATTING
                 case PlayerState.GroundJumpSquatting:
+
+                    characterAnimation.SetBool("isJumpSquatting", true);
+
                     break;
                 #endregion
                 #region GROUND_WALKING
@@ -1021,7 +1030,9 @@ namespace BootlegPlatformFighter
 
                     if (isOnGround)
                     {
-                        animationHandler.CancelAnimation("Huldra_Idle");
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.LandingLag;
+                        animationHandler.CancelAnimation("Huldra_LandingLag");
                     }
                     break;
                 #endregion
@@ -1105,11 +1116,13 @@ namespace BootlegPlatformFighter
                 if (contactPoint.normal == Vector2.up)
                 {
                     isOnGround = true;
+                    characterAnimation.SetBool("isOnGround", isOnGround);
                     hasAirDash = true;
                     hasAirJump = true;
                     return;
                 }
             }
+            characterAnimation.SetBool("isOnGround", isOnGround);
         }
 
         private bool PlayerCollisionCheck()
