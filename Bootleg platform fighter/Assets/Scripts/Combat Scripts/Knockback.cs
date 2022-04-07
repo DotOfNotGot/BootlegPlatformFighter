@@ -25,7 +25,7 @@ namespace BootlegPlatformFighter
             characterController = GetComponentInParent<BootlegCharacterController>();
             weight = gameObject.GetComponentInParent<Rigidbody2D>().mass;
             rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
-            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>( );
+            gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>( );
             animHandler = gameObject.GetComponent<AnimationHandler>();
 
             if (!SetupHUD())
@@ -33,7 +33,7 @@ namespace BootlegPlatformFighter
                 Debug.LogError("Knockback.cs: Didn't find any available HUDAvatars");
             }
 
-            _HUDAvatar.SetHealth(0);
+            _HUDAvatar?.SetHealth(0);
         }
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)

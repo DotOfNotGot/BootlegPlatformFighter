@@ -327,8 +327,6 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundJumpSquatting:
                     bool groundJumpSquattingCounterShouldIncrease = false;
 
-
-
                     if (groundJumpSquattingCounter == 0)
                     {
                         jumpSquatStartVelocity = playerRb.velocity.x;
@@ -729,9 +727,11 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Jumping;
                         hasAirJump = false;
-                        if (playerRb.velocity.y > 0.5)
+                        if (playerRb.velocity.y > 1)
                         {
-                            animationHandler.CancelAnimation("Huldra_Jump");
+                            characterAnimation.Play("Huldra_JumpPeak");
+                            //animationHandler.CancelAnimation("Huldra_Jump");
+                            
                         }
                     }
 

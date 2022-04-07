@@ -30,13 +30,13 @@ namespace BootlegPlatformFighter
         {
             string animationBoolName = GetAnimationName();
             characterAnimation.SetBool(animationBoolName, false);
-            characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
             AudioManager audioManager = GetComponent<AudioManager>();
             audioManager.audioIndex = 0;
 
             //Get which state to enter into
             if (returnToIdle != null)
             {
+                characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
                 EnterNewAnimation("Huldra_Idle");
             }
 

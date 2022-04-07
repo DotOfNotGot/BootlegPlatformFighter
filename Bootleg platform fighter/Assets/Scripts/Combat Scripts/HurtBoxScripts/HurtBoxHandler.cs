@@ -80,6 +80,7 @@ namespace BootlegPlatformFighter
         public void ResetFrameIndex()
         {
             frameIndex = 0;
+            
             foreach (HitHurtBoxStruct animation in moveStructures)
             {
                 foreach (GameObject frame in animation.BoxList)

@@ -20645,6 +20645,10 @@ PrefabInstance:
       propertyPath: characterIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: doubleJumpForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6196852050897320719, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_LocalScale.x
       value: 17.134136
