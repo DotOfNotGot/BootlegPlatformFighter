@@ -793,6 +793,30 @@ namespace BootlegPlatformFighter
                 case PlayerState.Grabbed:
                     break;
                 #endregion
+                #region NEUTRALAIR
+                case PlayerState.NeutralAir:
+
+                    if (isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.LandingLag;
+                        animationHandler.CancelAnimation("Huldra_LandingLag");
+                    }
+
+                    break;
+                #endregion
+                #region FORWARDAIR
+                case PlayerState.ForwardAir:
+
+                    if (isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.LandingLag;
+                        animationHandler.CancelAnimation("Huldra_LandingLag");
+                    }
+
+                    break;
+                #endregion
                 default:
                     break;
             }
@@ -1031,22 +1055,13 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isNeutralAiring", true);
 
-                    if (isOnGround)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.LandingLag;
-                        animationHandler.CancelAnimation("Huldra_LandingLag");
-                    }
                     break;
                 #endregion
                 #region FORWARDAIR
                 case PlayerState.ForwardAir:
+
                     characterAnimation.SetBool("isForwardAiring",true);
 
-                    if (isOnGround)
-                    {
-                        animationHandler.CancelAnimation("Huldra_Idle");
-                    }
                     break;
                 #endregion
                 #region UPAIR

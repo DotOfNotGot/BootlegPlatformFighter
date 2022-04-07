@@ -20,6 +20,12 @@ namespace BootlegPlatformFighter
         {
 
             string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            return GetAnimationName(animationName);
+        }
+
+        public string GetAnimationName(string animationName)
+        {
+            
             string animationRegex = @".*_(\D*)";
             Match animationMatch = Regex.Match(animationName, animationRegex);
             string matchResult = animationMatch.Groups[1].Value;
@@ -39,7 +45,6 @@ namespace BootlegPlatformFighter
                 characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
                 EnterNewAnimation("Huldra_Idle");
             }
-
         }
 
         public void EnterNewAnimation(string newAnim)
@@ -53,9 +58,8 @@ namespace BootlegPlatformFighter
             EnterNewAnimation(newAnim);
             hurtBoxHandler.ResetFrameIndex();
             GetComponent<HitBoxHandler>().ResetAttackIndex();
-            string animationBoolName = GetAnimationName();
+            string animationBoolName = GetAnimationName(newAnim);
             characterAnimation.SetBool(animationBoolName, true);
         }
-
     }
 }
