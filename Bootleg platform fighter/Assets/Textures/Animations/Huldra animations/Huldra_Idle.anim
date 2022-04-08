@@ -27,6 +27,15 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 0}
+    - time: 0.033333335
+      value: {fileID: 0}
+    attribute: rgbTexture
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: 3da77931de7f96640ab3f96473778b0f, type: 3}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -41,15 +50,24 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 0
+      attribute: 1800248808
+      script: {fileID: 11500000, guid: 3da77931de7f96640ab3f96473778b0f, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 6d252fc293b3b3a43935fbd700c1fc55, type: 3}
     - {fileID: 21300000, guid: 6d252fc293b3b3a43935fbd700c1fc55, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.033333335
+    m_StopTime: 0.050000004
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

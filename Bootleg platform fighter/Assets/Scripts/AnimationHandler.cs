@@ -9,12 +9,16 @@ namespace BootlegPlatformFighter
         private Animator characterAnimation;
         private HurtBoxHandler hurtBoxHandler;
         // Start is called before the first frame update
+
+
         void Start()
         {
             characterAnimation = GetComponent<Animator>();
             characterController = GetComponentInParent<BootlegCharacterController>();
             hurtBoxHandler = GetComponent<HurtBoxHandler>();
+
         }
+
 
         public string GetAnimationName()
         {
