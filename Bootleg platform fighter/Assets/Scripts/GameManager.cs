@@ -84,6 +84,9 @@ namespace BootlegPlatformFighter
     }
     public struct Player_t
     {
+        public Player_t(string name) {
+            this.name = name;
+        }
         public string name;
     }
     public static class GameManagerData

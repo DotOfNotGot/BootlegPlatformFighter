@@ -25,6 +25,8 @@ namespace BootlegPlatformFighter
         public void setCharacterIndex(int idx)
         {
             _CharacterIndex = idx;
+            if (GameManagerData.Players.Count - 1 >= idx)
+                SetName(GameManagerData.Players[idx].name);
         }
         public int getCharacterIndex()
         {
@@ -36,7 +38,8 @@ namespace BootlegPlatformFighter
         }
         public void RemoveOneHeart()
         {
-            if (getHealthCount() > 0) {
+            if (getHealthCount() > 0)
+            {
                 var badheart = _lifePanel.transform.GetChild(getHealthCount() - 1);
                 badheart.DOScale(0f, 1f).onComplete = () => Destroy(badheart.gameObject);
             }
