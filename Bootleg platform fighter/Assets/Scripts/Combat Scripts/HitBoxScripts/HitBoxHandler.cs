@@ -29,7 +29,14 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private int hitLagFrames = 60;
 
+        private int blockStun = 100;
+
         private int remainingLagFrames = 0;
+
+        private bool hitTarget = false;
+
+        private HurtBox hurtScript;
+        private GameObject hitbox;
 
         private BootlegCharacterController bootlegCharacterController;
 
@@ -96,29 +103,55 @@ namespace BootlegPlatformFighter
                 --remainingLagFrames;
                 return;
             }
-            
+
+
             
             if (attackHitBoxes.Count > 0) {
                 for (int i = 0; i < attackHitBoxes.Count; i++)
                 {
-                    GameObject hitbox = attackHitBoxes[i];
+                    hitbox = attackHitBoxes[i];
                     List<Collider2D> hurtBoxes = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, hurtBoxLayers).ToList();
 
                     if (hurtBoxes.Count > 0)
                     {
                         foreach (Collider2D hurtBox in hurtBoxes)
                         {
-                            HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+        
+
+                            hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
 
                             if (hurtScript.characterIndex != bootlegCharacterController.characterIndex)
                             {
                                 remainingLagFrames = hitLagFrames;
                                 //Debug.Log("Hit " + hurtBox.name + " Belonging to " + hurtScript.character.name + " with " + hitbox.name + " belonging to " + gameObject.name);
-                                hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
+                                if (hurtScript.characterController.playerState == BootlegCharacterController.PlayerState.GroundCrouching)
+                                {
+                                    GetComponent<Knockback>().StartHitStun(blockStun);
+                                }
+                                else
+                                {
+                                    hitbox.GetComponent<Hitbox>().SendToHitStun(hurtScript.character);
+                                    hitTarget = true;
+                                }
+
                             }
                         }
                     }
                     i = attackHitBoxes.Count;
+                }
+
+
+
+                
+            }
+            if (hurtScript != null)
+            {
+                if (hitTarget && !hurtScript.character.gameObject.GetComponent<Knockback>().isHitStunned && hurtScript.characterIndex != bootlegCharacterController.characterIndex)
+                {
+                    Debug.Log("Hit with hitbox: " + hitbox.name + "belonging to: " + hitbox.transform.parent.parent.parent.parent.parent.name);
+                    hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
+                    hitTarget = false;
+                    hurtScript = null;
                 }
             }
         }

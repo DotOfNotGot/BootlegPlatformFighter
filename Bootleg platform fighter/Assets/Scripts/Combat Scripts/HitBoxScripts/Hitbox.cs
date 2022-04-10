@@ -8,10 +8,11 @@ namespace BootlegPlatformFighter
     {
         private Fighting fightingScript;
 
-        [SerializeField] private GameObject character;
-        private BootlegCharacterController characterController;
+        [SerializeField] private GameObject mainObject;
+        public BootlegCharacterController characterController;
         private HitBoxHandler hitboxHandler;
         private Vector2 direction;
+
 
         [Header("Collider")]
         [SerializeField] public float attackAreaRadius;
@@ -22,14 +23,15 @@ namespace BootlegPlatformFighter
         [SerializeField] public float knockbackScaling = 0.1f;
         [SerializeField] [Range(-180, 180)] public float angle;
         [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
+        [SerializeField] public int hitStunFrames = 5;
 
 
 
         void Start()
         {
-            hitboxHandler = character.GetComponent<HitBoxHandler>();
-            characterController = character.GetComponent<BootlegCharacterController>();
-            fightingScript = character.GetComponent<Fighting>();
+            hitboxHandler = mainObject.GetComponent<HitBoxHandler>();
+            characterController = mainObject.transform.parent.gameObject.GetComponent<BootlegCharacterController>();
+            fightingScript = mainObject.GetComponent<Fighting>();
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         }
 
@@ -40,7 +42,13 @@ namespace BootlegPlatformFighter
 
         public void SendToKnockback(GameObject hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
+            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - mainObject.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
+        }
+
+        public bool SendToHitStun(GameObject hitEnemy)
+        {
+            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames);
+            return true;
         }
 
 

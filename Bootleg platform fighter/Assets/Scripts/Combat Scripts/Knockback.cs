@@ -17,6 +17,8 @@ namespace BootlegPlatformFighter
         private GameManager gameManager;
 
         private AnimationHandler animHandler;
+        private int hitStunTimer = -1;
+        public bool isHitStunned;
 
 
         // Start is called before the first frame update
@@ -36,24 +38,32 @@ namespace BootlegPlatformFighter
             _HUDAvatar?.SetHealth(0);
         }
 
+        public void FixedUpdate()
+        {
+            if (hitStunTimer > 0)
+            {
+                hitStunTimer--;
+            }
+            else if (hitStunTimer == 0)
+            {
+                EndHitStun();
+                hitStunTimer = -1;
+            }
+        }
+
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
-
+            EnterTumble();
             characterController.damageTakenPercent += damagePercent;
-            /*if (damageTakenPercent < 0.2f)
-            {*/
-            //Debug.Log(direction);
             direction = new Vector2(direction.x * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
                     direction.y * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
-
-            //Debug.Log(direction);
-            //}
-            /*else
-            {
-                direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
-            }*/
+            Debug.Log(characterController.damageTakenPercent);
+            Debug.Log("direction = " + direction);
+            Debug.Log("baseKnockback = " + baseKnockback);
+            Debug.Log("knockbackScaling = " + knockbackScaling);
+            Debug.Log("damagePercent = " + damagePercent);
 
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
@@ -92,9 +102,27 @@ namespace BootlegPlatformFighter
             return false;
         }
 
-        public void HitStun()
+        public void StartHitStun(int stunTimer)
+        {
+            hitStunTimer = stunTimer;
+            isHitStunned = true;
+            characterController.canMove = false;
+            characterController.previousPlayerState = characterController.playerState;
+            characterController.playerState = BootlegCharacterController.PlayerState.HitStun;
+        }
+
+        public void EndHitStun()
+        {
+            characterController.canMove = true;
+            isHitStunned = false;
+        }
+
+        public void EnterTumble()
         {
 
+            characterController.previousPlayerState = characterController.playerState;
+            characterController.playerState = BootlegCharacterController.PlayerState.Tumble;
         }
+
     }
 }

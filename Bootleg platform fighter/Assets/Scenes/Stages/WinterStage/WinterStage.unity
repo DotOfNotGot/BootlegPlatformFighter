@@ -1072,13 +1072,25 @@ PrefabInstance:
       propertyPath: huldraShader
       value: 
       objectReference: {fileID: -6465566751694194690, guid: 40e55dea24e5d144db15bf71b21b6610, type: 3}
+    - target: {fileID: 813281652991955978, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1383987820837873385, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647444827699192823, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4382775355237568127, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_Name
       value: Huldra (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674016768295364658, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5071249388957047521, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_Sprite
@@ -1098,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.17
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1112,9 +1124,21 @@ PrefabInstance:
       propertyPath: characterIndex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8277824638349568095, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: blockTimerDefault
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335894859174916999, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233266970422345748, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277824638349568095, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
@@ -2144,6 +2168,10 @@ PrefabInstance:
     - target: {fileID: 4382775355237568127, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_Name
       value: Huldra (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: characterIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
@@ -15352,7 +15380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.85293, y: 0.59999657}
+  m_AnchoredPosition: {x: 75.85293, y: 0.59999084}
   m_SizeDelta: {x: 137.8862, y: 31.3972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884105079
@@ -22978,7 +23006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.85293, y: 0.59999657}
+  m_AnchoredPosition: {x: 75.85293, y: 0.59999084}
   m_SizeDelta: {x: 137.8862, y: 31.3972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416745880

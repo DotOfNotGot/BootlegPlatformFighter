@@ -164,6 +164,9 @@ namespace BootlegPlatformFighter
         private AnimationHandler animationHandler;
         private GameObject mainObject;
 
+        [SerializeField] private int blockTimerDefault = 10;
+        private int blockTimer;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -174,6 +177,7 @@ namespace BootlegPlatformFighter
             gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
+            blockTimer = blockTimerDefault;
         }
 
         public void ProcessUpdate(Controls controls, Controls previousControls)
@@ -216,6 +220,15 @@ namespace BootlegPlatformFighter
             PlayerCollisionCheck();
             UpdatePlayerState(controls, previousControls);
             HandlePlayerState(controls);
+
+            if (playerState == PlayerState.GroundCrouching)
+            {
+                BlockCountdown();
+            }
+            else if (blockTimer < blockTimerDefault)
+            {
+                BlockCountUp();
+            }
 
 
             // Store current input for next frame.
@@ -271,7 +284,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to GroundCrouching.
-                    if (controls.movementVerticalInput < -deadZone)
+                    if (controls.movementVerticalInput < -deadZone && blockTimer >= (blockTimerDefault / 4))
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundCrouching;
@@ -387,7 +400,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to GroundCrouching.
-                    if (controls.movementVerticalInput < -deadZone)
+                    if (controls.movementVerticalInput < -deadZone && blockTimer >= (blockTimerDefault / 4))
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundCrouching;
@@ -580,6 +593,14 @@ namespace BootlegPlatformFighter
                 #region GROUND_CROUCHING
                 case PlayerState.GroundCrouching:
 
+                    if (blockTimer == 0)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.GroundIdling;
+                        characterAnimation.SetBool("isCrouching", false);
+
+                    }
+
                     if (crouchParryCounter <= 2)
                     {
                         isParrying = true;
@@ -589,8 +610,8 @@ namespace BootlegPlatformFighter
                         // Changes state to GroundBlocking
                         if (controls.airdashButton)
                         {
-                            playerState = PlayerState.GroundBlocking;
                             previousPlayerState = playerState;
+                            playerState = PlayerState.GroundBlocking;
                         }
 
                         if (controls.jumpButtonPressed)
@@ -998,6 +1019,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region HITSTUN
                 case PlayerState.HitStun:
+                    characterAnimation.SetBool("isHitStunning", true);
                     break;
                 #endregion
                 #region BLOCKSTUN
@@ -1006,6 +1028,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region TUMBLE
                 case PlayerState.Tumble:
+                    characterAnimation.SetBool("isTumbleing", true);
                     break;
                 #endregion
                 #region GRABBED
@@ -1201,6 +1224,15 @@ namespace BootlegPlatformFighter
             grabEvent.Invoke();
         }
 
+        public void BlockCountdown()
+        {
+            blockTimer--;
+        }
+
+        public void BlockCountUp()
+        {
+            blockTimer++;
+        }
         //void CreateDust()
         //{
         //    dust.Play();
