@@ -6,7 +6,6 @@ namespace BootlegPlatformFighter
 {
     public class Hitbox : MonoBehaviour
     {
-        private Fighting fightingScript;
 
         [SerializeField] private GameObject mainObject;
         public BootlegCharacterController characterController;
@@ -23,7 +22,7 @@ namespace BootlegPlatformFighter
         [SerializeField] public float knockbackScaling = 0.1f;
         [SerializeField] [Range(-180, 180)] public float angle;
         [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
-        [SerializeField] public int hitStunFrames = 5;
+        [SerializeField] public int hitStunFrames;
 
 
 
@@ -31,7 +30,6 @@ namespace BootlegPlatformFighter
         {
             hitboxHandler = mainObject.GetComponent<HitBoxHandler>();
             characterController = mainObject.transform.parent.gameObject.GetComponent<BootlegCharacterController>();
-            fightingScript = mainObject.GetComponent<Fighting>();
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             name = transform.parent.name + " " + name;
 

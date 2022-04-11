@@ -80,6 +80,7 @@ namespace BootlegPlatformFighter
             GroundRunning,
             GroundCrouching,
             GroundBlocking,
+            BlockBreak,
             Airdashing,
             Jumping,
             Airborne,
@@ -168,6 +169,9 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private int blockTimerDefault = 10;
         private int blockTimer;
+
+        [SerializeField] private int blockBreakTimerDefault = 10;
+        private int blockBreakTimer;
 
         // Start is called before the first frame update
         void Start()
@@ -580,7 +584,7 @@ namespace BootlegPlatformFighter
                     if (blockTimer == 0)
                     {
                         previousPlayerState = playerState;
-                        playerState = PlayerState.GroundIdling;
+                        playerState = PlayerState.BlockBreak;
                         characterAnimation.SetBool("isCrouching", false);
 
                     }
@@ -635,6 +639,23 @@ namespace BootlegPlatformFighter
                     else
                     {
                         crouchParryCounter++;
+                    }
+
+                    break;
+                #endregion
+                #region BLOCKBREAK
+                case PlayerState.BlockBreak:
+
+                    if (blockBreakTimer == blockBreakTimerDefault)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.LandingLag;
+                        blockBreakTimer = 0;
+                        canMove = true;
+                    }
+                    else
+                    {
+                        blockBreakTimer++;
                     }
 
                     break;
@@ -904,6 +925,11 @@ namespace BootlegPlatformFighter
             {
                 characterAnimation.SetBool("isAirDashing", false);
             }
+
+            if (playerState != PlayerState.BlockBreak)
+            {
+                characterAnimation.SetBool("isBlockBreaking", false);
+            }
         }
 
         private void HandlePlayerState(Controls controls)
@@ -963,6 +989,14 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundCrouching:
 
                     characterAnimation.SetBool("isCrouching", true);
+
+                    break;
+                #endregion
+                #region BLOCKBREAK
+                case PlayerState.BlockBreak:
+
+                    canMove = false;
+                    characterAnimation.SetBool("isBlockBreaking", true);
 
                     break;
                 #endregion

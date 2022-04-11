@@ -101,8 +101,5 @@ namespace BootlegPlatformFighter
             AnimationHurtBoxTrigger();
         }
 
-
-        
-
     }
 }
