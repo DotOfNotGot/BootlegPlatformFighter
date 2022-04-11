@@ -93,7 +93,6 @@ namespace BootlegPlatformFighter
                 }
             }
             animationHurtBoxes.Clear();
-            defaultHurtBoxSet.SetActive(true);
         }
 
 

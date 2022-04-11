@@ -172,7 +172,6 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-
             characterAnimation = GetComponentInChildren<Animator>();
             playerCollider = GetComponentInChildren<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
@@ -684,6 +683,19 @@ namespace BootlegPlatformFighter
                         airdashCounter++;
                     }
 
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+
+                        playerState = PlayerState.NeutralAir;
+
+                    }
+                    if (controls.specialAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.ForwardAir;
+                    }
+
                     break;
                 #endregion
                 #region JUMPING
@@ -701,18 +713,7 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
                     }
-                    if (controls.normalAttackButton)
-                    {
-                        previousPlayerState = playerState;
-                       
-                            playerState = PlayerState.NeutralAir;
-                        
-                    }
-                    if (controls.specialAttackButton)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardAir;
-                    }
+                    
 
                     break;
                 #endregion
@@ -756,7 +757,7 @@ namespace BootlegPlatformFighter
                     {
                         airborneCounter = 0;
                     }
-                    if (controls.normalAttackButton)
+                    if (controls.normalAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
                         
@@ -764,7 +765,7 @@ namespace BootlegPlatformFighter
                         
                     }
 
-                    if (controls.specialAttackButton)
+                    if (controls.specialAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
 
@@ -899,6 +900,10 @@ namespace BootlegPlatformFighter
                 characterAnimation.SetBool("isJumpSquatting", false);
             }
 
+            if (playerState != PlayerState.Airdashing)
+            {
+                characterAnimation.SetBool("isAirDashing", false);
+            }
         }
 
         private void HandlePlayerState(Controls controls)
@@ -967,6 +972,8 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region AIRDASHING
                 case PlayerState.Airdashing:
+
+                    characterAnimation.SetBool("isAirDashing", true);
 
                     if (airdashCounter == 0)
                     {
