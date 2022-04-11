@@ -16913,7 +16913,7 @@ MonoBehaviour:
   damage: 20
   baseKnockback: 24
   knockbackScaling: 10
-  angle: 55
+  angle: 40
   lineLengthDEBUG: 2
   hitStunFrames: 5
 --- !u!1 &4788650883507786383
@@ -22438,7 +22438,7 @@ MonoBehaviour:
   damage: 20
   baseKnockback: 24
   knockbackScaling: 10
-  angle: 63
+  angle: 40
   lineLengthDEBUG: 2
   hitStunFrames: 5
 --- !u!1 &6327993532200001560
