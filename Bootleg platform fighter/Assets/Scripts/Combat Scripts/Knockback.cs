@@ -17,7 +17,7 @@ namespace BootlegPlatformFighter
         private GameManager gameManager;
 
         private AnimationHandler animHandler;
-        [SerializeField]private int hitStunTimer = -1;
+        private int hitStunTimer = -1;
         public bool isHitStunned;
 
 
