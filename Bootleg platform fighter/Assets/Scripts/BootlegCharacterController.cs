@@ -259,7 +259,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to ForwardStrong
-                    if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
+                    if (controls.specialAttackButton)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
@@ -272,13 +272,7 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Jab;
                     }
 
-                    // Changes state to ForwardStrong.
-                    if (controls.normalAttackButtonPressed && !isInHorizontalDeadZone)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardStrong;
-                    }
-
+           
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
                     {
@@ -396,7 +390,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to ForwardStrong.
-                    if (controls.normalAttackButtonPressed && !isInHorizontalDeadZone)
+                    if (controls.specialAttackButton)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
@@ -445,12 +439,6 @@ namespace BootlegPlatformFighter
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
-                    }
-                    // Changes state to ForwardStrong
-                    if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardStrong;
                     }
 
                     break;
@@ -521,12 +509,6 @@ namespace BootlegPlatformFighter
                         }
                         groundDashingCounter++;
                     }
-                    // Changes state to ForwardStrong
-                    if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardStrong;
-                    }
 
 
                     break;
@@ -585,7 +567,7 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Airborne;
                     }
                     // Changes state to ForwardStrong
-                    if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
+                    if (controls.specialAttackButton)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
@@ -722,14 +704,14 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton)
                     {
                         previousPlayerState = playerState;
-                        if (moveVector.x != 0)
-                        {
-                            playerState = PlayerState.ForwardAir;
-                        }
-                        else
-                        {
+                       
                             playerState = PlayerState.NeutralAir;
-                        }
+                        
+                    }
+                    if (controls.specialAttackButton)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.ForwardAir;
                     }
 
                     break;
@@ -777,14 +759,16 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton)
                     {
                         previousPlayerState = playerState;
-                        if (moveVector.x != 0 || controls.movementHorizontalInput != 0)
-                        {
-                            playerState = PlayerState.ForwardAir;
-                        }
-                        else
-                        {
+                        
                             playerState = PlayerState.NeutralAir;
-                        }
+                        
+                    }
+
+                    if (controls.specialAttackButton)
+                    {
+                        previousPlayerState = playerState;
+
+                        playerState = PlayerState.ForwardAir;
                     }
                     break;
                 #endregion
