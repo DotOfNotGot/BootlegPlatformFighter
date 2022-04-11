@@ -37,7 +37,13 @@ namespace BootlegPlatformFighter
             GameManagerData.Players.Clear();
             GameManagerData.Players.Add(new Player_t(player1Name.text));
             GameManagerData.Players.Add(new Player_t(player2Name.text));
-            SceneManager.LoadScene("WinterStage");
+            StartCoroutine(FightScene());
+        }
+
+        private IEnumerator FightScene()
+        {
+            yield return new WaitForSeconds(1f); // wait for anim
+            SceneManager.LoadSceneAsync("WinterStage - Akandesh", LoadSceneMode.Single);
         }
     }
 }
