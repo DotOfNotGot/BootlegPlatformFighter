@@ -7,50 +7,122 @@ namespace BootlegPlatformFighter
 {
     public class Knockback : MonoBehaviour
     {
-        [SerializeField] private TMP_Text percentText;
-
         Rigidbody2D rigidBody;
 
         private BootlegCharacterController characterController;
 
         private float weight;
 
+        private HUDAvatar _HUDAvatar;
+        private GameManager gameManager;
+
+        private AnimationHandler animHandler;
+        [SerializeField]private int hitStunTimer = -1;
+        public bool isHitStunned;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            characterController = GetComponent<BootlegCharacterController>();
-            weight = gameObject.GetComponent<Rigidbody2D>().mass;
-            rigidBody = gameObject.GetComponent<Rigidbody2D>();
-            percentText.text = "0%";
+            characterController = GetComponentInParent<BootlegCharacterController>();
+            weight = gameObject.GetComponentInParent<Rigidbody2D>().mass;
+            rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
+            gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>( );
+            animHandler = gameObject.GetComponent<AnimationHandler>();
+
+            if (!SetupHUD())
+            {
+                Debug.LogError("Knockback.cs: Didn't find any available HUDAvatars");
+            }
+
+            _HUDAvatar?.SetHealth(0);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void FixedUpdate()
         {
-
+            if (hitStunTimer > 0)
+            {
+                hitStunTimer--;
+            }
+            else if (hitStunTimer == 0)
+            {
+                EndHitStun();
+                hitStunTimer = -1;
+            }
         }
 
         public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
+            EnterTumble();
             characterController.damageTakenPercent += damagePercent;
-            /*if (damageTakenPercent < 0.2f)
-            {*/
-            //Debug.Log(direction);
             direction = new Vector2(direction.x * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18)* knockbackScaling) + baseKnockback), 
                     direction.y * (((((characterController.damageTakenPercent / 10 + (characterController.damageTakenPercent * damagePercent) / 20)
                     * (200 / weight + 100) * 1.4f) + 18) * knockbackScaling) + baseKnockback));
-            
-           //Debug.Log(direction);
-            //}
-            /*else
-            {
-                direction = new Vector2(direction.x * baseKnockback * (damageTakenPercent / 2), direction.y * baseKnockback * (damageTakenPercent / 2));
-            }*/
-            percentText.text = characterController.damageTakenPercent + "%";
+            Debug.Log(characterController.damageTakenPercent);
+            Debug.Log("direction = " + direction);
+            Debug.Log("baseKnockback = " + baseKnockback);
+            Debug.Log("knockbackScaling = " + knockbackScaling);
+            Debug.Log("damagePercent = " + damagePercent);
+
+            _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction);
         }
+
+        IEnumerator DelayedDeath()
+        {
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
+            // Probably disables wrong children
+            for (int i = 0; i < transform.childCount; i++)
+                transform.GetChild(i).gameObject.SetActive(false);
+            StartCoroutine(characterController.DelayRespawn());
+        }
+
+        private bool SetupHUD()
+        {
+            HUDAvatar backupObject = null;
+            var avatars = GameObject.FindGameObjectsWithTag("HUDAvatar");
+            foreach (var avatar in avatars)
+            {
+                var hudscript = avatar.GetComponent<HUDAvatar>();
+                if (hudscript.getCharacterIndex() == -1)
+                {
+                    hudscript.setCharacterIndex(characterController.characterIndex);
+                    _HUDAvatar = hudscript;
+                    return true;
+                }
+                if (hudscript.getCharacterIndex() == characterController.characterIndex)
+                    backupObject = hudscript;
+            }
+            if (backupObject != null) {
+                _HUDAvatar = backupObject;
+                return true;
+            }
+            return false;
+        }
+
+        public void StartHitStun(int stunTimer)
+        {
+            hitStunTimer = stunTimer;
+            isHitStunned = true;
+            characterController.canMove = false;
+            characterController.previousPlayerState = characterController.playerState;
+            characterController.playerState = BootlegCharacterController.PlayerState.HitStun;
+        }
+
+        public void EndHitStun()
+        {
+            characterController.canMove = true;
+            isHitStunned = false;
+        }
+
+        public void EnterTumble()
+        {
+
+            characterController.previousPlayerState = characterController.playerState;
+            characterController.playerState = BootlegCharacterController.PlayerState.Tumble;
+        }
+
     }
 }
