@@ -136,7 +136,7 @@ namespace BootlegPlatformFighter
                                 {
                                     GetComponent<Knockback>().StartHitStun(blockStun);
                                 }
-                                else
+                                else if (!hitTarget)
                                 {
                                     hitbox.GetComponent<Hitbox>().SendToHitStun(hurtScript.character);
                                     hitTarget = true;

@@ -262,7 +262,7 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
                     {
                         previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardTilt;
+                        playerState = PlayerState.ForwardStrong;
                     }
 
                     // Changes state to Jab
@@ -450,7 +450,7 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
                     {
                         previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardTilt;
+                        playerState = PlayerState.ForwardStrong;
                     }
 
                     break;
@@ -525,7 +525,7 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
                     {
                         previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardTilt;
+                        playerState = PlayerState.ForwardStrong;
                     }
 
 
@@ -588,7 +588,7 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButton && controls.movementHorizontalInput != 0)
                     {
                         previousPlayerState = playerState;
-                        playerState = PlayerState.ForwardTilt;
+                        playerState = PlayerState.ForwardStrong;
                     }
 
                     break;
@@ -1092,8 +1092,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region FORWARDTILT
                 case PlayerState.ForwardTilt:
-                    characterAnimation.SetBool("isForwardStronging", true);
-
+                    
 
                     break;
                 #endregion
@@ -1107,7 +1106,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region FORWARDSTRONG
                 case PlayerState.ForwardStrong:
-
+                    
                     characterAnimation.SetBool("isForwardStronging", true);
 
                     break;
