@@ -111,13 +111,22 @@ namespace BootlegPlatformFighter
                 {
                     hitbox = attackHitBoxes[i];
                     List<Collider2D> hurtBoxes = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, hurtBoxLayers).ToList();
-
+                    List<Collider2D> tempHurtBoxes = new List<Collider2D>();
+                    foreach (Collider2D hurtBox in hurtBoxes)
+                    {
+                        if (hurtBox.gameObject.GetComponent<HurtBox>().characterIndex != bootlegCharacterController.characterIndex)
+                        {
+                            tempHurtBoxes.Add(hurtBox);
+                        }
+                    }
+                    hurtBoxes = tempHurtBoxes;
                     if (hurtBoxes.Count > 0)
                     {
                         foreach (Collider2D hurtBox in hurtBoxes)
                         {
 
                             hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+                            Debug.Log(hurtScript.characterIndex);
 
                             if (hurtScript.characterIndex != bootlegCharacterController.characterIndex)
                             {
@@ -145,7 +154,11 @@ namespace BootlegPlatformFighter
             }
             if (hurtScript != null)
             {
-                if (hitTarget && !hurtScript.character.gameObject.GetComponent<Knockback>().isHitStunned && hurtScript.characterIndex != bootlegCharacterController.characterIndex)
+                if (hurtScript.characterIndex == bootlegCharacterController.characterIndex)
+                {
+                    hurtScript = null;
+                }
+                else if (hitTarget && !hurtScript.character.gameObject.GetComponent<Knockback>().isHitStunned)
                 {
                     Debug.Log("Hit with hitbox: " + hitbox.name + "belonging to: " + hitbox.transform.parent.parent.parent.parent.parent.name);
                     hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
