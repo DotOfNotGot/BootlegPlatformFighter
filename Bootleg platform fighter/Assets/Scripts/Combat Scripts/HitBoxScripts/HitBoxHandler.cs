@@ -116,6 +116,7 @@ namespace BootlegPlatformFighter
                     {
                         foreach (Collider2D hurtBox in hurtBoxes)
                         {
+        
 
                             hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
 
