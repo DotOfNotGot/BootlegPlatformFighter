@@ -50,7 +50,6 @@ namespace BootlegPlatformFighter
 
         public void AnimationHurtBoxTrigger()
         {
-            defaultHurtBoxSet.SetActive(false);
             string animationName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             foreach (HitHurtBoxStruct animation in moveStructures)
             {
