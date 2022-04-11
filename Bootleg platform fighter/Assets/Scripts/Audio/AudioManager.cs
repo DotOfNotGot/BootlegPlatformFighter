@@ -9,7 +9,8 @@ namespace BootlegPlatformFighter
     public class Audio
     {
         public string Name;
-        public AudioClip clip;
+        [Range(0.0f,1.0f)] public float Volume = 1.0f;
+        public AudioClip Clip;
     }
 
     public class AudioManager : MonoBehaviour
@@ -42,11 +43,11 @@ namespace BootlegPlatformFighter
                 {
                     if (audio.Name.ToLower() == audioMatch.Groups[1].Value.ToLower())
                     {
-                        PlaySound(audio.clip);
+                        PlaySound(audio);
                     }
                     else if (audio.Name.ToLower() == audioMatch.Groups[1].Value.ToLower() + audioIndex)
                     {
-                        PlaySound(audio.clip);
+                        PlaySound(audio);
                         audioIndex++;
                     }
                 }
@@ -55,9 +56,10 @@ namespace BootlegPlatformFighter
         }
 
 
-        private void PlaySound(AudioClip clip)
+        private void PlaySound(Audio clip)
         {
-            source.PlayOneShot(clip);
+            source.volume = clip.Volume;
+            source.PlayOneShot(clip.Clip);
         }
     }
 }
