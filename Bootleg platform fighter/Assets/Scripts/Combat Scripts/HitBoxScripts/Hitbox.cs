@@ -11,7 +11,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private GameObject mainObject;
         public BootlegCharacterController characterController;
         private HitBoxHandler hitboxHandler;
-        private Vector2 direction;
+        public Vector2 direction;
 
 
         [Header("Collider")]
@@ -44,14 +44,11 @@ namespace BootlegPlatformFighter
 
         }
 
-        public void SendToKnockback(GameObject hitEnemy)
-        {
-            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - mainObject.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
-        }
+       
 
         public bool SendToHitStun(GameObject hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames);
+            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames, this);
             return true;
         }
 

@@ -144,12 +144,14 @@ namespace BootlegPlatformFighter
                                 //Debug.Log("Hit " + hurtBox.name + " Belonging to " + hurtScript.character.name + " with " + hitbox.name + " belonging to " + gameObject.name);
                                 if (hurtScript.characterController.playerState == BootlegCharacterController.PlayerState.GroundCrouching)
                                 {
-                                    GetComponent<Knockback>().StartHitStun(blockStun);
+                                    //GetComponent<Knockback>().StartHitStun(blockStun);
+                                    break;
                                 }
                                 else if (!hitTarget)
                                 {
                                     hitbox.GetComponent<Hitbox>().SendToHitStun(hurtScript.character);
                                     hitTarget = true;
+                                    break;
                                 }
 
                             }
@@ -170,8 +172,7 @@ namespace BootlegPlatformFighter
                 }
                 else if (hitTarget && !hurtScript.character.gameObject.GetComponent<Knockback>().isHitStunned)
                 {
-                    Debug.Log("Hit with hitbox: " + hitbox.name + "belonging to: " + hitbox.transform.parent.parent.parent.parent.parent.name);
-                    hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
+                   
                     hitTarget = false;
                     hurtScript = null;
                 }

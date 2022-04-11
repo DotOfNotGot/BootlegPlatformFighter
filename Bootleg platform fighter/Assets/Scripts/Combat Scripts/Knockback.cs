@@ -19,6 +19,7 @@ namespace BootlegPlatformFighter
         private AnimationHandler animHandler;
         [SerializeField]private int hitStunTimer = -1;
         public bool isHitStunned;
+        public Hitbox hitbox;
 
 
         // Start is called before the first frame update
@@ -48,6 +49,7 @@ namespace BootlegPlatformFighter
             {
                 EndHitStun();
                 hitStunTimer = -1;
+
             }
         }
 
@@ -102,8 +104,9 @@ namespace BootlegPlatformFighter
             return false;
         }
 
-        public void StartHitStun(int stunTimer)
+        public void StartHitStun(int stunTimer, Hitbox hBox)
         {
+            hitbox = hBox;
             hitStunTimer = stunTimer;
             isHitStunned = true;
             characterController.canMove = false;
@@ -115,6 +118,7 @@ namespace BootlegPlatformFighter
         {
             characterController.canMove = true;
             isHitStunned = false;
+            KnockBack(new Vector2(hitbox.transform.position.x - transform.position.x, 1) * hitbox.direction, hitbox.baseKnockback, hitbox.knockbackScaling, hitbox.damage);
         }
 
         public void EnterTumble()
