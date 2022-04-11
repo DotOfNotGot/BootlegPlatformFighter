@@ -84,6 +84,7 @@ namespace BootlegPlatformFighter
             Jumping,
             Airborne,
             LandingLag,
+            TumbleLand,
             HitStun,
             BlockStun,
             Tumble,
@@ -121,6 +122,7 @@ namespace BootlegPlatformFighter
         private int airdashCounter = 0;
         private int airborneCounter = 0;
         private int landingLagCounter = 0;
+        private int tumbleLandCounter = 0;
         private int crouchParryCounter = 0;
 
 
@@ -170,6 +172,7 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
+
             characterAnimation = GetComponentInChildren<Animator>();
             playerCollider = GetComponentInChildren<BoxCollider2D>();
             playerRb = GetComponent<Rigidbody2D>();
@@ -798,6 +801,19 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
+                #region TumbleLand
+                case PlayerState.TumbleLand:
+
+                    tumbleLandCounter++;
+                    if (tumbleLandCounter > 20)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.LandingLag;
+                        tumbleLandCounter = 0;
+                    }
+
+                    break;
+                #endregion
                 #region HITSTUN
                 case PlayerState.HitStun:
                     break;
@@ -808,6 +824,15 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region TUMBLE
                 case PlayerState.Tumble:
+
+                    if (isOnGround)
+                    {
+
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.TumbleLand;
+
+                    }
+
                     break;
                 #endregion
                 #region GRABBED
@@ -848,6 +873,21 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.GroundIdling)
             {
                 characterAnimation.SetBool("isIdling", false);
+            }
+
+            if (playerState != PlayerState.TumbleLand)
+            {
+                characterAnimation.SetBool("isTumbleLanding", false);
+            }
+
+            if (playerState != PlayerState.Tumble)
+            {
+                characterAnimation.SetBool("isTumbleing", false);
+            }
+
+            if (playerState != PlayerState.HitStun)
+            {
+                characterAnimation.SetBool("isHitStunning", false);
             }
 
             if (playerState != PlayerState.GroundDashing)
@@ -1029,6 +1069,13 @@ namespace BootlegPlatformFighter
                 #region TUMBLE
                 case PlayerState.Tumble:
                     characterAnimation.SetBool("isTumbleing", true);
+                    break;
+                #endregion
+                #region TumbleLand
+                case PlayerState.TumbleLand:
+
+                    characterAnimation.SetBool("isTumbleLanding", true);
+
                     break;
                 #endregion
                 #region GRABBED
