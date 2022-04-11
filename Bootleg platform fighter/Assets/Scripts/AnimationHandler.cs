@@ -14,22 +14,47 @@ namespace BootlegPlatformFighter
             characterController = GetComponentInParent<BootlegCharacterController>();
         }
 
-        public void ExitAnimation()
+        public string GetAnimationName()
         {
+
             string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             string animationRegex = @".*_(\D*)";
             Match animationMatch = Regex.Match(animationName, animationRegex);
-            string matchResult = animationMatch.Groups[1].Value.ToLower();
-            char[] matchLetters = matchResult.ToCharArray();
-            matchLetters[0] = char.ToUpper(matchLetters[0]);
-            matchResult = new string(matchLetters);
+            string matchResult = animationMatch.Groups[1].Value;
+            return "is" + matchResult + "ing";
+        }
 
-            string animationBoolName = "is" + matchResult + "ing";
+        public void ExitAnimation(string returnToIdle = null)
+        {
+            string animationBoolName = GetAnimationName();
             characterAnimation.SetBool(animationBoolName, false);
             characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
-
             AudioManager audioManager = GetComponent<AudioManager>();
             audioManager.audioIndex = 0;
+
+            //Get which state to enter into
+            if (returnToIdle != null)
+            {
+                EnterNewAnimation("Huldra_Idle");
+            }
+
         }
+
+        public void EnterNewAnimation(string newAnim)
+        {
+            characterAnimation.Play(newAnim);
+        }
+
+        public void CancelAnimation(string newAnim)
+        {
+            ExitAnimation();
+            EnterNewAnimation(newAnim);
+            characterController.GetComponent<HurtBoxHandler>().ResetFrameIndex();
+            characterController.GetComponent<HitBoxHandler>().ResetAttackIndex();
+            string animationBoolName = GetAnimationName();
+            characterAnimation.SetBool(animationBoolName, true);
+
+        }
+
     }
 }
