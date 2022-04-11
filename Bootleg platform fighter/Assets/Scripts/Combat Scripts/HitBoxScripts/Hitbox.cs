@@ -33,11 +33,15 @@ namespace BootlegPlatformFighter
             characterController = mainObject.transform.parent.gameObject.GetComponent<BootlegCharacterController>();
             fightingScript = mainObject.GetComponent<Fighting>();
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            name = transform.parent.name + " " + name;
+
         }
 
         void FixedUpdate()
         {
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            GetComponent<SpriteRenderer>().enabled = mainObject.GetComponent<HitBoxHandler>().visualizeHitboxes;
+
         }
 
         public void SendToKnockback(GameObject hitEnemy)

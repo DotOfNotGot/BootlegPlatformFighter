@@ -19,12 +19,13 @@ namespace BootlegPlatformFighter
         {
             characterController = character.transform.parent.gameObject.GetComponentInParent<BootlegCharacterController>();
             characterIndex = characterController.characterIndex;
+            name = transform.parent.name + " " + name;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void FixedUpdate()
         {
-        
+            GetComponent<SpriteRenderer>().enabled = character.GetComponent<HurtBoxHandler>().visualizeHurtboxes;
+
         }
 
     }

@@ -21,6 +21,8 @@ namespace BootlegPlatformFighter
 
         public bool isHitStunned;
 
+        public bool visualizeHurtboxes = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -43,9 +45,13 @@ namespace BootlegPlatformFighter
             defaultHurtBoxSet.SetActive(true);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            
+
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                visualizeHurtboxes = !visualizeHurtboxes;
+            }
         }
 
         public void AnimationHurtBoxTrigger()
@@ -92,10 +98,7 @@ namespace BootlegPlatformFighter
                 }
             }
             animationHurtBoxes.Clear();
-<<<<<<< Updated upstream
-=======
             AnimationHurtBoxTrigger();
->>>>>>> Stashed changes
         }
 
 

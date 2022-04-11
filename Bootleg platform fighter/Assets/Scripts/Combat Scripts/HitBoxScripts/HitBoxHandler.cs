@@ -41,6 +41,9 @@ namespace BootlegPlatformFighter
         private BootlegCharacterController bootlegCharacterController;
 
         private int attackIndex = 0;
+
+        public bool visualizeHitboxes = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -96,9 +99,16 @@ namespace BootlegPlatformFighter
             }
             attackIndex++;
         }
-
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                visualizeHitboxes = !visualizeHitboxes;
+            }
+        }
         public void FixedUpdate()
         {
+            
             if (remainingLagFrames > 0) {
                 --remainingLagFrames;
                 return;
