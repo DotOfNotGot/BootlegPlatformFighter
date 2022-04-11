@@ -7,17 +7,29 @@ namespace BootlegPlatformFighter
     {
         private BootlegCharacterController characterController;
         private Animator characterAnimation;
+        private HurtBoxHandler hurtBoxHandler;
         // Start is called before the first frame update
+
+
         void Start()
         {
             characterAnimation = GetComponent<Animator>();
             characterController = GetComponentInParent<BootlegCharacterController>();
+            hurtBoxHandler = GetComponent<HurtBoxHandler>();
+
         }
+
 
         public string GetAnimationName()
         {
 
             string animationName = characterAnimation.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            return GetAnimationName(animationName);
+        }
+
+        public string GetAnimationName(string animationName)
+        {
+            
             string animationRegex = @".*_(\D*)";
             Match animationMatch = Regex.Match(animationName, animationRegex);
             string matchResult = animationMatch.Groups[1].Value;
@@ -28,16 +40,15 @@ namespace BootlegPlatformFighter
         {
             string animationBoolName = GetAnimationName();
             characterAnimation.SetBool(animationBoolName, false);
-            characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
             AudioManager audioManager = GetComponent<AudioManager>();
             audioManager.audioIndex = 0;
 
             //Get which state to enter into
             if (returnToIdle != null)
             {
+                characterController.playerState = BootlegCharacterController.PlayerState.GroundIdling;
                 EnterNewAnimation("Huldra_Idle");
             }
-
         }
 
         public void EnterNewAnimation(string newAnim)
@@ -49,12 +60,10 @@ namespace BootlegPlatformFighter
         {
             ExitAnimation();
             EnterNewAnimation(newAnim);
-            characterController.GetComponent<HurtBoxHandler>().ResetFrameIndex();
-            characterController.GetComponent<HitBoxHandler>().ResetAttackIndex();
-            string animationBoolName = GetAnimationName();
+            hurtBoxHandler.ResetFrameIndex();
+            GetComponent<HitBoxHandler>().ResetAttackIndex();
+            string animationBoolName = GetAnimationName(newAnim);
             characterAnimation.SetBool(animationBoolName, true);
-
         }
-
     }
 }

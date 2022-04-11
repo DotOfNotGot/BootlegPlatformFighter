@@ -15,12 +15,16 @@ namespace BootlegPlatformFighter
         private List<HitHurtBoxStruct> moveStructures = new List<HitHurtBoxStruct>();
 
         private List<GameObject> animationHurtBoxes = new List<GameObject>() { };
+        public BootlegCharacterController characterController;
 
         private int frameIndex = 0;
+
+        public bool isHitStunned;
 
         // Start is called before the first frame update
         void Start()
         {
+            characterController = GetComponent<BootlegCharacterController>();
             animator = GetComponent<Animator>();
             for (int i = 0; i < hurtBoxEmpty.transform.childCount; i++)
             {
@@ -80,6 +84,7 @@ namespace BootlegPlatformFighter
         public void ResetFrameIndex()
         {
             frameIndex = 0;
+            
             foreach (HitHurtBoxStruct animation in moveStructures)
             {
                 foreach (GameObject frame in animation.BoxList)
@@ -91,6 +96,8 @@ namespace BootlegPlatformFighter
             defaultHurtBoxSet.SetActive(true);
         }
 
+
+        
 
     }
 }
