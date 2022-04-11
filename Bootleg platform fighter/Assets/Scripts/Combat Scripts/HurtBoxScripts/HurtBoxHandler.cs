@@ -92,6 +92,10 @@ namespace BootlegPlatformFighter
                 }
             }
             animationHurtBoxes.Clear();
+<<<<<<< Updated upstream
+=======
+            AnimationHurtBoxTrigger();
+>>>>>>> Stashed changes
         }
 
 
