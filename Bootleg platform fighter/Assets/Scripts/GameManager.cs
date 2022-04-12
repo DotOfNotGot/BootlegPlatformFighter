@@ -36,6 +36,18 @@ namespace BootlegPlatformFighter
             }
             return null;
         }
+
+        public void RemoveHeartFromPlayer(int index)
+        {
+            var hud = FindHUDAvatarByIndex(index);
+            if (!hud)
+            {
+                Debug.Log("Missing HUD in RespawnPlayer");
+                return;
+            }
+            hud.RemoveOneHeart();
+        }
+
        public void RespawnPlayer(GameObject player, int index)
         {
             Vector3 spawnPosition;
@@ -64,7 +76,6 @@ namespace BootlegPlatformFighter
                 Debug.Log("Missing HUD in RespawnPlayer");
                 return;
             }
-            hud.RemoveOneHeart();
             hud.SetHealth(0);
         }
 
