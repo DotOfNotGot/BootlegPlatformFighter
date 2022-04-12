@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace BootlegPlatformFighter
 {
@@ -15,6 +16,9 @@ namespace BootlegPlatformFighter
         private GameObject QuitDialog;
         [SerializeField]
         private GameObject OptionsMenu;
+
+        [SerializeField]
+        private Animator CrossFadeAnimator;
 
         // Start is called before the first frame update
         void Start()
@@ -50,6 +54,18 @@ namespace BootlegPlatformFighter
 #else
          Application.Quit();
 #endif
+        }
+
+        public void LoadMainMenuCallback(BaseEventData dat)
+        {
+            CrossFadeAnimator.SetTrigger("Start");
+            StartCoroutine(loadMainMenuAfterSecond());
+        }
+
+        private IEnumerator loadMainMenuAfterSecond()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
         }
 
         public void CancelQuitCallback(BaseEventData dat)

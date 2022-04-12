@@ -358,6 +358,10 @@ PrefabInstance:
       propertyPath: characterIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: crossFadeAnimator
+      value: 
+      objectReference: {fileID: 592325245}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6725,6 +6729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Huldra 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: crossFadeAnimator
+      value: 
+      objectReference: {fileID: 592325245}
     - target: {fileID: 6593391531529766283, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: hitLagFrames
       value: 500
@@ -14075,7 +14083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: QUIT to main menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbad1296cd395c140af4e6977f157f1d, type: 2}
   m_sharedMaterial: {fileID: -7005798076313300038, guid: dbad1296cd395c140af4e6977f157f1d, type: 2}
@@ -28171,7 +28179,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1867934449}
         m_TargetAssemblyTypeName: BootlegPlatformFighter.InGameMenu, Assembly-CSharp
-        m_MethodName: QuitCallback
+        m_MethodName: LoadMainMenuCallback
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28606,7 +28614,7 @@ GameObject:
   - component: {fileID: 1742531254}
   - component: {fileID: 1742531253}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: QuitMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29651,6 +29659,7 @@ MonoBehaviour:
   Tint: {fileID: 1678769331}
   QuitDialog: {fileID: 694629364}
   OptionsMenu: {fileID: 1662795202}
+  CrossFadeAnimator: {fileID: 592325245}
 --- !u!114 &1867934450
 MonoBehaviour:
   m_ObjectHideFlags: 0
