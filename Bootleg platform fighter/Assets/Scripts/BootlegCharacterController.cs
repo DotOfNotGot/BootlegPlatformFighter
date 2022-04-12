@@ -280,7 +280,7 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Jab;
                     }
 
-           
+
                     // Changes state to GroundBlocking
                     if (controls.airdashButton)
                     {
@@ -460,7 +460,7 @@ namespace BootlegPlatformFighter
                     if (groundDashingCounter == 0)
                     {
                         dashStartHorizontalInput = controls.movementHorizontalInput;
-                        
+
                     }
 
                     // Changes state to GroundJumpSquatting
@@ -739,7 +739,7 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
                     }
-                    
+
 
                     break;
                 #endregion
@@ -764,7 +764,7 @@ namespace BootlegPlatformFighter
                         {
                             characterAnimation.Play("Huldra_JumpPeak");
                             //animationHandler.CancelAnimation("Huldra_Jump");
-                            
+
                         }
                     }
 
@@ -786,9 +786,9 @@ namespace BootlegPlatformFighter
                     if (controls.normalAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
-                        
-                            playerState = PlayerState.NeutralAir;
-                        
+
+                        playerState = PlayerState.NeutralAir;
+
                     }
 
                     if (controls.specialAttackButtonPressed)
@@ -1122,7 +1122,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region FORWARDTILT
                 case PlayerState.ForwardTilt:
-                    
+
 
                     break;
                 #endregion
@@ -1136,7 +1136,7 @@ namespace BootlegPlatformFighter
                 #endregion
                 #region FORWARDSTRONG
                 case PlayerState.ForwardStrong:
-                    
+
                     characterAnimation.SetBool("isForwardStronging", true);
 
                     break;
@@ -1159,7 +1159,7 @@ namespace BootlegPlatformFighter
                 #region FORWARDAIR
                 case PlayerState.ForwardAir:
 
-                    characterAnimation.SetBool("isForwardAiring",true);
+                    characterAnimation.SetBool("isForwardAiring", true);
 
                     break;
                 #endregion
@@ -1255,20 +1255,12 @@ namespace BootlegPlatformFighter
 
         public IEnumerator DelayRespawn()
         {
+            gameManager.RemoveHeartFromPlayer(characterIndex);
             yield return new WaitForSeconds(3);
-            if (gameManager.FindHUDAvatarByIndex(characterIndex).getHealthCount() > 1)
-            {
-                for (int i = 0; i < transform.childCount; i++)
-                    transform.GetChild(i).gameObject.SetActive(true);
-                gameManager.RemoveHeartFromPlayer(characterIndex);
-                gameManager.RespawnPlayer(gameObject, characterIndex);
-                damageTakenPercent = 0;
-            } else
-            {
-                // Player had 1 heart. Now he will have 0.
-                crossFadeAnimator.SetTrigger("Start");
-                StartCoroutine(GameOverSceneLoader());
-            }
+            for (int i = 0; i < transform.childCount; i++)
+                transform.GetChild(i).gameObject.SetActive(true);
+            gameManager.RespawnPlayer(gameObject, characterIndex);
+            damageTakenPercent = 0;
         }
 
         private IEnumerator GameOverSceneLoader()
@@ -1285,7 +1277,16 @@ namespace BootlegPlatformFighter
                 for (int i = 0; i < transform.childCount; i++)
                     transform.GetChild(i).gameObject.SetActive(false);
                 Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
-                StartCoroutine(DelayRespawn());
+                if (gameManager.FindHUDAvatarByIndex(characterIndex).getHealthCount() > 1)
+                {
+                    StartCoroutine(DelayRespawn());
+                }
+                else
+                {
+                    // Player had 1 heart. Now he will have 0.
+                    crossFadeAnimator.SetTrigger("Start");
+                    StartCoroutine(GameOverSceneLoader());
+                }
             }
         }
 
