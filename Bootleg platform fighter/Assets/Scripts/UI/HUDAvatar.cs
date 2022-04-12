@@ -55,7 +55,7 @@ namespace BootlegPlatformFighter
         {
             // health animation when changed
             var healthTransform = HealthText.GetComponentInParent<Transform>();
-            healthTransform.DOScale(2f, 0.5f).onComplete = () =>
+            healthTransform.DOScale(1.5f, 0.2f).onComplete = () =>
                 healthTransform.DOScale(1f, 0.3f);
 
             HealthText.text = percentage + "%";
