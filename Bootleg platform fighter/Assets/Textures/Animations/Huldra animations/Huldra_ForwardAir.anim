@@ -89,7 +89,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: AnimationHurtBoxTrigger
+    functionName: ResetAttackIndex
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -159,13 +159,6 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: AnimationHitboxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
     functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -174,13 +167,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.5833333
     functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5833333
-    functionName: ResetAttackIndex
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

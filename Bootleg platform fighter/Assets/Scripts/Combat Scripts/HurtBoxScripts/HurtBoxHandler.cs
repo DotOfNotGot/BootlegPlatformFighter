@@ -21,6 +21,8 @@ namespace BootlegPlatformFighter
 
         public bool isHitStunned;
 
+        public bool visualizeHurtboxes = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -43,14 +45,17 @@ namespace BootlegPlatformFighter
             defaultHurtBoxSet.SetActive(true);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            
+
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                visualizeHurtboxes = !visualizeHurtboxes;
+            }
         }
 
         public void AnimationHurtBoxTrigger()
         {
-            defaultHurtBoxSet.SetActive(false);
             string animationName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             foreach (HitHurtBoxStruct animation in moveStructures)
             {
@@ -93,11 +98,8 @@ namespace BootlegPlatformFighter
                 }
             }
             animationHurtBoxes.Clear();
-            defaultHurtBoxSet.SetActive(true);
+            AnimationHurtBoxTrigger();
         }
-
-
-        
 
     }
 }

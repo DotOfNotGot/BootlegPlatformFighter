@@ -8,7 +8,6 @@ namespace BootlegPlatformFighter
     public class Grab : MonoBehaviour
     {
 
-        private Fighting fightingScript;
 
         [SerializeField] private GameObject character;
         private BootlegCharacterController characterController;
@@ -32,7 +31,6 @@ namespace BootlegPlatformFighter
         {
             hitboxHandler = character.GetComponent<HitBoxHandler>();
             characterController = character.GetComponent<BootlegCharacterController>();
-            fightingScript = character.GetComponent<Fighting>();
             animationHandler = GetComponent<AnimationHandler>();
         }
 
@@ -73,9 +71,6 @@ namespace BootlegPlatformFighter
                 foreach (Collider2D hurtBox in hitHurtBoxes)
                 {
                     HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
-                    Fighting enemyFighting = hurtScript.character.GetComponent<Fighting>();
-                    enemyKnockback = enemyFighting.gameObject.GetComponent<Knockback>();
-                    enemyController = enemyFighting.gameObject.GetComponent<BootlegCharacterController>();
 
                     if (enemyController.characterIndex != characterController.characterIndex)
                     {
