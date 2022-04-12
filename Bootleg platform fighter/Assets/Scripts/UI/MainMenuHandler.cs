@@ -43,7 +43,7 @@ namespace BootlegPlatformFighter
         private IEnumerator FightScene()
         {
             yield return new WaitForSeconds(1f); // wait for anim
-            SceneManager.LoadSceneAsync("WinterStage - Akandesh", LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         }
     }
 }
