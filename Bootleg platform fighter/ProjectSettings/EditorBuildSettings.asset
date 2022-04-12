@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CombatTestScene.unity
     guid: a51e4258f6ca31146a8b28af72b68ce5
+  - enabled: 1
+    path: Assets/Scenes/Stages/WinterStage/WinterStage.unity
+    guid: ed2d68ca5e318cc47b0a5b68c72f5015
   m_configObjects: {}

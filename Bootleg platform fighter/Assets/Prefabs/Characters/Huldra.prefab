@@ -3739,8 +3739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -4147,9 +4148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
-  baseKnockback: 24
+  damage: 9
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
@@ -4987,13 +4989,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &1141522653159659577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,8 +5094,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -5427,6 +5431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.99
   damage: 20
   baseKnockback: 24
@@ -5531,8 +5536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -6013,6 +6019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.26
   damage: 9
   baseKnockback: 15
@@ -7144,13 +7151,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &1552066806688234878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7315,13 +7323,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &1613860223520207724
 GameObject:
   m_ObjectHideFlags: 0
@@ -7419,6 +7428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.22
   damage: 9
   baseKnockback: 15
@@ -8255,6 +8265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.88
   damage: 20
   baseKnockback: 24
@@ -9620,6 +9631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
   damage: 20
   baseKnockback: 24
@@ -10569,8 +10581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 144
@@ -12166,9 +12179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
-  baseKnockback: 24
+  damage: 9
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
@@ -12502,6 +12516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
   damage: 20
   baseKnockback: 16
@@ -13220,8 +13235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -13324,9 +13340,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.6
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 4
   lineLengthDEBUG: 4
@@ -14338,6 +14355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.9
   damage: 20
   baseKnockback: 24
@@ -14589,13 +14607,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 3.25
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &3445477609097262416
 GameObject:
   m_ObjectHideFlags: 0
@@ -15157,6 +15176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.83
   damage: 9
   baseKnockback: 15
@@ -16226,8 +16246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -16479,6 +16500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.26
   damage: 9
   baseKnockback: 15
@@ -17142,8 +17164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.95
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 34
@@ -19661,6 +19684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 4.71
   damage: 20
   baseKnockback: 24
@@ -20145,9 +20169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.6
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 4
   lineLengthDEBUG: 4
@@ -20397,6 +20422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
   damage: 20
   baseKnockback: 16
@@ -22417,9 +22443,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.6
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: -78
   lineLengthDEBUG: 4
@@ -22674,9 +22701,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.08
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 30
   lineLengthDEBUG: 4
@@ -22778,6 +22806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.9
   damage: 20
   baseKnockback: 24
@@ -22882,13 +22911,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &5600984469993409177
 GameObject:
   m_ObjectHideFlags: 0
@@ -24103,6 +24133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
   damage: 20
   baseKnockback: 16
@@ -25545,8 +25576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 149
@@ -26261,6 +26293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 4.71
   damage: 20
   baseKnockback: 24
@@ -26514,8 +26547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 149
@@ -26925,13 +26959,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &6514191720687260094
 GameObject:
   m_ObjectHideFlags: 0
@@ -27717,13 +27752,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
-  baseKnockback: 24
+  damage: 5
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
-  hitStunFrames: 5
+  hitStunFrames: 2
 --- !u!1 &6716361815393762761
 GameObject:
   m_ObjectHideFlags: 0
@@ -28007,8 +28043,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 144
@@ -30564,6 +30601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.14
   damage: 20
   baseKnockback: 24
@@ -31583,9 +31621,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
-  baseKnockback: 24
+  damage: 9
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
@@ -31803,9 +31842,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.6
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: -78
   lineLengthDEBUG: 4
@@ -32603,6 +32643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.83
   damage: 9
   baseKnockback: 15
@@ -32823,9 +32864,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
-  baseKnockback: 24
+  damage: 9
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 34
   lineLengthDEBUG: 2
@@ -32927,8 +32969,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 153
@@ -34835,9 +34878,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 3.7
-  damage: 20
-  baseKnockback: 24
+  damage: 15
+  baseKnockback: 12
   knockbackScaling: 10
   angle: 30
   lineLengthDEBUG: 4
@@ -35572,8 +35616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.25
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: 153
@@ -36742,8 +36787,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
-  damage: 13
+  damage: 7
   baseKnockback: 24
   knockbackScaling: 10
   angle: -10
@@ -37310,6 +37356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 1.5
   damage: 20
   baseKnockback: 16
@@ -37414,6 +37461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObject: {fileID: 5071249388957047531}
   characterController: {fileID: 6147251535244899237}
+  direction: {x: 0, y: 0}
   attackAreaRadius: 2.35
   damage: 15
   baseKnockback: 16

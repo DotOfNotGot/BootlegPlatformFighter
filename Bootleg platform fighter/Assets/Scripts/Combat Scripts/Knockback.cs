@@ -118,7 +118,7 @@ namespace BootlegPlatformFighter
         {
             characterController.canMove = true;
             isHitStunned = false;
-            KnockBack(new Vector2(hitbox.transform.position.x - transform.position.x, 1) * hitbox.direction, hitbox.baseKnockback, hitbox.knockbackScaling, hitbox.damage);
+            KnockBack(new Vector2(transform.parent.position.x - hitbox.mainObject.transform.position.x, 1) * hitbox.direction, hitbox.baseKnockback, hitbox.knockbackScaling, hitbox.damage);
         }
 
         public void EnterTumble()

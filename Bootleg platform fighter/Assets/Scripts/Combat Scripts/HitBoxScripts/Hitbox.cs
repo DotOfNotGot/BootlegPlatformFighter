@@ -7,7 +7,7 @@ namespace BootlegPlatformFighter
     public class Hitbox : MonoBehaviour
     {
 
-        [SerializeField] private GameObject mainObject;
+        public GameObject mainObject;
         public BootlegCharacterController characterController;
         private HitBoxHandler hitboxHandler;
         public Vector2 direction;
@@ -17,12 +17,12 @@ namespace BootlegPlatformFighter
         [SerializeField] public float attackAreaRadius;
 
         [Header("Damage")]
-        [SerializeField] public float damage;
-        [SerializeField] public float baseKnockback;
-        [SerializeField] public float knockbackScaling = 0.1f;
-        [SerializeField] [Range(-180, 180)] public float angle;
+        public float damage;
+        public float baseKnockback;
+        public float knockbackScaling = 0.1f;
+        [Range(-180, 180)] public float angle;
         [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
-        [SerializeField] public int hitStunFrames;
+        public int hitStunFrames;
 
 
 

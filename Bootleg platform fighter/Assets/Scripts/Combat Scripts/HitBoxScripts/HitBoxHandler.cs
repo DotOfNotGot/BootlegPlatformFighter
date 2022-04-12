@@ -130,7 +130,7 @@ namespace BootlegPlatformFighter
                         }
                     }
                     hurtBoxes = tempHurtBoxes;
-                    if (hurtBoxes.Count > 0)
+                    if (hurtBoxes.Count > 0 && !hitTarget)
                     {
                         foreach (Collider2D hurtBox in hurtBoxes)
                         {

@@ -1084,6 +1084,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2903802306111529801, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009722372756633636, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4382775355237568127, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_Name
       value: Huldra (2)
@@ -1120,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5873817335830174646, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: characterIndex
       value: 1
@@ -1139,6 +1151,10 @@ PrefabInstance:
     - target: {fileID: 8277824638349568095, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659017614590075824, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
