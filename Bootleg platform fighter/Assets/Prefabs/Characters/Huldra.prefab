@@ -39053,6 +39053,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: airdashTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: shortHopForce
       value: 40
       objectReference: {fileID: 0}

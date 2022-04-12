@@ -137,8 +137,8 @@ namespace BootlegPlatformFighter
 
         private Rigidbody2D playerRb;
         private BoxCollider2D playerCollider;
-        private int airdashTime = 10;
-        private float airdashForce = 30.0f;
+        [SerializeField] private int airdashTime = 10;
+        [SerializeField] private float airdashForce = 30.0f;
 
         private float jumpSquatStartVelocity;
         private float velocityXNew;
@@ -241,6 +241,10 @@ namespace BootlegPlatformFighter
                 BlockCountUp();
             }
 
+            if (playerState != PlayerState.Airdashing && previousPlayerState == PlayerState.Airdashing)
+            {
+                playerRb.gravityScale = 1 * gravityModifier;
+            }
 
             // Store current input for next frame.
             previousIsInHorizontalDeadZone = isInHorizontalDeadZone;
