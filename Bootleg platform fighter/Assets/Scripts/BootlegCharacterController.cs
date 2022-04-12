@@ -850,6 +850,30 @@ namespace BootlegPlatformFighter
                 case PlayerState.Grabbed:
                     break;
                 #endregion
+                #region JAB
+                case PlayerState.Jab:
+
+                    if (!isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                        animationHandler.CancelAnimation("Huldra_Fall");
+                    }
+
+                    break;
+                #endregion
+                #region FORWARDSTRONG
+                case PlayerState.ForwardStrong:
+
+                    if (!isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                        animationHandler.CancelAnimation("Huldra_Fall");
+                    }
+
+                    break;
+                #endregion
                 #region NEUTRALAIR
                 case PlayerState.NeutralAir:
 
@@ -934,6 +958,16 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.BlockBreak)
             {
                 characterAnimation.SetBool("isBlockBreaking", false);
+            }
+
+            if (playerState != PlayerState.Jab)
+            {
+                characterAnimation.SetBool("isJabing", false);
+            }
+
+            if (playerState != PlayerState.ForwardStrong)
+            {
+                characterAnimation.SetBool("isForwardStronging", false);
             }
         }
 
