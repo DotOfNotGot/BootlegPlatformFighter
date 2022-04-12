@@ -12,6 +12,11 @@ namespace BootlegPlatformFighter
         //public ParticleSystem dust;
         public int characterIndex;
 
+        public int GetPlayerIndex()
+        {
+            return characterIndex;
+        }
+
         public struct Controls
         {
             public float movementHorizontalInput;
@@ -24,7 +29,6 @@ namespace BootlegPlatformFighter
             public bool specialAttackButton;
             public bool grabButton;
             public bool pauseButton;
-            // State change variables
             public bool jumpButtonPressed;
             public bool airdashButtonPressed;
             public bool normalAttackButtonPressed;
