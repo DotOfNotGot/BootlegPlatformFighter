@@ -7,7 +7,7 @@ namespace BootlegPlatformFighter
     public class HurtBox : MonoBehaviour
     {
         [SerializeField] public GameObject character;
-        private BootlegCharacterController characterController;
+        public BootlegCharacterController characterController;
         public int characterIndex;
 
         [Header("HurtBox Settings")]
@@ -17,14 +17,15 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            characterController = character.GetComponentInParent<BootlegCharacterController>();
+            characterController = character.transform.parent.gameObject.GetComponentInParent<BootlegCharacterController>();
             characterIndex = characterController.characterIndex;
+            name = transform.parent.name + " " + name;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void FixedUpdate()
         {
-        
+            GetComponent<SpriteRenderer>().enabled = character.GetComponent<HurtBoxHandler>().visualizeHurtboxes;
+
         }
 
     }

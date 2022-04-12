@@ -2662,13 +2662,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185414428701819426, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1669284612756376455, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2959251485908748879, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4382775355237568127, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_Name
       value: Huldra
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923275805928243152, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071249388957047535, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.875
       objectReference: {fileID: 0}
     - target: {fileID: 5255732589257672753, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_IsActive
@@ -2682,6 +2710,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6078281346421396207, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: characterIndex
       value: 1
@@ -2689,6 +2721,10 @@ PrefabInstance:
     - target: {fileID: 7158414047502349049, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588872894065540627, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_RootOrder
@@ -2700,7 +2736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.33
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_LocalPosition.z

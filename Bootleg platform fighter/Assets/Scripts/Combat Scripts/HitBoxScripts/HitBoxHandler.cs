@@ -29,11 +29,21 @@ namespace BootlegPlatformFighter
 
         [SerializeField] private int hitLagFrames = 60;
 
+        private int blockStun = 100;
+
         private int remainingLagFrames = 0;
+
+        private bool hitTarget = false;
+
+        private HurtBox hurtScript;
+        private GameObject hitbox;
 
         private BootlegCharacterController bootlegCharacterController;
 
         private int attackIndex = 0;
+
+        public bool visualizeHitboxes = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -89,36 +99,82 @@ namespace BootlegPlatformFighter
             }
             attackIndex++;
         }
-
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                visualizeHitboxes = !visualizeHitboxes;
+            }
+        }
         public void FixedUpdate()
         {
+            
             if (remainingLagFrames > 0) {
                 --remainingLagFrames;
                 return;
             }
-            
+
+
             
             if (attackHitBoxes.Count > 0) {
                 for (int i = 0; i < attackHitBoxes.Count; i++)
                 {
-                    GameObject hitbox = attackHitBoxes[i];
+                    hitbox = attackHitBoxes[i];
                     List<Collider2D> hurtBoxes = Physics2D.OverlapCircleAll(hitbox.transform.position, hitbox.GetComponent<Hitbox>().attackAreaRadius, hurtBoxLayers).ToList();
-
-                    if (hurtBoxes.Count > 0)
+                    List<Collider2D> tempHurtBoxes = new List<Collider2D>();
+                    foreach (Collider2D hurtBox in hurtBoxes)
+                    {
+                        if (hurtBox.gameObject.GetComponent<HurtBox>().characterIndex != bootlegCharacterController.characterIndex)
+                        {
+                            tempHurtBoxes.Add(hurtBox);
+                        }
+                    }
+                    hurtBoxes = tempHurtBoxes;
+                    if (hurtBoxes.Count > 0 && !hitTarget)
                     {
                         foreach (Collider2D hurtBox in hurtBoxes)
                         {
-                            HurtBox hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+
+                            hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
+                            Debug.Log(hurtScript.characterIndex);
 
                             if (hurtScript.characterIndex != bootlegCharacterController.characterIndex)
                             {
                                 remainingLagFrames = hitLagFrames;
                                 //Debug.Log("Hit " + hurtBox.name + " Belonging to " + hurtScript.character.name + " with " + hitbox.name + " belonging to " + gameObject.name);
-                                hitbox.GetComponent<Hitbox>().SendToKnockback(hurtScript.character);
+                                if (hurtScript.characterController.playerState == BootlegCharacterController.PlayerState.GroundCrouching)
+                                {
+                                    //GetComponent<Knockback>().StartHitStun(blockStun);
+                                    break;
+                                }
+                                else if (!hitTarget)
+                                {
+                                    hitbox.GetComponent<Hitbox>().SendToHitStun(hurtScript.character);
+                                    hitTarget = true;
+                                    break;
+                                }
+
                             }
                         }
                     }
                     i = attackHitBoxes.Count;
+                }
+
+
+
+                
+            }
+            if (hurtScript != null)
+            {
+                if (hurtScript.characterIndex == bootlegCharacterController.characterIndex)
+                {
+                    hurtScript = null;
+                }
+                else if (hitTarget && !hurtScript.character.gameObject.GetComponent<Knockback>().isHitStunned)
+                {
+                   
+                    hitTarget = false;
+                    hurtScript = null;
                 }
             }
         }

@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/CombatTestScene.unity
+    guid: a51e4258f6ca31146a8b28af72b68ce5
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 88f4e2c5a8cca9d45ac324c64411c208
-  - enabled: 1
-    path: Assets/Scenes/Stages/WinterStage/WinterStage - Akandesh.unity
-    guid: 4b1c98134197b0e4780cd12d0ac08561
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 2be1f05de586b904c89b035c795d1cb5
+    path: Assets/Scenes/Stages/WinterStage/WinterStage.unity
+    guid: ed2d68ca5e318cc47b0a5b68c72f5015
   m_configObjects: {}

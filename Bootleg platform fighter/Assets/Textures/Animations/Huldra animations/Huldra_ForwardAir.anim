@@ -82,7 +82,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: AnimationHurtBoxTrigger
+    functionName: ResetFrameIndex
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: ResetAttackIndex
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -110,14 +117,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: AnimationHitboxTrigger
+    functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: AnimationHurtBoxTrigger
+    functionName: AnimationHitboxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -152,13 +159,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: AnimationHitboxTrigger
+    functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.5833333
     functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -167,13 +174,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.5833333
     functionName: ExitAnimation
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5833333
-    functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

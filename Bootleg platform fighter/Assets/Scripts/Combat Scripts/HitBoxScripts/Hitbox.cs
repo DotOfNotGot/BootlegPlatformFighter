@@ -6,41 +6,48 @@ namespace BootlegPlatformFighter
 {
     public class Hitbox : MonoBehaviour
     {
-        private Fighting fightingScript;
 
-        [SerializeField] private GameObject character;
-        private BootlegCharacterController characterController;
+        public GameObject mainObject;
+        public BootlegCharacterController characterController;
         private HitBoxHandler hitboxHandler;
-        private Vector2 direction;
+        public Vector2 direction;
+
 
         [Header("Collider")]
         [SerializeField] public float attackAreaRadius;
 
         [Header("Damage")]
-        [SerializeField] public float damage;
-        [SerializeField] public float baseKnockback;
-        [SerializeField] public float knockbackScaling = 0.1f;
-        [SerializeField] [Range(-180, 180)] public float angle;
+        public float damage;
+        public float baseKnockback;
+        public float knockbackScaling = 0.1f;
+        [Range(-180, 180)] public float angle;
         [SerializeField] [Range(1, 10)] private int lineLengthDEBUG = 2;
+        public int hitStunFrames;
 
 
 
         void Start()
         {
-            hitboxHandler = character.GetComponent<HitBoxHandler>();
-            characterController = character.GetComponent<BootlegCharacterController>();
-            fightingScript = character.GetComponent<Fighting>();
+            hitboxHandler = mainObject.GetComponent<HitBoxHandler>();
+            characterController = mainObject.transform.parent.gameObject.GetComponent<BootlegCharacterController>();
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            name = transform.parent.name + " " + name;
+
         }
 
         void FixedUpdate()
         {
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            GetComponent<SpriteRenderer>().enabled = mainObject.GetComponent<HitBoxHandler>().visualizeHitboxes;
+
         }
 
-        public void SendToKnockback(GameObject hitEnemy)
+       
+
+        public bool SendToHitStun(GameObject hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().KnockBack(new Vector2(transform.position.x - character.transform.position.x, 1) * direction, baseKnockback, knockbackScaling, damage);
+            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames, this);
+            return true;
         }
 
 
