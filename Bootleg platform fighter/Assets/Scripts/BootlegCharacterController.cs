@@ -44,6 +44,7 @@ namespace BootlegPlatformFighter
         }
 
         private GameManager gameManager;
+        [SerializeField] private Animator crossFadeAnimator;
 
         // Constant values
         private const float deadZone = 0.2f;
@@ -1260,8 +1261,15 @@ namespace BootlegPlatformFighter
             } else
             {
                 // Player had 1 heart. Now he will have 0.
-                // TODO: transition to game over screen blabla
+                crossFadeAnimator.SetTrigger("Start");
+                StartCoroutine(GameOverSceneLoader());
             }
+        }
+
+        private IEnumerator GameOverSceneLoader()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("GameOver");
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

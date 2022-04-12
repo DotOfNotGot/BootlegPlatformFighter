@@ -25,6 +25,8 @@ namespace BootlegPlatformFighter
         public void setCharacterIndex(int idx)
         {
             _CharacterIndex = idx;
+            if (GameManagerData.Players.Count - 1 >= idx)
+                SetName(GameManagerData.Players[idx].name);
         }
         public int getCharacterIndex()
         {
@@ -36,9 +38,13 @@ namespace BootlegPlatformFighter
         }
         public void RemoveOneHeart()
         {
-            if (getHealthCount() > 0) {
+            if (getHealthCount() > 0)
+            {
                 var badheart = _lifePanel.transform.GetChild(getHealthCount() - 1);
-                badheart.DOScale(0f, 1f).onComplete = () => Destroy(badheart.gameObject);
+                // Scale to twice size then back to 0
+                badheart.DOScale(2f, 0.3f).SetEase(Ease.InOutBack).onComplete = () =>
+                    badheart.DOScale(0f, 0.5f).onComplete = () =>
+                        Destroy(badheart.gameObject);
             }
         }
         public void SetName(string text)
@@ -47,6 +53,11 @@ namespace BootlegPlatformFighter
         }
         public void SetHealth(float percentage)
         {
+            // health animation when changed
+            var healthTransform = HealthText.GetComponentInParent<Transform>();
+            healthTransform.DOScale(1.5f, 0.2f).onComplete = () =>
+                healthTransform.DOScale(1f, 0.3f);
+
             HealthText.text = percentage + "%";
         }
     }
