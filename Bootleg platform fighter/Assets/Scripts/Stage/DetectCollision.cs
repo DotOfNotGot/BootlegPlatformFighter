@@ -19,7 +19,11 @@ namespace BootlegPlatformFighter
         }
         void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
+            if (other.name == "AirshipDespawner")
+            {
+                Destroy(gameObject);
+
+            }
 
         }
     }

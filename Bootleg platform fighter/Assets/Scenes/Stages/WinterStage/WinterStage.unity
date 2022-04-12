@@ -8334,7 +8334,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534047472}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 11.912186, y: 20.025177, z: 0.9516817}
@@ -23654,8 +23654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airShipPrefab: {fileID: 6510488450726985062, guid: 0e6e0eb4ff255464391e618f1ae48aa1, type: 3}
-  startDelay: 2
-  spawnInterval: 2
+  startDelay: 0
+  spawnInterval: 60
 --- !u!4 &1534013205
 Transform:
   m_ObjectHideFlags: 0
