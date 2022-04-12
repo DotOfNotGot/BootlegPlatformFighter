@@ -1261,7 +1261,6 @@ namespace BootlegPlatformFighter
                 transform.GetChild(i).gameObject.SetActive(true);
             gameManager.RespawnPlayer(gameObject, characterIndex);
             damageTakenPercent = 0;
-
         }
 
         private IEnumerator GameOverSceneLoader()
