@@ -38,8 +38,27 @@ namespace BootlegPlatformFighter
         }
        public void RespawnPlayer(GameObject player, int index)
         {
-            player.transform.position = new Vector3(spawnPosition1.position.x, spawnPosition1.position.y + 30);
-            player.transform.DOMove(spawnPosition1.position, 1f).SetEase(Ease.OutQuint);
+            Vector3 spawnPosition;
+            switch (index)
+            {
+                case 0:
+                    spawnPosition = spawnPosition1.position;
+                    break;
+                case 1:
+                    spawnPosition = spawnPosition2.position;
+                    break;
+                    case 2:
+                    spawnPosition = spawnPosition3.position;
+                    break;
+                case 3:
+                    spawnPosition = spawnPosition4.position;
+                    break;
+                default:
+                    spawnPosition = spawnPosition1.position;
+                    break;
+            }
+            player.transform.position = new Vector3(spawnPosition.x, spawnPosition.y + 30);
+            player.transform.DOMove(spawnPosition, 1f).SetEase(Ease.OutQuint);
             var hud = FindHUDAvatarByIndex(index);
             if (!hud){
                 Debug.Log("Missing HUD in RespawnPlayer");
