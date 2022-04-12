@@ -74,6 +74,17 @@
                 },
                 {
                     "name": "",
+                    "id": "85a786e4-76c5-4974-a13f-1a34c0088c1c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "78ef4839-3d26-4422-8a22-82939c43d0c3",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
