@@ -68,7 +68,7 @@ namespace BootlegPlatformFighter
             Debug.Log("damagePercent = " + damagePercent);
 
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
-            rigidBody.AddForce(direction);
+            rigidBody.AddForce(direction, ForceMode2D.Impulse);
         }
 
         IEnumerator DelayedDeath()

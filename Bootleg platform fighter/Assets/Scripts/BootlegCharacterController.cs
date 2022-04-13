@@ -130,6 +130,7 @@ namespace BootlegPlatformFighter
         private int landingLagCounter = 0;
         private int tumbleLandCounter = 0;
         private int crouchParryCounter = 0;
+        private int tumbleTimeCounter = 0;
 
 
         [SerializeField] private float debugAxis;
@@ -840,14 +841,19 @@ namespace BootlegPlatformFighter
                 #region TUMBLE
                 case PlayerState.Tumble:
 
-                    if (isOnGround)
+                    if (isOnGround && tumbleTimeCounter > 10)
                     {
-
+                        tumbleTimeCounter = 0;
                         previousPlayerState = playerState;
                         playerState = PlayerState.TumbleLand;
-
                     }
-
+                    else if (tumbleTimeCounter > 30)
+                    {
+                        tumbleTimeCounter = 0;
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                    }
+                    tumbleTimeCounter++;
                     break;
                 #endregion
                 #region GRABBED
