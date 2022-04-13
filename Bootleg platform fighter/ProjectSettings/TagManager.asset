@@ -8,6 +8,7 @@ TagManager:
   - Character
   - HUDAvatar
   - Level
+  - PlayerInputPrefab
   layers:
   - Default
   - TransparentFX

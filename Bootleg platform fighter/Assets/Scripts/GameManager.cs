@@ -21,8 +21,6 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
-            Application.targetFrameRate = 60;
-            QualitySettings.vSyncCount = 1;
             // Colliders which handles if player is outside the level region
             GenerateCollidersAcrossScreen();
         }
