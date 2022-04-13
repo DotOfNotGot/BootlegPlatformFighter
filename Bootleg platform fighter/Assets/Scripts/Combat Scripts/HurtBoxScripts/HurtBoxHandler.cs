@@ -14,6 +14,8 @@ namespace BootlegPlatformFighter
         private List<GameObject> animationList = new List<GameObject>();
         private List<HitHurtBoxStruct> moveStructures = new List<HitHurtBoxStruct>();
 
+        private AudioManager audioManager;
+
         private List<GameObject> animationHurtBoxes = new List<GameObject>() { };
         public BootlegCharacterController characterController;
 
@@ -28,6 +30,7 @@ namespace BootlegPlatformFighter
         {
             characterController = GetComponent<BootlegCharacterController>();
             animator = GetComponent<Animator>();
+            audioManager = GetComponent<AudioManager>();
             for (int i = 0; i < hurtBoxEmpty.transform.childCount; i++)
             {
                 animationList.Add(hurtBoxEmpty.transform.GetChild(i).gameObject);
@@ -97,6 +100,7 @@ namespace BootlegPlatformFighter
                     frame.gameObject.SetActive(false);
                 }
             }
+            audioManager.hasHit = false;
             animationHurtBoxes.Clear();
             AnimationHurtBoxTrigger();
         }

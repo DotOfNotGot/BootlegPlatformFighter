@@ -24,6 +24,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private LayerMask hurtBoxLayers;
         private List<GameObject> moveList = new List<GameObject>();
         private List<HitHurtBoxStruct> moveStructures = new List<HitHurtBoxStruct>();
+        private AudioManager audioManager;
 
         private List<GameObject> attackHitBoxes = new List<GameObject>() { };
 
@@ -33,7 +34,7 @@ namespace BootlegPlatformFighter
 
         private int remainingLagFrames = 0;
 
-        private bool hitTarget = false;
+        public bool hitTarget = false;
 
         private HurtBox hurtScript;
         private GameObject hitbox;
@@ -47,6 +48,7 @@ namespace BootlegPlatformFighter
         // Start is called before the first frame update
         void Start()
         {
+            audioManager = GetComponent<AudioManager>();
             bootlegCharacterController = GetComponentInParent<BootlegCharacterController>();
             animator = gameObject.GetComponent<Animator>();
             for (int i = 0; i < hitBoxEmpty.transform.childCount; i++)
@@ -149,6 +151,7 @@ namespace BootlegPlatformFighter
                                 }
                                 else if (!hitTarget)
                                 {
+                                    audioManager.HitTriggerSound();
                                     hitbox.GetComponent<Hitbox>().SendToHitStun(hurtScript.character);
                                     hitTarget = true;
                                     break;

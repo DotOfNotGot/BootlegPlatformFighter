@@ -1110,6 +1110,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: audioArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: audioArray.Array.data[1].Name
+      value: Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: audioArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5018c5b20a5d28e4dbe7245b5650e98a, type: 3}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 612e115e72bea6b4dba01629ac36b9d5, type: 3}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.data[1].Name
+      value: Run
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e20d034e67b3b5f4fb59e1aeee5c2766, type: 3}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.data[2].Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284683435279345493, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: whooshArray.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad3748830b1c15e47b29dcb4ee4d4743, type: 3}
     - target: {fileID: 2647444827699192823, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_IsActive
       value: 0
