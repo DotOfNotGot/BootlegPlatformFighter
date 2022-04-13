@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1194204056562609095}
   m_Layer: 0
   m_Name: PlayerInput
-  m_TagString: Untagged
+  m_TagString: PlayerInputPrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,9 +153,57 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d8baffe5-1ba4-4de1-bd1a-bcca1d270712
     m_ActionName: Gameplay/Pause[/DualShock4GamepadHID/start,/XInputControllerWindows/start,/XInputControllerWindows1/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1194204056562609095}
+        m_TargetAssemblyTypeName: BootlegPlatformFighter.BootlegPlayerInput, Assembly-CSharp
+        m_MethodName: OnNavigation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 63547aa9-3ae9-4dd4-be31-7dea6510a606
+    m_ActionName: UI/Navigation[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1194204056562609095}
+        m_TargetAssemblyTypeName: BootlegPlatformFighter.BootlegPlayerInput, Assembly-CSharp
+        m_MethodName: OnEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1f7b31de-0a56-401d-83ec-81ef3c78f416
+    m_ActionName: UI/Enter[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1194204056562609095}
+        m_TargetAssemblyTypeName: BootlegPlatformFighter.BootlegPlayerInput, Assembly-CSharp
+        m_MethodName: OnExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 97927c83-f93c-48ac-b6f3-90f3107b6e7d
+    m_ActionName: UI/Exit[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: 53bc0601-0e6b-4d8e-ab04-6e510bd70b8f
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1194204056562609095

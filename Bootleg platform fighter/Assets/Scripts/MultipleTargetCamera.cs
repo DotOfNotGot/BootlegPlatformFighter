@@ -8,7 +8,7 @@ namespace BootlegPlatformFighter
     public class MultipleTargetCamera : MonoBehaviour
     {
 
-        [SerializeField]private List<Transform> targets;
+        public List<Transform> targets;
 
         [SerializeField]private Vector3 offset;
         [SerializeField] private float smoothTime = .5f;

@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace BootlegPlatformFighter
 {
     public class MainMenuHandler : MonoBehaviour
     {
+
+        private PlayerInput playerInput;
+
         [SerializeField]
         private GameObject menuPanel;
         [SerializeField]
@@ -33,6 +38,11 @@ namespace BootlegPlatformFighter
 
         public void LoadFightScene()
         {
+            var playerInputObjects = GameObject.FindGameObjectsWithTag("PlayerInputPrefab");
+            foreach (GameObject playerInputObject in playerInputObjects)
+            {
+                DontDestroyOnLoad(playerInputObject);
+            }
             // a bit ghetto but for now I think having it simple and static is best
             GameManagerData.Players.Clear();
             GameManagerData.Players.Add(new Player_t(player1Name.text));

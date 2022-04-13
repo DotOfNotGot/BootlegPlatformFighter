@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.SceneManagement;
 
 namespace BootlegPlatformFighter
 {
@@ -17,19 +18,23 @@ namespace BootlegPlatformFighter
 
         private int playerIndex;
 
-        private BootlegCharacterController characterController;
+        private InGameMenu inGameMenu;
 
+        private BootlegCharacterController characterController;
 
 
         private void Start()
         {
             playerInput = GetComponent<PlayerInput>();
             playerIndex = playerInput.playerIndex;
+
+        }
+
+        public void OnEnterStage()
+        {
             var charControllers = FindObjectsOfType<BootlegCharacterController>();
 
             characterController = charControllers.FirstOrDefault(c => c.GetPlayerIndex() == playerIndex);
-
-            //characterController = GetComponentInParent<BootlegCharacterController>();
         }
 
         public void OnMove(CallbackContext context)
@@ -55,29 +60,35 @@ namespace BootlegPlatformFighter
         }
         public void OnPause(CallbackContext context)
         {
+        }
+
+        public void OnNavigation(CallbackContext context)
+        {
 
         }
 
-        private void Update()
+        public void OnEnter(CallbackContext context)
         {
-            //controls.movementHorizontalInput = Input.GetAxisRaw("Movement_Horizontal_" + playerIndex);
-            //controls.movementVerticalInput = Input.GetAxisRaw("Movement_Vertical_" + playerIndex);
 
-            //controls.macroHorizontalInput = Input.GetAxisRaw("Macro_Horizontal_" + playerIndex);
-            //controls.macroVerticalInput = Input.GetAxisRaw("Macro_Vertical_" + playerIndex);
-            //controls.jumpButton = Input.GetButton("Jump_" + playerIndex);
-            //controls.airdashButton = Input.GetButton("AirDash_&_Block_" + playerIndex);
-            //controls.normalAttackButton = Input.GetButton("Normal_Attack_" + playerIndex);
-            //controls.specialAttackButton = Input.GetButton("Special_Attack_" + playerIndex);
-            //controls.grabButton = Input.GetButton("Grab_" + playerIndex);
+        }
+        public void OnExit(CallbackContext context)
+        {
+
         }
 
         void FixedUpdate()
         {
-            controls.SetStateChangeVariables(previousControls);
+            if (SceneManager.GetActiveScene().name == "WinterStage")
+            {
+                OnEnterStage();
 
-            characterController.ProcessUpdate(controls, previousControls);
-            previousControls = controls;
+                controls.SetStateChangeVariables(previousControls);
+
+                characterController.ProcessUpdate(controls, previousControls);
+                previousControls = controls;
+            }
+
+            
         }
     }
 }
