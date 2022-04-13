@@ -403,6 +403,13 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                     }
 
+                    // Changes state to Jab
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Jab;
+                    }
+
                     // Changes state to ForwardStrong.
                     if (controls.specialAttackButton)
                     {
@@ -580,6 +587,14 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
                     }
+
+                    // Changes state to Jab
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Jab;
+                    }
+
                     // Changes state to ForwardStrong
                     if (controls.specialAttackButton)
                     {
