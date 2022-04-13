@@ -13,6 +13,12 @@ namespace BootlegPlatformFighter
         public Transform spawnPosition4;
 
         [SerializeField]
+        private MultipleTargetCamera multipleTargetCamera;
+
+        [SerializeField]
+        private Transform cameraDummyTransform;
+
+        [SerializeField]
         private GameObject explosionPrefab;
 
         public GameObject ExplosionPrefab { get { return explosionPrefab; } }
@@ -23,6 +29,21 @@ namespace BootlegPlatformFighter
         {
             // Colliders which handles if player is outside the level region
             GenerateCollidersAcrossScreen();
+        }
+
+        public void InitializeCameraTargets(GameObject player, int index)
+        {
+            multipleTargetCamera.targets[index] = player.transform;
+        }
+
+        public void RemoveCameraTarget(int index)
+        {
+            multipleTargetCamera.targets[index] = cameraDummyTransform;
+        }
+
+        public void AddCameraTarget(GameObject player, int index)
+        {
+            multipleTargetCamera.targets[index] = player.transform;
         }
 
         public HUDAvatar FindHUDAvatarByIndex(int idx)
@@ -39,6 +60,7 @@ namespace BootlegPlatformFighter
 
         public void RemoveHeartFromPlayer(int index)
         {
+            RemoveCameraTarget(index);
             var hud = FindHUDAvatarByIndex(index);
             if (!hud)
             {
@@ -50,6 +72,7 @@ namespace BootlegPlatformFighter
 
        public void RespawnPlayer(GameObject player, int index)
         {
+            AddCameraTarget(player, index);
             Vector3 spawnPosition;
             switch (index)
             {
@@ -69,6 +92,7 @@ namespace BootlegPlatformFighter
                     spawnPosition = spawnPosition1.position;
                     break;
             }
+            multipleTargetCamera.targets[index] = player.transform;
             player.transform.position = new Vector3(spawnPosition.x, spawnPosition.y + 30);
             player.transform.DOMove(spawnPosition, 1f).SetEase(Ease.OutQuint);
             var hud = FindHUDAvatarByIndex(index);
