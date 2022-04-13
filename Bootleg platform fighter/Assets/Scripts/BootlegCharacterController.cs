@@ -191,6 +191,8 @@ namespace BootlegPlatformFighter
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
             blockTimer = blockTimerDefault;
+                
+            gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
         public void ProcessUpdate(Controls controls, Controls previousControls)

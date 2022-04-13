@@ -39360,6 +39360,86 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[0].Name
+      value: Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d0926dcada58e14eab30ccedacef4e1, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d0926dcada58e14eab30ccedacef4e1, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[1].Name
+      value: ForwardStrong
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 85f287bef9b3f2248b6a705e41907b0c, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[2].Name
+      value: NeutralAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 51e8d8d6e0dd27e43891f23fa0d39a94, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[3].Name
+      value: ForwardAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: audioArray.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cc67dc6181aa814eb28359819fe9586, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[0].Name
+      value: Jab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 612e115e72bea6b4dba01629ac36b9d5, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[1].Name
+      value: Run
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e20d034e67b3b5f4fb59e1aeee5c2766, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[2].Name
+      value: LandingLag
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6feea780aae1c947af96be7f4b36ff8, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[3].Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad3748830b1c15e47b29dcb4ee4d4743, type: 3}
     - target: {fileID: 2507976369703921574, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_IsActive
       value: 0
