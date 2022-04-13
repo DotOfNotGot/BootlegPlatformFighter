@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using DG.Tweening;
 
 namespace BootlegPlatformFighter
 {
@@ -130,6 +131,7 @@ namespace BootlegPlatformFighter
         private int landingLagCounter = 0;
         private int tumbleLandCounter = 0;
         private int crouchParryCounter = 0;
+        private int tumbleTimeCounter = 0;
 
 
         [SerializeField] private float debugAxis;
@@ -137,8 +139,8 @@ namespace BootlegPlatformFighter
 
         private Rigidbody2D playerRb;
         private BoxCollider2D playerCollider;
-        private int airdashTime = 10;
-        private float airdashForce = 30.0f;
+        [SerializeField] private int airdashTime = 10;
+        [SerializeField] private float airdashForce = 30.0f;
 
         private float jumpSquatStartVelocity;
         private float velocityXNew;
@@ -241,6 +243,10 @@ namespace BootlegPlatformFighter
                 BlockCountUp();
             }
 
+            if (playerState != PlayerState.Airdashing && previousPlayerState == PlayerState.Airdashing)
+            {
+                playerRb.gravityScale = 1 * gravityModifier;
+            }
 
             // Store current input for next frame.
             previousIsInHorizontalDeadZone = isInHorizontalDeadZone;
@@ -395,6 +401,13 @@ namespace BootlegPlatformFighter
                     {
                         playerState = PlayerState.GroundBlocking;
                         previousPlayerState = playerState;
+                    }
+
+                    // Changes state to Jab
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Jab;
                     }
 
                     // Changes state to ForwardStrong.
@@ -574,6 +587,14 @@ namespace BootlegPlatformFighter
                         previousPlayerState = playerState;
                         playerState = PlayerState.Airborne;
                     }
+
+                    // Changes state to Jab
+                    if (controls.normalAttackButtonPressed)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Jab;
+                    }
+
                     // Changes state to ForwardStrong
                     if (controls.specialAttackButton)
                     {
@@ -836,18 +857,47 @@ namespace BootlegPlatformFighter
                 #region TUMBLE
                 case PlayerState.Tumble:
 
-                    if (isOnGround)
+                    if (isOnGround && tumbleTimeCounter > 10)
                     {
-
+                        tumbleTimeCounter = 0;
                         previousPlayerState = playerState;
                         playerState = PlayerState.TumbleLand;
-
                     }
-
+                    else if (tumbleTimeCounter > 30)
+                    {
+                        tumbleTimeCounter = 0;
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                    }
+                    tumbleTimeCounter++;
                     break;
                 #endregion
                 #region GRABBED
                 case PlayerState.Grabbed:
+                    break;
+                #endregion
+                #region JAB
+                case PlayerState.Jab:
+
+                    if (!isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                        animationHandler.CancelAnimation("Huldra_Fall");
+                    }
+
+                    break;
+                #endregion
+                #region FORWARDSTRONG
+                case PlayerState.ForwardStrong:
+
+                    if (!isOnGround)
+                    {
+                        previousPlayerState = playerState;
+                        playerState = PlayerState.Airborne;
+                        animationHandler.CancelAnimation("Huldra_Fall");
+                    }
+
                     break;
                 #endregion
                 #region NEUTRALAIR
@@ -934,6 +984,16 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.BlockBreak)
             {
                 characterAnimation.SetBool("isBlockBreaking", false);
+            }
+
+            if (playerState != PlayerState.Jab)
+            {
+                characterAnimation.SetBool("isJabing", false);
+            }
+
+            if (playerState != PlayerState.ForwardStrong)
+            {
+                characterAnimation.SetBool("isForwardStronging", false);
             }
         }
 
@@ -1318,11 +1378,7 @@ namespace BootlegPlatformFighter
         {
             blockTimer++;
         }
-        //void CreateDust()
-        //{
-        //    dust.Play();
-        //}
 
-
+       
     }
 }
