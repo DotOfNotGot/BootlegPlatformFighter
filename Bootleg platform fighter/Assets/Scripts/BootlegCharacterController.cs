@@ -149,6 +149,7 @@ namespace BootlegPlatformFighter
         private float jumpSquatStartVelocity;
         private float velocityXNew;
 
+
         public float jumpHorizontalVelocityModifier;
         public float airJumpHorizontalVelocityModifier;
 
@@ -196,7 +197,6 @@ namespace BootlegPlatformFighter
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
             blockTimer = blockTimerDefault;
-            
             gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
@@ -262,6 +262,18 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.Airdashing && previousPlayerState == PlayerState.Airdashing)
             {
                 playerRb.gravityScale = 1 * gravityModifier;
+            }
+
+            if (playerState != PlayerState.Tumble && previousPlayerState == PlayerState.Tumble)
+            {
+                if (isFacingLeft)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                else
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
             }
 
             // Store current input for next frame.
@@ -728,7 +740,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Sets playerState to GroundIdling if player is on ground.
-                    if (isOnGround && airdashCounter > 5)
+                    if (isOnGround && airdashCounter > 1)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.LandingLag;
@@ -1038,7 +1050,7 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isWalking", true);
                     TurnAround(controls);
-                    playerRb.velocity = new Vector2(controls.movementHorizontalInput * speed * 0.75f, playerRb.velocity.y);
+                    playerRb.velocity = new Vector2(controls.movementHorizontalInput * speed * 0.5f, playerRb.velocity.y);
 
                     break;
                 #endregion
@@ -1102,6 +1114,7 @@ namespace BootlegPlatformFighter
                         Vector2 airdashDirection = new Vector2(airdashStartHorizontalInput, airdashStartVerticalInput).normalized;
 
                         playerRb.velocity = airdashDirection * airdashForce;
+                        
                     }
 
                     break;
@@ -1137,7 +1150,7 @@ namespace BootlegPlatformFighter
                     // If the first frame of airborne and the previous state was airdash then reset velocity to 0
                     if (airborneCounter == 0 && previousPlayerState == PlayerState.Airdashing)
                     {
-                        playerRb.velocity = new Vector2(0, 0);
+                        //playerRb.velocity = new Vector2(0, 0);
                     }
 
                     velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.movementHorizontalInput * airControl, -20, 20);
@@ -1178,6 +1191,10 @@ namespace BootlegPlatformFighter
                 #region TUMBLE
                 case PlayerState.Tumble:
                     characterAnimation.SetBool("isTumbleing", true);
+                    if (damageTakenPercent >= 50)
+                    {
+                        transform.rotation = Quaternion.Euler(0, 0, Random.Range(15, 360));
+                    }
                     break;
                 #endregion
                 #region TumbleLand
@@ -1233,12 +1250,46 @@ namespace BootlegPlatformFighter
 
                     characterAnimation.SetBool("isNeutralAiring", true);
 
+                    velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.movementHorizontalInput * airControl, -20, 20);
+
+                    if (controls.movementVerticalInput < -0.3 && playerRb.velocity.y <= 0 && (previousIsInVerticalDeadZone || isFastFalling))
+                    {
+                        isFastFalling = true;
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * maxFallSpeed, -maxFallSpeed, maxFallSpeed));
+                    }
+                    else if (playerRb.velocity.y < 0)
+                    {
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
+                    }
+
+                    if (isInVerticalDeadZone)
+                    {
+                        isFastFalling = false;
+                    }
+
                     break;
                 #endregion
                 #region FORWARDAIR
                 case PlayerState.ForwardAir:
 
                     characterAnimation.SetBool("isForwardAiring", true);
+
+                    velocityXNew = Mathf.Clamp(playerRb.velocity.x + controls.movementHorizontalInput * airControl, -20, 20);
+
+                    if (controls.movementVerticalInput < -0.3 && playerRb.velocity.y <= 0 && (previousIsInVerticalDeadZone || isFastFalling))
+                    {
+                        isFastFalling = true;
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * maxFallSpeed, -maxFallSpeed, maxFallSpeed));
+                    }
+                    else if (playerRb.velocity.y < 0)
+                    {
+                        playerRb.velocity = new Vector2(velocityXNew, Mathf.Clamp(playerRb.velocity.y * fallSpeed, -maxFallSpeed, maxFallSpeed));
+                    }
+
+                    if (isInVerticalDeadZone)
+                    {
+                        isFastFalling = false;
+                    }
 
                     break;
                 #endregion
@@ -1316,7 +1367,7 @@ namespace BootlegPlatformFighter
             isOnGround = false;
             foreach (var contactPoint in contactPoints)
             {
-                if (contactPoint.normal == Vector2.up)
+                if (contactPoint.normal == Vector2.up && playerRb.velocity.y < 1)
                 {
                     isOnGround = true;
                     characterAnimation.SetBool("isOnGround", isOnGround);

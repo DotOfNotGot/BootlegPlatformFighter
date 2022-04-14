@@ -39502,7 +39502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Size.y
-      value: 5.9051185
+      value: 0.008501291
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Offset.x
@@ -39510,7 +39510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Offset.y
-      value: 1.7042572
+      value: -1.2275602
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -39561,12 +39561,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: speed
+      value: 39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: jumpForce
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: airdashTime
-      value: 15
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: airdashForce
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: shortHopForce
