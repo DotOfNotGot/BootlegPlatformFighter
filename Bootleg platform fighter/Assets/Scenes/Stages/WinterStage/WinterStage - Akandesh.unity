@@ -493,11 +493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.94
+      value: 14.1
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.72
+      value: 18.1
       objectReference: {fileID: 0}
     - target: {fileID: 8842592920697737076, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7398,6 +7398,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609165085}
   m_CullTransparentMesh: 1
+--- !u!1 &610527789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610527790}
+  m_Layer: 0
+  m_Name: tempTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610527790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610527789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2, y: 6.8, z: -103.05548}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612766436
 GameObject:
   m_ObjectHideFlags: 0
@@ -17564,6 +17594,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438477747}
   m_CullTransparentMesh: 1
+--- !u!114 &1460811499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3573971771694082765, guid: 54b711506911a1541b983439c492211b, type: 3}
+  m_PrefabInstance: {fileID: 1665072855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a10ef5f6311f745a28dfc7b08237ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476647120
 GameObject:
   m_ObjectHideFlags: 0
@@ -26045,6 +26086,8 @@ MonoBehaviour:
   spawnPosition2: {fileID: 2052879151}
   spawnPosition3: {fileID: 1025566562}
   spawnPosition4: {fileID: 2003455029}
+  multipleTargetCamera: {fileID: 1460811499}
+  cameraDummyTransform: {fileID: 610527790}
   explosionPrefab: {fileID: 3021788428119984284, guid: 809fd6fae614f2144afc810ec40e0718, type: 3}
 --- !u!4 &1957294517
 Transform:
