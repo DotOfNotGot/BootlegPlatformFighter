@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 496308284}
         m_TargetAssemblyTypeName: BootlegPlatformFighter.GameOver, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+        m_MethodName: QuitToCharSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 496308284}
         m_TargetAssemblyTypeName: BootlegPlatformFighter.GameOver, Assembly-CSharp
         m_MethodName: RestartStage
         m_Mode: 1

@@ -30,7 +30,7 @@ namespace BootlegPlatformFighter
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Escape) || (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame))
             {
                 Menu.SetActive(!Menu.activeSelf);
 
