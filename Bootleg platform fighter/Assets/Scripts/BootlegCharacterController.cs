@@ -72,6 +72,10 @@ namespace BootlegPlatformFighter
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
+        private int goDownIndex = -1;
+        [SerializeField] GameObject smallPlatform;
+        [SerializeField] int goDownIndexMax;
+
         // State variables
         public PlayerState playerState;
         public PlayerState previousPlayerState;
@@ -180,6 +184,7 @@ namespace BootlegPlatformFighter
         [SerializeField] private int blockBreakTimerDefault = 10;
         private int blockBreakTimer;
 
+
         // Start is called before the first frame update
         void Start()
         {
@@ -191,12 +196,13 @@ namespace BootlegPlatformFighter
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
             blockTimer = blockTimerDefault;
-                
+            
             gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
         public void ProcessUpdate(Controls controls, Controls previousControls)
         {
+            
             moveVector.x = controls.movementHorizontalInput;
             moveVector.y = controls.movementVerticalInput;
 
@@ -229,6 +235,14 @@ namespace BootlegPlatformFighter
                 isInVerticalDeadZone = false;
             }
 
+            if (!isInVerticalDeadZone)
+            {
+                IgnoreSmallPlatforms(true);
+            }
+            else
+            {
+                IgnoreSmallPlatforms(false);
+            }
 
             // Handles state changes
             GroundCheck();
@@ -301,6 +315,7 @@ namespace BootlegPlatformFighter
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundCrouching;
+                        
                     }
 
                     // Changes state to GroundDashing.
@@ -790,6 +805,7 @@ namespace BootlegPlatformFighter
 
                         }
                     }
+                    
 
                     // GroundIdling state check
                     if (isOnGround)
@@ -1056,6 +1072,7 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundCrouching:
 
                     characterAnimation.SetBool("isCrouching", true);
+                    
 
                     break;
                 #endregion
@@ -1283,6 +1300,13 @@ namespace BootlegPlatformFighter
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+        }
+
+        private void IgnoreSmallPlatforms(bool shouldIgnore)
+        {
+            Physics2D.IgnoreCollision(smallPlatform.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>(), playerCollider, shouldIgnore);
+            Physics2D.IgnoreCollision(smallPlatform.transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>(), playerCollider, shouldIgnore);
+            
         }
 
         private void GroundCheck()

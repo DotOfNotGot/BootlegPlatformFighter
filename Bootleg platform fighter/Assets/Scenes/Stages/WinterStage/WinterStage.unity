@@ -464,6 +464,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: smallPlatform
+      value: 
+      objectReference: {fileID: 272827408}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: characterIndex
       value: 1
       objectReference: {fileID: 0}
@@ -1861,6 +1865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e283fb5efc4b35b429562d504c1e5c97, type: 3}
+--- !u!1 &272827408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e283fb5efc4b35b429562d504c1e5c97, type: 3}
+  m_PrefabInstance: {fileID: 272827407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &290280137
 GameObject:
   m_ObjectHideFlags: 0
@@ -7873,7 +7882,7 @@ GameObject:
   - component: {fileID: 477552527}
   - component: {fileID: 477552529}
   - component: {fileID: 477552528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7912,7 +7921,7 @@ PlatformEffector2D:
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 1
+  m_SideArc: 0
 --- !u!61 &477552529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8231,6 +8240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Huldra
       objectReference: {fileID: 0}
+    - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
+      propertyPath: smallPlatform
+      value: 
+      objectReference: {fileID: 272827408}
     - target: {fileID: 6147251535244899237, guid: 7606aa834f7668d408428ab06be86f23, type: 3}
       propertyPath: crossFadeAnimator
       value: 
@@ -31216,7 +31229,7 @@ GameObject:
   - component: {fileID: 1987710858}
   - component: {fileID: 1987710860}
   - component: {fileID: 1987710859}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
