@@ -50,6 +50,7 @@ namespace BootlegPlatformFighter
         public void SetName(string text)
         {
             NameText.text = text;
+            GameManagerData.Players[_CharacterIndex].name = text;
         }
         public void SetHealth(float percentage)
         {
@@ -60,7 +61,7 @@ namespace BootlegPlatformFighter
                 healthTransform.DOScale(1.5f, 0.2f).onComplete = () =>
                     healthTransform.DOScale(1f, 0.3f);
             }
-
+            GameManagerData.Players[_CharacterIndex].damageTaken = percentage;
             HealthText.text = percentage + "%";
         }
     }

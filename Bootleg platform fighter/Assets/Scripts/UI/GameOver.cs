@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace BootlegPlatformFighter
 {
@@ -9,23 +10,26 @@ namespace BootlegPlatformFighter
     {
         [SerializeField]
         private Animator crossFadeAnimator;
+
         [SerializeField]
-        GameObject resultsCardPrefab;
+        private TextMeshProUGUI winText;
+        [SerializeField]
+        private TextMeshProUGUI statsText;
+
         // Start is called before the first frame update
         void Start()
         {
-            foreach (var player in GameManagerData.Players)
-            {
-                Instantiate(resultsCardPrefab, transform);
-            }
+            winText.text = GameManagerData.LastWinner.name + " Won!";
+            statsText.text = $"Damage Caused: {GameManagerData.LastWinner.damageCaused}%\nDamage Taken: {GameManagerData.LastWinner.damageTaken}";
         }
 
-        public void LoadMainMenu()
+        public void QuitToCharSelect()
         {
             crossFadeAnimator.SetTrigger("Start");
-            StartCoroutine(LoadMainMenuAfterSec());
+            StartCoroutine(LoadCharSelectAfterSec());
         }
-        private IEnumerator LoadMainMenuAfterSec()
+
+        private IEnumerator LoadCharSelectAfterSec()
         {
             yield return new WaitForSeconds(1f);
             SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);

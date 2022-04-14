@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 496308280}
   - component: {fileID: 496308279}
   - component: {fileID: 496308283}
+  - component: {fileID: 496308284}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -678,6 +679,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossFadeAnimator: {fileID: 474125028}
+--- !u!114 &496308284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496308278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787896ea8444d184baf1b27250e1a9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossFadeAnimator: {fileID: 474125028}
+  winText: {fileID: 2062990134}
+  statsText: {fileID: 867266707}
 --- !u!1 &549450827
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +1001,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Knockback caused: 180%'
+  m_text: 'Damage caused: 180%
+
+    Damage Taken: 30%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbad1296cd395c140af4e6977f157f1d, type: 2}
   m_sharedMaterial: {fileID: -7005798076313300038, guid: dbad1296cd395c140af4e6977f157f1d, type: 2}

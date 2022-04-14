@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 namespace BootlegPlatformFighter
 {
@@ -20,6 +21,7 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private Animator CrossFadeAnimator;
 
+
         // Start is called before the first frame update
         void Start()
         {
@@ -28,17 +30,25 @@ namespace BootlegPlatformFighter
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
             {
                 Menu.SetActive(!Menu.activeSelf);
+
+
+                // breaks scale animation :(
+                //if (Menu.activeSelf)
+                //    Time.timeScale = 0f;
+                //else
+                //    Time.timeScale = 1f;
             }
         }
 
+        // Button
         public void ResumeGame()
         {
             Menu.SetActive(false);
         }
-
+        // Button
         public void QuitGame()
         {
             Tint.SetActive(true);

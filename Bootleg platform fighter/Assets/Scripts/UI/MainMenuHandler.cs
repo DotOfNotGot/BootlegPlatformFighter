@@ -45,8 +45,8 @@ namespace BootlegPlatformFighter
             }
             // a bit ghetto but for now I think having it simple and static is best
             GameManagerData.Players.Clear();
-            GameManagerData.Players.Add(new Player_t(player1Name.text));
-            GameManagerData.Players.Add(new Player_t(player2Name.text));
+            GameManagerData.Players.Add(0, new Player_t(player1Name.text));
+            GameManagerData.Players.Add(1, new Player_t(player2Name.text));
             StartCoroutine(FightScene());
         }
 
