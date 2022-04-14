@@ -67,8 +67,10 @@ namespace BootlegPlatformFighter
             Debug.Log("knockbackScaling = " + knockbackScaling);
             Debug.Log("damagePercent = " + damagePercent);
 
+
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction, ForceMode2D.Impulse);
+            characterController.hasAirDash = true;
         }
 
         IEnumerator DelayedDeath()
