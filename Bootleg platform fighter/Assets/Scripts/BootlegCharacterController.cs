@@ -259,7 +259,7 @@ namespace BootlegPlatformFighter
                 BlockCountUp();
             }
 
-            if (playerState != PlayerState.Airdashing && previousPlayerState == PlayerState.Airdashing)
+            if (playerState != PlayerState.Airdashing)
             {
                 playerRb.gravityScale = 1 * gravityModifier;
             }
@@ -746,19 +746,6 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.LandingLag;
                     }
 
-                    // Checks if playerState is still airdashing, if true resets gravityscale to normal again. Probably moving this in a bit.
-                    if (playerState != PlayerState.Airdashing)
-                    {
-                        airdashCounter = 0;
-                        playerRb.gravityScale = 1;
-                        playerRb.gravityScale *= gravityModifier;
-                    }
-                    // Increases airdashCounter.
-                    else
-                    {
-                        airdashCounter++;
-                    }
-
                     if (controls.normalAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
@@ -772,6 +759,18 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.ForwardAir;
                     }
 
+                    // Checks if playerState is still airdashing, if true resets gravityscale to normal again. Probably moving this in a bit.
+                    if (playerState != PlayerState.Airdashing)
+                    {
+                        airdashCounter = 0;
+                        playerRb.gravityScale = 1;
+                        playerRb.gravityScale *= gravityModifier;
+                    }
+                    // Increases airdashCounter.
+                    else
+                    {
+                        airdashCounter++;
+                    }
                     break;
                 #endregion
                 #region JUMPING
@@ -1024,6 +1023,15 @@ namespace BootlegPlatformFighter
             if (playerState != PlayerState.ForwardStrong)
             {
                 characterAnimation.SetBool("isForwardStronging", false);
+            }
+
+            if (playerState != PlayerState.NeutralAir)
+            {
+                characterAnimation.SetBool("isNeutralAiring", false);
+            }
+            if (playerState != PlayerState.ForwardAir)
+            {
+                characterAnimation.SetBool("isForwardAiring", false);
             }
         }
 
