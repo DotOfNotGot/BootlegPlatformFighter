@@ -46,7 +46,7 @@ namespace BootlegPlatformFighter
 
         public bool SendToHitStun(GameObject hitEnemy)
         {
-            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames, this);
+            hitEnemy.GetComponent<Knockback>().StartHitStun(hitStunFrames, this, characterController.characterIndex);
             return true;
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
 
 namespace BootlegPlatformFighter
 {
@@ -14,6 +16,13 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private EventTrigger.TriggerEvent noCallback;
 
+        [SerializeField]
+        private GameObject FocusButton;
+
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(FocusButton);
+        }
         public void Yes()
         {
             yesCallback.Invoke(new BaseEventData(EventSystem.current));

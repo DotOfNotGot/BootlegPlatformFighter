@@ -136,15 +136,22 @@ namespace BootlegPlatformFighter
             leftEdge.points = colliderpoints;
         }
     }
-    public struct Player_t
+    public class Player_t
     {
         public Player_t(string name) {
             this.name = name;
+            this.damageCaused = 0f;
+            this.damageTaken = 0f;
         }
         public string name;
+        public float damageCaused;
+        public float damageTaken;
     }
     public static class GameManagerData
     {
-        static public List<Player_t> Players = new List<Player_t>();
+        static public Dictionary<int, Player_t> Players = new Dictionary<int, Player_t>();
+        static public Player_t LastWinner;
+
+        public static bool GamePaused { get; set; }
     }
 }

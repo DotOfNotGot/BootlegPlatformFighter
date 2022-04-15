@@ -42,14 +42,16 @@ namespace BootlegPlatformFighter
                 {
                     if (characterController.moveVector.x != 0)
                     {
-                        enemyKnockback.KnockBack(new Vector2(characterController.moveVector.x, 0), baseKnockback, knockbackScaling, damage);
+                        var dmg = enemyKnockback.KnockBack(new Vector2(characterController.moveVector.x, 0), baseKnockback, knockbackScaling, damage);
+                        GameManagerData.Players[characterController.characterIndex].damageCaused = dmg;
                         ResetEnemy();
                         animationHandler.ExitAnimation();
 
                     }
                     else if (characterController.moveVector.y != 0)
                     {
-                        enemyKnockback.KnockBack(new Vector2(0,characterController.moveVector.y), baseKnockback, knockbackScaling, damage);
+                        var dmg = enemyKnockback.KnockBack(new Vector2(0,characterController.moveVector.y), baseKnockback, knockbackScaling, damage);
+                        GameManagerData.Players[characterController.characterIndex].damageCaused = dmg;
                         ResetEnemy();
                         animationHandler.ExitAnimation();
                     }
