@@ -17,9 +17,11 @@ namespace BootlegPlatformFighter
         private GameManager gameManager;
 
         private AnimationHandler animHandler;
-        [SerializeField]private int hitStunTimer = -1;
+        [SerializeField] private int hitStunTimer = -1;
         public bool isHitStunned;
         public Hitbox hitbox;
+
+        private int lastAttackerIndex = -1;
 
 
         // Start is called before the first frame update
@@ -30,6 +32,9 @@ namespace BootlegPlatformFighter
             rigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
             gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>( );
             animHandler = gameObject.GetComponent<AnimationHandler>();
+
+            if (!gameManager)
+                Debug.LogError("Missing GameManager object, did you forget to add it to the scene?");
 
             if (!SetupHUD())
             {
@@ -53,7 +58,8 @@ namespace BootlegPlatformFighter
             }
         }
 
-        public void KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
+        // Sends force to player and returns percentage total damage taken
+        public float KnockBack(Vector2 direction, float baseKnockback, float knockbackScaling ,float damagePercent)
         {
             EnterTumble();
             characterController.damageTakenPercent += damagePercent;
@@ -71,6 +77,8 @@ namespace BootlegPlatformFighter
             _HUDAvatar.SetHealth(characterController.damageTakenPercent);
             rigidBody.AddForce(direction, ForceMode2D.Impulse);
             characterController.hasAirDash = true;
+            return characterController.damageTakenPercent;
+
         }
 
         IEnumerator DelayedDeath()
@@ -106,7 +114,7 @@ namespace BootlegPlatformFighter
             return false;
         }
 
-        public void StartHitStun(int stunTimer, Hitbox hBox)
+        public void StartHitStun(int stunTimer, Hitbox hBox, int attackerIndex)
         {
             hitbox = hBox;
             hitStunTimer = stunTimer;
@@ -114,18 +122,19 @@ namespace BootlegPlatformFighter
             characterController.canMove = false;
             characterController.previousPlayerState = characterController.playerState;
             characterController.playerState = BootlegCharacterController.PlayerState.HitStun;
+            lastAttackerIndex = attackerIndex;
         }
 
         public void EndHitStun()
         {
             characterController.canMove = true;
             isHitStunned = false;
-            KnockBack(new Vector2(transform.parent.position.x - hitbox.mainObject.transform.position.x, 1) * hitbox.direction, hitbox.baseKnockback, hitbox.knockbackScaling, hitbox.damage);
+            var dmg = KnockBack(new Vector2(transform.parent.position.x - hitbox.mainObject.transform.position.x, 1) * hitbox.direction, hitbox.baseKnockback, hitbox.knockbackScaling, hitbox.damage);
+            GameManagerData.Players[lastAttackerIndex].damageCaused = dmg;
         }
 
         public void EnterTumble()
         {
-
             characterController.previousPlayerState = characterController.playerState;
             characterController.playerState = BootlegCharacterController.PlayerState.Tumble;
         }

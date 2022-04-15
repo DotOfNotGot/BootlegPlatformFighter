@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 namespace BootlegPlatformFighter
 {
@@ -30,6 +32,17 @@ namespace BootlegPlatformFighter
 
         }
 
+        private void ZeroControls()
+        {
+            controls.airdashButton = false;
+            controls.jumpButton = false;
+            controls.movementHorizontalInput = 0f;
+            controls.movementVerticalInput = 0f;
+            controls.normalAttackButton = false;
+            controls.specialAttackButton = false;
+            controls.airdashButton = false;
+        }
+
         public void OnEnterStage()
         {
             var charControllers = FindObjectsOfType<BootlegCharacterController>();
@@ -39,23 +52,48 @@ namespace BootlegPlatformFighter
 
         public void OnMove(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+            {
+                ZeroControls();
+                return;
+            }
             controls.movementHorizontalInput = context.ReadValue<Vector2>().x;
             controls.movementVerticalInput = context.ReadValue<Vector2>().y;
         }
         public void OnNormalAttack(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+            {
+                ZeroControls();
+                return;
+            }
             controls.normalAttackButton = context.ReadValueAsButton();
         }
         public void OnSpecialAttack(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+            {
+                ZeroControls();
+                return;
+            }
             controls.specialAttackButton = context.ReadValueAsButton();
         }
         public void OnJump(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+            {
+                ZeroControls();
+                return;
+            }
             controls.jumpButton = context.ReadValueAsButton();
         }
         public void OnAirdashBlock(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+            {
+                ZeroControls();
+                return;
+            }
             controls.airdashButton = context.ReadValueAsButton();
         }
         public void OnPause(CallbackContext context)

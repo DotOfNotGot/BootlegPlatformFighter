@@ -199,6 +199,8 @@ namespace BootlegPlatformFighter
             mainObject = transform.GetChild(0).gameObject;
             animationHandler = mainObject.GetComponent<AnimationHandler>();
             blockTimer = blockTimerDefault;
+
+            // you can use mainObject as first param - akandesh
             gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
@@ -1441,6 +1443,16 @@ namespace BootlegPlatformFighter
                 else
                 {
                     // Player had 1 heart. Now he will have 0.
+
+                    // When adding support for multiple players we need to store index of those eliminated
+                    foreach (var t in GameManagerData.Players)
+                    {
+                        if (t.Key != characterIndex)
+                        {
+                            GameManagerData.LastWinner = t.Value;
+                            break;
+                        }
+                    }
                     crossFadeAnimator.SetTrigger("Start");
                     StartCoroutine(GameOverSceneLoader());
                 }
@@ -1475,6 +1487,7 @@ namespace BootlegPlatformFighter
         {
             blockTimer++;
         }
+
 
         public void SetInvulnerable(bool isVulnerable, int frames = 0)
         {

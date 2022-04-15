@@ -109,8 +109,8 @@ namespace BootlegPlatformFighter
         void GenerateCollidersAcrossScreen()
         {
             // Tweak the corners to adjust when they should be considered <outside>
-            Vector2 rTCorner = new Vector2(500, 150);
-            Vector2 lBCorner = new Vector2(-500, -50);
+            Vector2 rTCorner = new Vector2(250, 150);
+            Vector2 lBCorner = new Vector2(-250, -50);
             Vector2[] colliderpoints;
 
             EdgeCollider2D upperEdge = new GameObject("upperDeathZone").AddComponent<EdgeCollider2D>();
@@ -139,15 +139,22 @@ namespace BootlegPlatformFighter
             leftEdge.points = colliderpoints;
         }
     }
-    public struct Player_t
+    public class Player_t
     {
         public Player_t(string name) {
             this.name = name;
+            this.damageCaused = 0f;
+            this.damageTaken = 0f;
         }
         public string name;
+        public float damageCaused;
+        public float damageTaken;
     }
     public static class GameManagerData
     {
-        static public List<Player_t> Players = new List<Player_t>();
+        static public Dictionary<int, Player_t> Players = new Dictionary<int, Player_t>();
+        static public Player_t LastWinner;
+
+        public static bool GamePaused { get; set; }
     }
 }
