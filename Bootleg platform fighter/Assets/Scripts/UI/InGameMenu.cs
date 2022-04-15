@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace BootlegPlatformFighter
 {
@@ -37,7 +38,7 @@ namespace BootlegPlatformFighter
         void Update()
         {
             GameManagerData.GamePaused = Menu.activeSelf;
-            if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
+            if (!DialogOpen() && (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame))
             {
                 Menu.SetActive(!Menu.activeSelf);
 
@@ -50,6 +51,17 @@ namespace BootlegPlatformFighter
             }
         }
 
+        private bool DialogOpen()
+        {
+            return QuitTint.activeSelf || RestartTint.activeSelf;
+        }
+        private void setPrimaryMenuInteractable(bool val)
+        {
+            foreach (var button in Menu.GetComponentsInChildren<Button>())
+            {
+                button.interactable = val;
+            }
+        }
         // Button
         public void ResumeGame()
         {
@@ -60,12 +72,14 @@ namespace BootlegPlatformFighter
         {
             QuitTint.SetActive(true);
             QuitDialog.SetActive(true);
+            setPrimaryMenuInteractable(false);
         }
         // Button
         public void RestartGame()
         {
             RestartTint.SetActive(true);
             RestartDialog.SetActive(true);
+            setPrimaryMenuInteractable(false);
         }
         public void QuitCallback(BaseEventData dat)
         {
@@ -80,12 +94,14 @@ namespace BootlegPlatformFighter
 
         public void LoadMainMenuCallback(BaseEventData dat)
         {
+            setPrimaryMenuInteractable(true);
             CrossFadeAnimator.SetTrigger("Start");
             StartCoroutine(loadMainMenuAfterSecond());
         }
 
         public void RestartGameCallback(BaseEventData dat)
         {
+            setPrimaryMenuInteractable(true);
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             ResumeGame();
         }
@@ -102,6 +118,7 @@ namespace BootlegPlatformFighter
             RestartTint.SetActive(false);
             QuitDialog.SetActive(false);
             RestartDialog.SetActive(false);
+            setPrimaryMenuInteractable(true);
             EventSystem.current.SetSelectedGameObject(ResumeButton);
         }
     }
