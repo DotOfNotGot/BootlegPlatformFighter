@@ -785,7 +785,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   characterSelectPanel: {fileID: 1848719488}
   player1Name: {fileID: 404183772}
   player2Name: {fileID: 779530838}
+  playerManager: {fileID: 514814902}
 --- !u!114 &1079199697
 MonoBehaviour:
   m_ObjectHideFlags: 0
