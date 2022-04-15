@@ -201,6 +201,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 97927c83-f93c-48ac-b6f3-90f3107b6e7d
     m_ActionName: UI/Exit[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5ce449e-c940-424f-ab05-39c12bde1dc2
+    m_ActionName: UI/Pointer
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 375fede2-0665-4244-8081-64d45513131c
+    m_ActionName: UI/Left Click
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 757ac470-42a4-4109-b18e-669e99ff78f0
+    m_ActionName: UI/Right Click
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 53bc0601-0e6b-4d8e-ab04-6e510bd70b8f

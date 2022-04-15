@@ -37,11 +37,11 @@ namespace BootlegPlatformFighter
         // Update is called once per frame
         void Update()
         {
+            // We do have OnPaused in BootlegPlayerInput that could be better but not sure how it would be implemented
             GameManagerData.GamePaused = Menu.activeSelf;
-            if (!DialogOpen() && (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame))
+            if (!DialogOpen() && (Input.GetKeyDown(KeyCode.Escape) || ControllerStartButtonPressed()))
             {
                 Menu.SetActive(!Menu.activeSelf);
-
 
                 // breaks scale animation :(
                 //if (Menu.activeSelf)
@@ -49,6 +49,16 @@ namespace BootlegPlatformFighter
                 //else
                 //    Time.timeScale = 1f;
             }
+        }
+
+        private bool ControllerStartButtonPressed()
+        {
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                if (Gamepad.all[i].startButton.wasPressedThisFrame)
+                    return true;
+            }
+            return false;
         }
 
         private bool DialogOpen()
