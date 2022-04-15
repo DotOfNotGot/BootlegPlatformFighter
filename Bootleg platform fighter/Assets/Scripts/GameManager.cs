@@ -151,5 +151,7 @@ namespace BootlegPlatformFighter
     {
         static public Dictionary<int, Player_t> Players = new Dictionary<int, Player_t>();
         static public Player_t LastWinner;
+
+        public static bool GamePaused { get; set; }
     }
 }

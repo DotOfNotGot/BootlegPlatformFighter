@@ -12,11 +12,17 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private GameObject Menu;
         [SerializeField]
-        private GameObject Tint;
+        private GameObject QuitTint;
         [SerializeField]
         private GameObject QuitDialog;
         [SerializeField]
+        private GameObject RestartTint;
+        [SerializeField]
+        private GameObject RestartDialog;
+        [SerializeField]
         private GameObject OptionsMenu;
+        [SerializeField]
+        private GameObject ResumeButton;
 
         [SerializeField]
         private Animator CrossFadeAnimator;
@@ -30,6 +36,7 @@ namespace BootlegPlatformFighter
         // Update is called once per frame
         void Update()
         {
+            GameManagerData.GamePaused = Menu.activeSelf;
             if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
             {
                 Menu.SetActive(!Menu.activeSelf);
@@ -51,8 +58,14 @@ namespace BootlegPlatformFighter
         // Button
         public void QuitGame()
         {
-            Tint.SetActive(true);
+            QuitTint.SetActive(true);
             QuitDialog.SetActive(true);
+        }
+        // Button
+        public void RestartGame()
+        {
+            RestartTint.SetActive(true);
+            RestartDialog.SetActive(true);
         }
         public void QuitCallback(BaseEventData dat)
         {
@@ -71,6 +84,12 @@ namespace BootlegPlatformFighter
             StartCoroutine(loadMainMenuAfterSecond());
         }
 
+        public void RestartGameCallback(BaseEventData dat)
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            ResumeGame();
+        }
+
         private IEnumerator loadMainMenuAfterSecond()
         {
             yield return new WaitForSeconds(1f);
@@ -79,8 +98,11 @@ namespace BootlegPlatformFighter
 
         public void CancelQuitCallback(BaseEventData dat)
         {
-            Tint.SetActive(false);
+            QuitTint.SetActive(false);
+            RestartTint.SetActive(false);
             QuitDialog.SetActive(false);
+            RestartDialog.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(ResumeButton);
         }
     }
 }

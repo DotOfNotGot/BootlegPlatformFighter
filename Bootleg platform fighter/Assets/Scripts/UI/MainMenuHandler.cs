@@ -52,6 +52,7 @@ namespace BootlegPlatformFighter
 
         private IEnumerator FightScene()
         {
+            GameManagerData.GamePaused = false;
             yield return new WaitForSeconds(1f); // wait for anim
             SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 namespace BootlegPlatformFighter
 {
@@ -39,23 +41,33 @@ namespace BootlegPlatformFighter
 
         public void OnMove(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+                return;
             controls.movementHorizontalInput = context.ReadValue<Vector2>().x;
             controls.movementVerticalInput = context.ReadValue<Vector2>().y;
         }
         public void OnNormalAttack(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+                return;
             controls.normalAttackButton = context.ReadValueAsButton();
         }
         public void OnSpecialAttack(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+                return;
             controls.specialAttackButton = context.ReadValueAsButton();
         }
         public void OnJump(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+                return;
             controls.jumpButton = context.ReadValueAsButton();
         }
         public void OnAirdashBlock(CallbackContext context)
         {
+            if (GameManagerData.GamePaused)
+                return;
             controls.airdashButton = context.ReadValueAsButton();
         }
         public void OnPause(CallbackContext context)
