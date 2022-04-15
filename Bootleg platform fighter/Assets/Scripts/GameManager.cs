@@ -23,6 +23,8 @@ namespace BootlegPlatformFighter
 
         public GameObject ExplosionPrefab { get { return explosionPrefab; } }
 
+        [SerializeField]
+        private int invulnerableTimer;
 
         // Start is called before the first frame update
         void Start()
@@ -95,6 +97,7 @@ namespace BootlegPlatformFighter
             multipleTargetCamera.targets[index] = player.transform;
             player.transform.position = new Vector3(spawnPosition.x, spawnPosition.y + 30);
             player.transform.DOMove(spawnPosition, 1f).SetEase(Ease.OutQuint);
+            player.GetComponent<BootlegCharacterController>().SetInvulnerable(false, invulnerableTimer);
             var hud = FindHUDAvatarByIndex(index);
             if (!hud){
                 Debug.Log("Missing HUD in RespawnPlayer");

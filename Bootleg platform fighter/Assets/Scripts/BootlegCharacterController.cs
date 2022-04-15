@@ -169,6 +169,8 @@ namespace BootlegPlatformFighter
         public bool canMove;
         public bool isParrying;
 
+        public bool canBeHit;
+        private int invulnerableTimer = -1;
 
         public bool debugPlayerColissionOff;
 
@@ -202,7 +204,17 @@ namespace BootlegPlatformFighter
 
         public void ProcessUpdate(Controls controls, Controls previousControls)
         {
-            
+            if (!canBeHit)
+            {
+                if (invulnerableTimer > 0)
+                {
+                    invulnerableTimer--;
+                }
+                else if (invulnerableTimer == 0)
+                {
+                    SetInvulnerable(true);
+                }
+            }
             moveVector.x = controls.movementHorizontalInput;
             moveVector.y = controls.movementVerticalInput;
 
@@ -1464,6 +1476,18 @@ namespace BootlegPlatformFighter
             blockTimer++;
         }
 
+        public void SetInvulnerable(bool isVulnerable, int frames = 0)
+        {
+            canBeHit = isVulnerable;
+            if (!canBeHit)
+            {
+                invulnerableTimer = frames;
+            }
+            else
+            {
+                invulnerableTimer = -1;
+            }
+        }
        
     }
 }

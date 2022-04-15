@@ -140,7 +140,7 @@ namespace BootlegPlatformFighter
                             hurtScript = hurtBox.gameObject.GetComponent<HurtBox>();
                             Debug.Log(hurtScript.characterIndex);
 
-                            if (hurtScript.characterIndex != bootlegCharacterController.characterIndex)
+                            if (hurtScript.characterIndex != bootlegCharacterController.characterIndex && hurtScript.characterController.canBeHit)
                             {
                                 remainingLagFrames = hitLagFrames;
                                 //Debug.Log("Hit " + hurtBox.name + " Belonging to " + hurtScript.character.name + " with " + hitbox.name + " belonging to " + gameObject.name);
