@@ -24,6 +24,22 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private TMP_InputField player2Name;
 
+        [SerializeField]
+        private PlayerInputManager playerManager;
+
+        private void Start()
+        {
+            if (GameManagerData.setupControllers)
+                return;
+            for (int i = 0; i < InputSystem.devices.Count; i++)
+            {
+                //var c = InputSystem.devices[i];
+                //Debug.Log(c.description.capabilities);
+                playerManager.JoinPlayer(i, -1, "Controller"); // idk why this works tbh, thought i had to link the device directly
+            }
+            GameManagerData.setupControllers = true;
+        }
+
         public void LoadMainMenu()
         {
             menuPanel.SetActive(true);
