@@ -169,7 +169,7 @@ namespace BootlegPlatformFighter
         public bool canMove;
         public bool isParrying;
 
-        public bool canBeHit;
+        public bool canBeHit = true;
         private int invulnerableTimer = -1;
 
         public bool debugPlayerColissionOff;
