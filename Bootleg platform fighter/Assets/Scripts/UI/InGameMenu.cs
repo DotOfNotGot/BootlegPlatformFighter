@@ -37,7 +37,7 @@ namespace BootlegPlatformFighter
         void Update()
         {
             GameManagerData.GamePaused = Menu.activeSelf;
-            if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
+            if (!DialogOpen() && (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame))
             {
                 Menu.SetActive(!Menu.activeSelf);
 
@@ -48,6 +48,11 @@ namespace BootlegPlatformFighter
                 //else
                 //    Time.timeScale = 1f;
             }
+        }
+
+        private bool DialogOpen()
+        {
+            return QuitTint.activeSelf || RestartTint.activeSelf;
         }
 
         // Button
