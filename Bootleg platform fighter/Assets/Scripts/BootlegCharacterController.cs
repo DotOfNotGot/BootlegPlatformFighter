@@ -268,11 +268,11 @@ namespace BootlegPlatformFighter
             {
                 if (isFacingLeft)
                 {
-                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                    transform.GetChild(0).rotation = Quaternion.Euler(0, 180, 0);
                 }
                 else
                 {
-                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    transform.GetChild(0).rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
 
@@ -1201,7 +1201,7 @@ namespace BootlegPlatformFighter
                     characterAnimation.SetBool("isTumbleing", true);
                     if (damageTakenPercent >= 50)
                     {
-                        transform.rotation = Quaternion.Euler(0, 0, Random.Range(15, 360));
+                        transform.GetChild(0).rotation = Quaternion.Euler(0, 0, Random.Range(15, 360));
                     }
                     break;
                 #endregion
