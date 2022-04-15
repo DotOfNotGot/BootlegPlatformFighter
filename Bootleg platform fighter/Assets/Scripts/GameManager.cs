@@ -106,8 +106,8 @@ namespace BootlegPlatformFighter
         void GenerateCollidersAcrossScreen()
         {
             // Tweak the corners to adjust when they should be considered <outside>
-            Vector2 rTCorner = new Vector2(500, 150);
-            Vector2 lBCorner = new Vector2(-500, -50);
+            Vector2 rTCorner = new Vector2(250, 150);
+            Vector2 lBCorner = new Vector2(-250, -50);
             Vector2[] colliderpoints;
 
             EdgeCollider2D upperEdge = new GameObject("upperDeathZone").AddComponent<EdgeCollider2D>();
