@@ -39586,6 +39586,10 @@ PrefabInstance:
       value: 39.5
       objectReference: {fileID: 0}
     - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: canBeHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: jumpForce
       value: 60
       objectReference: {fileID: 0}
