@@ -21105,7 +21105,7 @@ MonoBehaviour:
   multipleTargetCamera: {fileID: 1666885160}
   cameraDummyTransform: {fileID: 1538707467}
   explosionPrefab: {fileID: 3021788428119984284, guid: 809fd6fae614f2144afc810ec40e0718, type: 3}
-  invulnerableTimer: 500
+  invulnerableTimer: 300
 --- !u!4 &1086165648
 Transform:
   m_ObjectHideFlags: 0
