@@ -39383,7 +39383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: hitArray.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: audioArray.Array.size
@@ -39391,7 +39391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: whooshArray.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: hitArray.Array.data[0].Name
@@ -39409,6 +39409,22 @@ PrefabInstance:
       propertyPath: hitArray.Array.data[1].clip
       value: 
       objectReference: {fileID: 8300000, guid: 12b40c47a40f43b4fb1bb541a9e535f4, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[2].Name
+      value: ForwardAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cc67dc6181aa814eb28359819fe9586, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[3].Name
+      value: NeutralAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: hitArray.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 103eaf80af246f441b52aad3ef3382b7, type: 3}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: audioArray.Array.data[0].clip
       value: 
@@ -39475,6 +39491,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: whooshArray.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 612e115e72bea6b4dba01629ac36b9d5, type: 3}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[5].Name
+      value: ForwardAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857542749049938692, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: whooshArray.Array.data[5].clip
       value: 
       objectReference: {fileID: 8300000, guid: 612e115e72bea6b4dba01629ac36b9d5, type: 3}
     - target: {fileID: 2507976369703921574, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
