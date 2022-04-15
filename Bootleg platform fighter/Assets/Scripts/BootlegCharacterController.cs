@@ -192,6 +192,7 @@ namespace BootlegPlatformFighter
             animationHandler = mainObject.GetComponent<AnimationHandler>();
             blockTimer = blockTimerDefault;
 
+            // you can use mainObject as first param - akandesh
             gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
