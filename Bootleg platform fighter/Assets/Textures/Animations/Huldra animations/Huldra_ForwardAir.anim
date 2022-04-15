@@ -20,17 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: e0457beb2c467d44492dbd4d6f71ae62, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: dc657474b0e705142ac2030b09cc93de, type: 3}
+      value: {fileID: 21300000, guid: afb092b41330b0e4ba186bcd47407ae3, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 50e0129f79004924195aa77f8132d749, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 51850762ea94cbf4e860174e0e888cf7, type: 3}
+      value: {fileID: 21300000, guid: f385f929a717e7547be756052f0d845f, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: d80914d168ccfee4f975847b9cb980a5, type: 3}
+      value: {fileID: 21300000, guid: 151d578be239a784b9b5d4f42793eea6, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: b0397d4e9eabca24cb7e5536d56632b4, type: 3}
+      value: {fileID: 21300000, guid: 9972655e1c949fb49acd69aaf5ab59ac, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: 31fdbcb65c39d9f4e9882d9c230aab1f, type: 3}
+      value: {fileID: 21300000, guid: 22117790a79c74b46bab59c4fd412d62, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,12 +50,12 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: e0457beb2c467d44492dbd4d6f71ae62, type: 3}
-    - {fileID: 21300000, guid: dc657474b0e705142ac2030b09cc93de, type: 3}
-    - {fileID: 21300000, guid: 51850762ea94cbf4e860174e0e888cf7, type: 3}
-    - {fileID: 21300000, guid: d80914d168ccfee4f975847b9cb980a5, type: 3}
-    - {fileID: 21300000, guid: b0397d4e9eabca24cb7e5536d56632b4, type: 3}
-    - {fileID: 21300000, guid: 31fdbcb65c39d9f4e9882d9c230aab1f, type: 3}
+    - {fileID: 21300000, guid: afb092b41330b0e4ba186bcd47407ae3, type: 3}
+    - {fileID: 21300000, guid: 50e0129f79004924195aa77f8132d749, type: 3}
+    - {fileID: 21300000, guid: f385f929a717e7547be756052f0d845f, type: 3}
+    - {fileID: 21300000, guid: 151d578be239a784b9b5d4f42793eea6, type: 3}
+    - {fileID: 21300000, guid: 9972655e1c949fb49acd69aaf5ab59ac, type: 3}
+    - {fileID: 21300000, guid: 22117790a79c74b46bab59c4fd412d62, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -95,27 +95,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.083333336
-    functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.16666667
-    functionName: AnimationHitboxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.16666667
-    functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.25
     functionName: AnimationHurtBoxTrigger
     data: 
@@ -130,50 +109,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
-    functionName: AnimationHitboxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.33333334
-    functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.33333334
+  - time: 0.25
     functionName: AnimationTriggerSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.33333334
     functionName: AnimationHitboxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: AnimationHurtBoxTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5833333
-    functionName: AnimationHurtBoxTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

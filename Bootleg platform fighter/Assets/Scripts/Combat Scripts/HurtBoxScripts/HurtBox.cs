@@ -22,11 +22,6 @@ namespace BootlegPlatformFighter
             name = transform.parent.name + " " + name;
         }
 
-        private void FixedUpdate()
-        {
-            GetComponent<SpriteRenderer>().enabled = character.GetComponent<HurtBoxHandler>().visualizeHurtboxes;
-
-        }
 
     }
 }
