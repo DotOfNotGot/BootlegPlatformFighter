@@ -38,8 +38,6 @@ namespace BootlegPlatformFighter
         void FixedUpdate()
         {
             direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-            GetComponent<SpriteRenderer>().enabled = mainObject.GetComponent<HitBoxHandler>().visualizeHitboxes;
-
         }
 
        
