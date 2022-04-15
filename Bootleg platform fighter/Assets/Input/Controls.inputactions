@@ -157,7 +157,7 @@
             "actions": [
                 {
                     "name": "Navigation",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "63547aa9-3ae9-4dd4-be31-7dea6510a606",
                     "expectedControlType": "Vector2",
                     "processors": "",
