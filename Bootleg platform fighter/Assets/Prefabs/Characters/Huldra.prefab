@@ -5780,40 +5780,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &2903802306111529801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4049975651033083135}
-  m_Layer: 6
-  m_Name: Huldra_ForwardStrong2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4049975651033083135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2903802306111529801}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5972867870401582105}
-  - {fileID: 1352411712345349364}
-  - {fileID: 3852249651257114473}
-  - {fileID: 1987649015038284842}
-  m_Father: {fileID: 499232480309920877}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2941486629312673574
 GameObject:
   m_ObjectHideFlags: 0
@@ -9159,59 +9125,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &4949425308831783407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352411712345349364}
-  - component: {fileID: 5991705169915931959}
-  m_Layer: 6
-  m_Name: Huldra_ForwardStrong2 Hitbox 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1352411712345349364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4949425308831783407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: 6.42, z: 0}
-  m_LocalScale: {x: 11.593542, y: 11.46575, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4049975651033083135}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5991705169915931959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4949425308831783407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c507e8370d11040977ba1f3cc169e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainObject: {fileID: 5071249388957047531}
-  characterController: {fileID: 6147251535244899237}
-  direction: {x: 0, y: 0}
-  attackAreaRadius: 1.5
-  damage: 15
-  baseKnockback: 5
-  knockbackScaling: 0.5
-  angle: 85
-  lineLengthDEBUG: 2
-  hitStunFrames: 5
 --- !u!1 &4962676302610303890
 GameObject:
   m_ObjectHideFlags: 0
@@ -10214,59 +10127,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &5561358487846802592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3852249651257114473}
-  - component: {fileID: 831232754229555686}
-  m_Layer: 6
-  m_Name: Huldra_ForwardStrong2 Hitbox 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3852249651257114473
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561358487846802592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4, y: 4.48, z: 0}
-  m_LocalScale: {x: 21.725822, y: 21.486347, z: 1.8739591}
-  m_Children: []
-  m_Father: {fileID: 4049975651033083135}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &831232754229555686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561358487846802592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c507e8370d11040977ba1f3cc169e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainObject: {fileID: 5071249388957047531}
-  characterController: {fileID: 6147251535244899237}
-  direction: {x: 0, y: 0}
-  attackAreaRadius: 2.9
-  damage: 15
-  baseKnockback: 5
-  knockbackScaling: 0.5
-  angle: 85
-  lineLengthDEBUG: 2
-  hitStunFrames: 5
 --- !u!1 &5583515829815935706
 GameObject:
   m_ObjectHideFlags: 0
@@ -10804,59 +10664,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &5793484453687880101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1987649015038284842}
-  - component: {fileID: 1062385039549087273}
-  m_Layer: 6
-  m_Name: Huldra_ForwardStrong2 Hitbox 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1987649015038284842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793484453687880101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.29, y: 6.2, z: 0}
-  m_LocalScale: {x: 11.593542, y: 11.46575, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4049975651033083135}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1062385039549087273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793484453687880101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c507e8370d11040977ba1f3cc169e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainObject: {fileID: 5071249388957047531}
-  characterController: {fileID: 6147251535244899237}
-  direction: {x: 0, y: 0}
-  attackAreaRadius: 1.5
-  damage: 15
-  baseKnockback: 5
-  knockbackScaling: 0.5
-  angle: 85
-  lineLengthDEBUG: 2
-  hitStunFrames: 5
 --- !u!1 &5809032635464761657
 GameObject:
   m_ObjectHideFlags: 0
@@ -11997,59 +11804,6 @@ MonoBehaviour:
   angle: 34
   lineLengthDEBUG: 2
   hitStunFrames: 3
---- !u!1 &6327466980579719850
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5972867870401582105}
-  - component: {fileID: 3084103034423113602}
-  m_Layer: 6
-  m_Name: Huldra_ForwardStrong2 Hitbox 0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5972867870401582105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6327466980579719850}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.48, y: 0.88, z: 0}
-  m_LocalScale: {x: 35.950275, y: 35.554012, z: 3.1008885}
-  m_Children: []
-  m_Father: {fileID: 4049975651033083135}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3084103034423113602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6327466980579719850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c507e8370d11040977ba1f3cc169e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainObject: {fileID: 5071249388957047531}
-  characterController: {fileID: 6147251535244899237}
-  direction: {x: 0, y: 0}
-  attackAreaRadius: 4.71
-  damage: 15
-  baseKnockback: 5
-  knockbackScaling: 0.5
-  angle: 85
-  lineLengthDEBUG: 2
-  hitStunFrames: 5
 --- !u!1 &6327993532200001560
 GameObject:
   m_ObjectHideFlags: 0
@@ -17409,7 +17163,6 @@ Transform:
   m_Children:
   - {fileID: 8101276046288856752}
   - {fileID: 6661813864123252817}
-  - {fileID: 4049975651033083135}
   m_Father: {fileID: 2851230511932153990}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18210,14 +17963,9 @@ PrefabInstance:
     - {fileID: 3720130721344248571, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
     - {fileID: 6454568618304643344, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
---- !u!4 &6821672986398753074 stripped
+--- !u!4 &2851230511932153990 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6402132140642731363, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &163897336955798956 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 303366190352302589, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2441541677979706583, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6147251535244899237 stripped
@@ -18231,14 +17979,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091177ef8664fa347baeecf4af4c00a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2851230511932153990 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2441541677979706583, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5071249388957047531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4617087096367193786, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6821672986398753074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6402132140642731363, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &163897336955798956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 303366190352302589, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6695192556203654382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6528416376974588095, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2261444288689162366 stripped
@@ -18249,10 +18007,5 @@ Transform:
 --- !u!4 &7386436195824848811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6985758838914305018, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6695192556203654382 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6528416376974588095, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
