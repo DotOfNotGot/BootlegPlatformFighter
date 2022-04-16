@@ -17561,6 +17561,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 87
       objectReference: {fileID: 0}
+    - target: {fileID: 533438893171619160, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 953313318634754139, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -17962,6 +17966,7 @@ PrefabInstance:
     - {fileID: 4617087096367193788, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
     - {fileID: 3720130721344248571, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
     - {fileID: 6454568618304643344, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+    - {fileID: 533438893171619160, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
 --- !u!4 &2851230511932153990 stripped
 Transform:
