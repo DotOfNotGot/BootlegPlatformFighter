@@ -26,6 +26,9 @@ namespace BootlegPlatformFighter
         [SerializeField]
         private int invulnerableTimer;
 
+        [SerializeField]
+        private AudioClip explosionSound;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -137,6 +140,12 @@ namespace BootlegPlatformFighter
             colliderpoints[0] = new Vector2(lBCorner.x, rTCorner.y);
             colliderpoints[1] = new Vector2(lBCorner.x, lBCorner.y);
             leftEdge.points = colliderpoints;
+        }
+
+        public void PlayExplosionSound()
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.PlayOneShot(explosionSound);
         }
     }
     public class Player_t

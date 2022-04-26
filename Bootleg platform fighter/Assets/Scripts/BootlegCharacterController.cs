@@ -1433,6 +1433,7 @@ namespace BootlegPlatformFighter
             //Debug.Log("Collided with " + collision.transform.name);
             if (collision.transform.name.Contains("DeathZone"))
             {
+                gameManager.PlayExplosionSound();
                 for (int i = 0; i < transform.childCount; i++)
                     transform.GetChild(i).gameObject.SetActive(false);
                 Instantiate(gameManager.ExplosionPrefab, transform.position, gameManager.ExplosionPrefab.transform.rotation);
