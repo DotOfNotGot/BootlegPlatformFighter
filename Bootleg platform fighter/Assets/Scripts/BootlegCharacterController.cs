@@ -319,7 +319,7 @@ namespace BootlegPlatformFighter
                     bool groundIdlingWalkCounterShouldIncrease = false;
 
                     // Changes state to ForwardStrong
-                    if (controls.specialAttackButton)
+                    if (controls.specialAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
@@ -445,7 +445,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to ForwardStrong.
-                    if (controls.specialAttackButton)
+                    if (controls.specialAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
@@ -622,7 +622,7 @@ namespace BootlegPlatformFighter
                     }
 
                     // Changes state to ForwardStrong
-                    if (controls.specialAttackButton)
+                    if (controls.specialAttackButtonPressed)
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.ForwardStrong;
