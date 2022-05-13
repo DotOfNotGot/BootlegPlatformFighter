@@ -122,7 +122,7 @@ namespace BootlegPlatformFighter
 
                 controls.SetStateChangeVariables(previousControls);
 
-                characterController.ProcessUpdate(controls, previousControls);
+                characterController.SetNewControls(controls, previousControls);
                 previousControls = controls;
             }
 
