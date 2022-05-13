@@ -31,7 +31,7 @@ namespace BootlegPlatformFighter
             playerIndex = playerInput.playerIndex;
 
         }
-
+        
         private void ZeroControls()
         {
             controls.airdashButton = false;

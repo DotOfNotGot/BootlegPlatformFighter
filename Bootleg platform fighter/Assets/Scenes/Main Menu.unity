@@ -2165,6 +2165,22 @@ PrefabInstance:
       propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 1786371905, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
       propertyPath: m_text
       value: Player 2
