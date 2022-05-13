@@ -46,7 +46,20 @@ namespace BootlegPlatformFighter
                 grabButtonPressed = !previousControls.grabButton && grabButton;
                 pauseButtonPressed = !previousControls.pauseButton && pauseButton;
             }
+            
         }
+
+        Controls controls;
+        Controls previousControls;
+        public void SetNewControls(Controls newControls, Controls newPreviousControls)
+        {
+
+            controls = newControls;
+            previousControls = newPreviousControls;
+
+        }
+
+
 
         private GameManager gameManager;
         [SerializeField] private Animator crossFadeAnimator;
@@ -72,7 +85,6 @@ namespace BootlegPlatformFighter
         [SerializeField] private int dashLength;
         [SerializeField] private float airControl;
 
-        private int goDownIndex = -1;
         [SerializeField] GameObject smallPlatform;
         [SerializeField] int goDownIndexMax;
 
@@ -204,7 +216,7 @@ namespace BootlegPlatformFighter
             gameManager.InitializeCameraTargets(transform.GetChild(0).gameObject, characterIndex);
         }
 
-        public void ProcessUpdate(Controls controls, Controls previousControls)
+        private void FixedUpdate()
         {
             if (!canBeHit)
             {
@@ -305,14 +317,6 @@ namespace BootlegPlatformFighter
                 case PlayerState.GroundIdling:
 
                     bool groundIdlingWalkCounterShouldIncrease = false;
-                    //dust.Stop();
-
-                    // Changes state to Grab
-                    if (controls.grabButtonPressed)
-                    {
-                        previousPlayerState = playerState;
-                        playerState = PlayerState.Grab;
-                    }
 
                     // Changes state to ForwardStrong
                     if (controls.specialAttackButton)
@@ -328,13 +332,6 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Jab;
                     }
 
-
-                    // Changes state to GroundBlocking
-                    if (controls.airdashButton)
-                    {
-                        playerState = PlayerState.GroundBlocking;
-                        previousPlayerState = playerState;
-                    }
 
                     // Changes state to GroundCrouching.
                     if (controls.movementVerticalInput < -deadZone && blockTimer >= (blockTimerDefault / 4))
@@ -439,12 +436,6 @@ namespace BootlegPlatformFighter
                 #region GROUND_WALKING
                 case PlayerState.GroundWalking:
 
-                    // Changes state to GroundBlocking
-                    if (controls.airdashButton)
-                    {
-                        playerState = PlayerState.GroundBlocking;
-                        previousPlayerState = playerState;
-                    }
 
                     // Changes state to Jab
                     if (controls.normalAttackButtonPressed)
@@ -510,7 +501,6 @@ namespace BootlegPlatformFighter
                 #region GROUND_DASHING
                 case PlayerState.GroundDashing:
 
-                    //CreateDust();
                     characterAnimation.SetInteger("DashTimer", groundDashingCounter);
 
                     if (groundDashingCounter == 0)
@@ -580,15 +570,8 @@ namespace BootlegPlatformFighter
                 #region GROUND_RUNNING
                 case PlayerState.GroundRunning:
 
-                    // Changes state to GroundBlocking
-                    if (controls.airdashButton)
-                    {
-                        playerState = PlayerState.GroundBlocking;
-                        previousPlayerState = playerState;
-                    }
-
                     // Changes state to GroundCrouching.
-                    if (controls.movementVerticalInput < -deadZone)
+                    if (controls.movementVerticalInput < -deadZone && blockTimer >= (blockTimerDefault / 4))
                     {
                         previousPlayerState = playerState;
                         playerState = PlayerState.GroundCrouching;
@@ -725,18 +708,6 @@ namespace BootlegPlatformFighter
                     else
                     {
                         blockBreakTimer++;
-                    }
-
-                    break;
-                #endregion
-                #region GROUND_BLOCKING
-                case PlayerState.GroundBlocking:
-
-                    // Changes playerstate to GroundIdling.
-                    if (!controls.airdashButton)
-                    {
-                        playerState = PlayerState.GroundIdling;
-                        previousPlayerState = playerState;
                     }
 
                     break;
@@ -889,14 +860,6 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
-                #region HITSTUN
-                case PlayerState.HitStun:
-                    break;
-                #endregion
-                #region BLOCKSTUN
-                case PlayerState.BlockStun:
-                    break;
-                #endregion
                 #region TUMBLE
                 case PlayerState.Tumble:
 
@@ -913,10 +876,6 @@ namespace BootlegPlatformFighter
                         playerState = PlayerState.Airborne;
                     }
                     tumbleTimeCounter++;
-                    break;
-                #endregion
-                #region GRABBED
-                case PlayerState.Grabbed:
                     break;
                 #endregion
                 #region JAB
@@ -1118,10 +1077,6 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
-                #region GROUND_BLOCKING
-                case PlayerState.GroundBlocking:
-                    break;
-                #endregion
                 #region AIRDASHING
                 case PlayerState.Airdashing:
 
@@ -1197,17 +1152,9 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
-                #region LANDINGLAG
-                case PlayerState.LandingLag:
-                    break;
-                #endregion
                 #region HITSTUN
                 case PlayerState.HitStun:
                     characterAnimation.SetBool("isHitStunning", true);
-                    break;
-                #endregion
-                #region BLOCKSTUN
-                case PlayerState.BlockStun:
                     break;
                 #endregion
                 #region TUMBLE
@@ -1226,10 +1173,6 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
-                #region GRABBED
-                case PlayerState.Grabbed:
-                    break;
-                #endregion
                 #region JAB
                 case PlayerState.Jab:
 
@@ -1238,33 +1181,11 @@ namespace BootlegPlatformFighter
 
                     break;
                 #endregion
-                #region FORWARDTILT
-                case PlayerState.ForwardTilt:
-
-
-                    break;
-                #endregion
-                #region UPTILT
-                case PlayerState.UpTilt:
-                    break;
-                #endregion
-                #region DOWNTILT
-                case PlayerState.DownTilt:
-                    break;
-                #endregion
                 #region FORWARDSTRONG
                 case PlayerState.ForwardStrong:
 
                     characterAnimation.SetBool("isForwardStronging", true);
 
-                    break;
-                #endregion
-                #region UPSMASH
-                case PlayerState.UpStrong:
-                    break;
-                #endregion
-                #region DOWNSMASH
-                case PlayerState.DownStrong:
                     break;
                 #endregion
                 #region NEUTRALAIR
@@ -1313,52 +1234,6 @@ namespace BootlegPlatformFighter
                         isFastFalling = false;
                     }
 
-                    break;
-                #endregion
-                #region UPAIR
-                case PlayerState.UpAir:
-                    break;
-                #endregion
-                #region DOWNAIR
-                case PlayerState.DownAir:
-                    break;
-                #endregion
-                #region NEUTRALSPECIAL
-                case PlayerState.NeutralSpecial:
-                    break;
-                #endregion
-                #region SIDESPECIAL
-                case PlayerState.SideSpecial:
-                    break;
-                #endregion
-                #region UPSPECIAL
-                case PlayerState.UpSpecial:
-                    break;
-                #endregion
-                #region DOWNSPECIAL
-                case PlayerState.DownSpecial:
-                    break;
-                #endregion
-                #region GRAB
-                case PlayerState.Grab:
-                    characterAnimation.SetBool("isGrabing", true);
-
-                    break;
-                #endregion
-                #region UPTHROW
-                case PlayerState.UpThrow:
-                    break;
-                #endregion
-                #region DOWNTHROW
-                case PlayerState.DownThrow:
-                    break;
-                #endregion
-                #region FORWARDTHROW
-                case PlayerState.ForwardThrow:
-                    break;
-                #endregion
-                #region BACKTHROW
-                case PlayerState.BackThrow:
                     break;
                 #endregion
                 default:

@@ -19,9 +19,6 @@ namespace BootlegPlatformFighter
         void FixedUpdate()
         {
 
-            // TODO: Set controls by AI.
-            characterController.ProcessUpdate(controls, previousControls);
-            previousControls = controls;
         }
     }
 }
