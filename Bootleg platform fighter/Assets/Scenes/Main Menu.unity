@@ -2175,12 +2175,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 1005277507, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95d420139e195a846a1ef8b8c3ef6ad1, type: 3}
     - target: {fileID: 1786371905, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
       propertyPath: m_text
       value: Player 2
@@ -2682,6 +2686,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 619778770}
     m_Modifications:
+    - target: {fileID: 1005277506, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005277507, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95d420139e195a846a1ef8b8c3ef6ad1, type: 3}
     - target: {fileID: 3300318096127842980, guid: c0dba4db3b6e868409bdb524a7ebaa08, type: 3}
       propertyPath: m_Name
       value: PlayerCard

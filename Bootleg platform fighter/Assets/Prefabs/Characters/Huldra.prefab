@@ -35,70 +35,6 @@ Transform:
   m_Father: {fileID: 3231412041843181760}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &92203143492054994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9145762821861932126}
-  - component: {fileID: 4522732864135372057}
-  - component: {fileID: 4661077192273896127}
-  m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9145762821861932126
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92203143492054994}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.59, y: -0.92, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
-  m_Children: []
-  m_Father: {fileID: 1669284612756376455}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4522732864135372057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92203143492054994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &4661077192273896127
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92203143492054994}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &95499967344567172
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +163,70 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!1 &115045428580665470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6304903691034966320}
+  - component: {fileID: 5414849516890627920}
+  - component: {fileID: 7279727512764122547}
+  m_Layer: 8
+  m_Name: Hurtbox1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6304903691034966320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115045428580665470}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4120001, y: 3.2940001, z: 0}
+  m_LocalScale: {x: 7.37832, y: 7.783813, z: 0.42198998}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5414849516890627920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115045428580665470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &7279727512764122547
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115045428580665470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.14960071, y: 0.01552633}
+  serializedVersion: 2
+  m_Radius: 0.07554924
 --- !u!1 &171769176289134519
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 1269308535816861649}
   - component: {fileID: 2064650739621742831}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox6
+  m_Name: Hurtbox6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,9 +641,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.59691596, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.11838999
 --- !u!1 &334789531197329669
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,70 +872,6 @@ Transform:
   m_Father: {fileID: 2407692639866349942}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &431954583524716297
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2953328832297621426}
-  - component: {fileID: 4764129367509987549}
-  - component: {fileID: 6222254886596069467}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2953328832297621426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431954583524716297}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.395, y: 3.049, z: 0}
-  m_LocalScale: {x: 7.3783174, y: 7.7838135, z: 0.421989}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4764129367509987549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431954583524716297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &6222254886596069467
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431954583524716297}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &441740666612561780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1294,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &767592106854164199
@@ -1437,7 +1373,7 @@ GameObject:
   - component: {fileID: 5386142138424643549}
   - component: {fileID: 7798371005550239686}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox4
+  m_Name: Hurtbox4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1486,9 +1422,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.27229717, y: -0.082129024}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.09497656
 --- !u!1 &789595487441435199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1489,70 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!1 &825023804609728614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745028934870730792}
+  - component: {fileID: 5968782304060565501}
+  - component: {fileID: 5457488879663924911}
+  m_Layer: 8
+  m_Name: Hurtbox2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745028934870730792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825023804609728614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.33000058, y: 1.44, z: 0}
+  m_LocalScale: {x: 5.845327, y: 5.6941466, z: 0.64831}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5968782304060565501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825023804609728614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &5457488879663924911
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825023804609728614}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.18332136, y: -0.104706354}
+  serializedVersion: 2
+  m_Radius: 0.16722302
 --- !u!1 &829258562436209612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,9 +1649,6 @@ Transform:
   - {fileID: 4428103275606714917}
   - {fileID: 8556843686672607712}
   - {fileID: 23497237724884751}
-  - {fileID: 4496923859159989020}
-  - {fileID: 7399795777966228206}
-  - {fileID: 9145762821861932126}
   m_Father: {fileID: 508425342217035269}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1715,15 +1712,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3929321684149612947}
-  - {fileID: 4697366658600911321}
-  - {fileID: 4594537005879735997}
-  - {fileID: 6577393215884534332}
-  - {fileID: 6166187996996426314}
-  - {fileID: 3553543731870745971}
-  - {fileID: 3245969615536484698}
-  - {fileID: 502255577791685881}
-  - {fileID: 7486296620217875637}
+  - {fileID: 3049352300965814776}
+  - {fileID: 6304903691034966320}
+  - {fileID: 2745028934870730792}
+  - {fileID: 4216948335509996522}
+  - {fileID: 1424939240217556343}
+  - {fileID: 756190158143049696}
+  - {fileID: 1378861554217678282}
   m_Father: {fileID: 508425342217035269}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2474,6 +2469,70 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
+--- !u!1 &1195299401093893340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1424939240217556343}
+  - component: {fileID: 6012042393834070185}
+  - component: {fileID: 1964328777438046607}
+  m_Layer: 8
+  m_Name: Hurtbox4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1424939240217556343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195299401093893340}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5320003, y: -0.294, z: 0}
+  m_LocalScale: {x: 6.2136397, y: 6.1803665, z: 0.9291}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6012042393834070185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195299401093893340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &1964328777438046607
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195299401093893340}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.27229717, y: -0.082129024}
+  serializedVersion: 2
+  m_Radius: 0.09497656
 --- !u!1 &1235468584106957051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,198 +2943,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &1446042859091995149
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3553543731870745971}
-  - component: {fileID: 565661422489124036}
-  - component: {fileID: 9162423628810394522}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3553543731870745971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446042859091995149}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.152, y: -0.067, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &565661422489124036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446042859091995149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &9162423628810394522
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446042859091995149}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
---- !u!1 &1457926674850768250
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5447515227896899390}
-  - component: {fileID: 6892769690478374879}
-  - component: {fileID: 2992558659881087923}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5447515227896899390
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457926674850768250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.918, y: -0.101, z: 0}
-  m_LocalScale: {x: 6.2136374, y: 6.180365, z: 0.92909753}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6892769690478374879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457926674850768250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &2992558659881087923
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457926674850768250}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
---- !u!1 &1480321989124470072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4594537005879735997}
-  - component: {fileID: 813808361470462318}
-  - component: {fileID: 3580458811396173177}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4594537005879735997
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480321989124470072}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.33, y: 1.45, z: 0}
-  m_LocalScale: {x: 5.845324, y: 5.694145, z: 0.6483101}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &813808361470462318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480321989124470072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &3580458811396173177
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480321989124470072}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &1498936180033577819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,6 +3096,70 @@ Transform:
   m_Father: {fileID: 779896278493451464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1555565505961345832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3747691307846382731}
+  - component: {fileID: 5360454866617866027}
+  - component: {fileID: 8695083919355573171}
+  m_Layer: 8
+  m_Name: Hurtbox3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3747691307846382731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555565505961345832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.84499997, y: 0.8759999, z: 0}
+  m_LocalScale: {x: 6.8869133, y: 6.8644004, z: 1.0210199}
+  m_Children: []
+  m_Father: {fileID: 5554089428490862981}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5360454866617866027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555565505961345832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 1
+--- !u!58 &8695083919355573171
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555565505961345832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.051101968, y: -0.037170444}
+  serializedVersion: 2
+  m_Radius: 0.120393865
 --- !u!1 &1579721592516234574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,70 +3610,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &1729153358819509099
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964176169724840306}
-  - component: {fileID: 6648147585238897378}
-  - component: {fileID: 5427191371409129465}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1964176169724840306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729153358819509099}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.01, y: -0.75, z: 0}
-  m_LocalScale: {x: 5.845324, y: 5.694145, z: 0.6483101}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6648147585238897378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729153358819509099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &5427191371409129465
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729153358819509099}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &1744955126116645688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4302,7 +4169,7 @@ GameObject:
   - component: {fileID: 7362545104067035330}
   - component: {fileID: 6126524711005293890}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox5
+  m_Name: Hurtbox5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4351,9 +4218,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.4189437, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.10137133
 --- !u!1 &2154457856252959848
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,70 +5113,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &2765321485648269353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3245969615536484698}
-  - component: {fileID: 5532082168509634063}
-  - component: {fileID: 1086058186628807540}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3245969615536484698
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2765321485648269353}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.453, y: -0.839, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5532082168509634063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2765321485648269353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &1086058186628807540
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2765321485648269353}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &2783871148329717806
 GameObject:
   m_ObjectHideFlags: 0
@@ -6160,7 +5963,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.16, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &3218023968955600117
@@ -6506,6 +6309,70 @@ Transform:
   m_Father: {fileID: 7386436195824848811}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3425085915382662927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3049352300965814776}
+  - component: {fileID: 1961482483836031546}
+  - component: {fileID: 1949042517543536879}
+  m_Layer: 8
+  m_Name: Hurtbox0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3049352300965814776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425085915382662927}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9300003, y: 2.16, z: 0}
+  m_LocalScale: {x: 8.172747, y: 8.101034, z: 0.47698998}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961482483836031546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425085915382662927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &1949042517543536879
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425085915382662927}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06309315, y: 0.025858467}
+  serializedVersion: 2
+  m_Radius: 0.14702146
 --- !u!1 &3427580594715853600
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,7 +6434,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &3432616029271789353
@@ -6932,6 +6799,70 @@ MonoBehaviour:
   angle: 70.5
   lineLengthDEBUG: 2
   hitStunFrames: 1
+--- !u!1 &3640281389576096434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756190158143049696}
+  - component: {fileID: 3159047967572282673}
+  - component: {fileID: 7036761429076047527}
+  m_Layer: 8
+  m_Name: Hurtbox5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756190158143049696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640281389576096434}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15200043, y: -0.067000076, z: 0}
+  m_LocalScale: {x: 5.115594, y: 5.2076335, z: 0.75841}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3159047967572282673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640281389576096434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &7036761429076047527
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640281389576096434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4189437, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.10137133
 --- !u!1 &3748047221722543234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7222,7 +7153,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.11, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &3829037937828092879
@@ -7301,7 +7232,7 @@ GameObject:
   - component: {fileID: 4270242143733287840}
   - component: {fileID: 656553834963747108}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox2
+  m_Name: Hurtbox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7350,73 +7281,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.18332136, y: -0.104706354}
   serializedVersion: 2
-  m_Radius: 0.0859
---- !u!1 &3906472681446485210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4263857336763994657}
-  - component: {fileID: 3636698532319570360}
-  - component: {fileID: 2121301802078276837}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4263857336763994657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906472681446485210}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.974, y: 1.993, z: 0}
-  m_LocalScale: {x: 8.172744, y: 8.101032, z: 0.476986}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3636698532319570360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906472681446485210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &2121301802078276837
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906472681446485210}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.16722302
 --- !u!1 &3982582600334790110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,70 +7465,6 @@ Transform:
   m_Father: {fileID: 7386436195824848811}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4100906861541391927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2896388197893582146}
-  - component: {fileID: 2154827792353573942}
-  - component: {fileID: 8141591845806980036}
-  m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2896388197893582146
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100906861541391927}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.067, y: -0.82, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
-  m_Children: []
-  m_Father: {fileID: 6048446292094659730}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2154827792353573942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100906861541391927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &8141591845806980036
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100906861541391927}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &4143806824298133242
 GameObject:
   m_ObjectHideFlags: 0
@@ -7884,7 +7687,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.13, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &4366413971791245408
@@ -8116,70 +7919,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &4519936480831695009
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4496923859159989020}
-  - component: {fileID: 8438741239029552790}
-  - component: {fileID: 3334484914878796319}
-  m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4496923859159989020
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4519936480831695009}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.222, y: -0.163, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 1669284612756376455}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8438741239029552790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4519936480831695009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &3334484914878796319
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4519936480831695009}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &4607171018342709317
 GameObject:
   m_ObjectHideFlags: 0
@@ -8244,134 +7983,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &4629369152204717431
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3929321684149612947}
-  - component: {fileID: 266703622203726532}
-  - component: {fileID: 6570622867298833557}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3929321684149612947
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4629369152204717431}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 2.16, z: 0}
-  m_LocalScale: {x: 8.172744, y: 8.101032, z: 0.476986}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &266703622203726532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4629369152204717431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &6570622867298833557
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4629369152204717431}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
---- !u!1 &4645277138488380061
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 502255577791685881}
-  - component: {fileID: 7992976463716416566}
-  - component: {fileID: 4952195884753518653}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &502255577791685881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645277138488380061}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.567, y: -0.864, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7992976463716416566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645277138488380061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &4952195884753518653
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645277138488380061}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &4663963698476397792
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,70 +8014,6 @@ Transform:
   m_Father: {fileID: 7386436195824848811}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4669981629778395495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3817784814600674936}
-  - component: {fileID: 180989445378038343}
-  - component: {fileID: 7006383517026991349}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3817784814600674936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669981629778395495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.326, y: -0.777, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &180989445378038343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669981629778395495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &7006383517026991349
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669981629778395495}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &4674016768295364658
 GameObject:
   m_ObjectHideFlags: 0
@@ -8628,7 +8175,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.16, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &4712304885785100717
@@ -9171,7 +8718,7 @@ GameObject:
   - component: {fileID: 2247734506678449711}
   - component: {fileID: 4289324561328197836}
   m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox1
+  m_Name: Hurtbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9220,9 +8767,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.16217498, y: 0.038431562}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.07007518
 --- !u!1 &5012189289587478677
 GameObject:
   m_ObjectHideFlags: 0
@@ -9629,7 +9176,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.07, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &5243710349659488942
@@ -10228,7 +9775,7 @@ GameObject:
   - component: {fileID: 6495530351459489722}
   - component: {fileID: 190317981898281182}
   m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox0
+  m_Name: Hurtbox0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10277,9 +9824,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0559806, y: 0.036926687}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.13542132
 --- !u!1 &5703223803472728499
 GameObject:
   m_ObjectHideFlags: 0
@@ -10408,70 +9955,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0859
---- !u!1 &5767804552506713045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7486296620217875637}
-  - component: {fileID: 6110183704021666572}
-  - component: {fileID: 4160682409840677743}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7486296620217875637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767804552506713045}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.067, y: -0.82, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6110183704021666572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767804552506713045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &4160682409840677743
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767804552506713045}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &5770705419664803496
 GameObject:
   m_ObjectHideFlags: 0
@@ -10484,7 +9967,7 @@ GameObject:
   - component: {fileID: 5244340365160254491}
   - component: {fileID: 8223962754417275303}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox3
+  m_Name: Hurtbox3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10533,9 +10016,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.044712685, y: -0.06524985}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.065576114
 --- !u!1 &5771580994060821577
 GameObject:
   m_ObjectHideFlags: 0
@@ -11347,7 +10830,7 @@ GameObject:
   - component: {fileID: 6833208915488610410}
   - component: {fileID: 7166692053736927}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox0
+  m_Name: Hurtbox0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11396,9 +10879,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06309315, y: 0.025858467}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.14702146
 --- !u!1 &6196297055021192647
 GameObject:
   m_ObjectHideFlags: 0
@@ -11751,6 +11234,70 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
+--- !u!1 &6300847361775222224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1378861554217678282}
+  - component: {fileID: 8242309118235172056}
+  - component: {fileID: 4026474526501433900}
+  m_Layer: 8
+  m_Name: Hurtbox6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1378861554217678282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300847361775222224}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.4530004, y: -0.8389999, z: 0}
+  m_LocalScale: {x: 5.115594, y: 5.2076335, z: 0.75841}
+  m_Children: []
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8242309118235172056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300847361775222224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &4026474526501433900
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300847361775222224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.59691596, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.11838999
 --- !u!1 &6319797670258418383
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,7 +11412,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.16, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &6335894859174916999
@@ -11935,8 +11482,6 @@ Transform:
   - {fileID: 5025286013610061464}
   - {fileID: 6829873861679766311}
   - {fileID: 8099683302321675018}
-  - {fileID: 4205740893311712562}
-  - {fileID: 2896388197893582146}
   m_Father: {fileID: 508425342217035269}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12467,7 +12012,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &6843195727338302195
@@ -12888,6 +12433,70 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0859
+--- !u!1 &7100542628355272162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647480363070353531}
+  - component: {fileID: 2048963452579533429}
+  - component: {fileID: 1633603798789609977}
+  m_Layer: 8
+  m_Name: Hurtbox2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647480363070353531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100542628355272162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0099996, y: -0.75, z: 0}
+  m_LocalScale: {x: 5.845327, y: 5.6941466, z: 0.64831}
+  m_Children: []
+  m_Father: {fileID: 5554089428490862981}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048963452579533429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100542628355272162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &1633603798789609977
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100542628355272162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03010382, y: 0.00772581}
+  serializedVersion: 2
+  m_Radius: 0.108477846
 --- !u!1 &7159234972945754184
 GameObject:
   m_ObjectHideFlags: 0
@@ -13143,14 +12752,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4263857336763994657}
-  - {fileID: 2953328832297621426}
-  - {fileID: 1964176169724840306}
-  - {fileID: 2197363611962554001}
-  - {fileID: 5447515227896899390}
-  - {fileID: 4091029752893856738}
-  - {fileID: 3817784814600674936}
-  - {fileID: 1126557387523042540}
+  - {fileID: 5804315006570008304}
+  - {fileID: 983508788385524107}
+  - {fileID: 647480363070353531}
+  - {fileID: 3747691307846382731}
+  - {fileID: 2882456533677477802}
   m_Father: {fileID: 508425342217035269}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13375,70 +12981,6 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7319046519210165809}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
---- !u!1 &7332075899176801891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4205740893311712562}
-  - component: {fileID: 8508875853009481308}
-  - component: {fileID: 536398972486234254}
-  m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4205740893311712562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332075899176801891}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.567, y: -0.864, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
-  m_Children: []
-  m_Father: {fileID: 6048446292094659730}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8508875853009481308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332075899176801891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &536398972486234254
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332075899176801891}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -13677,7 +13219,7 @@ GameObject:
   - component: {fileID: 3038388367267039357}
   - component: {fileID: 4998838777160423001}
   m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox2
+  m_Name: Hurtbox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13726,9 +13268,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03010382, y: 0.00772581}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.108477846
 --- !u!1 &7445432477697557620
 GameObject:
   m_ObjectHideFlags: 0
@@ -14261,7 +13803,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.04, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.09
 --- !u!1 &7592509947293078865
@@ -14584,70 +14126,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0859
---- !u!1 &7693938256452798652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7399795777966228206}
-  - component: {fileID: 7616462825044228351}
-  - component: {fileID: 5138834917356044136}
-  m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7399795777966228206
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693938256452798652}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.326, y: -0.777, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 1669284612756376455}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7616462825044228351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693938256452798652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &5138834917356044136
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693938256452798652}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &7699137478516480080
 GameObject:
   m_ObjectHideFlags: 0
@@ -14762,73 +14240,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.15, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &7836501218405135878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4091029752893856738}
-  - component: {fileID: 9198734866344683843}
-  - component: {fileID: 6208928018667137024}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4091029752893856738
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7836501218405135878}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.222, y: -0.163, z: 0}
-  m_LocalScale: {x: 5.1155925, y: 5.207631, z: 0.75841004}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9198734866344683843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7836501218405135878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &6208928018667137024
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7836501218405135878}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &7844664697907797256
 GameObject:
   m_ObjectHideFlags: 0
@@ -15149,7 +14563,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0859
---- !u!1 &7968466558286612970
+--- !u!1 &7949180829651709665
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15157,37 +14571,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1126557387523042540}
-  - component: {fileID: 5614735134544944838}
-  - component: {fileID: 4289412220522724705}
+  - component: {fileID: 4216948335509996522}
+  - component: {fileID: 5856785173336268026}
+  - component: {fileID: 3497371506598731250}
   m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox7
+  m_Name: Hurtbox3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1126557387523042540
+--- !u!4 &4216948335509996522
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968466558286612970}
+  m_GameObject: {fileID: 7949180829651709665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.59, y: -0.92, z: 0}
-  m_LocalScale: {x: 4.3719153, y: 4.348505, z: 0.653713}
+  m_LocalPosition: {x: 0.9199995, y: 0.7099999, z: 0}
+  m_LocalScale: {x: 9.910654, y: 9.87826, z: 1.4692999}
   m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 7
+  m_Father: {fileID: 7158414047502349049}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5614735134544944838
+--- !u!114 &5856785173336268026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968466558286612970}
+  m_GameObject: {fileID: 7949180829651709665}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
@@ -15196,23 +14610,23 @@ MonoBehaviour:
   character: {fileID: 5071249388957047531}
   characterController: {fileID: 0}
   characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &4289412220522724705
+  canBeGrabbed: 1
+--- !u!58 &3497371506598731250
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968466558286612970}
+  m_GameObject: {fileID: 7949180829651709665}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.044712685, y: -0.06524985}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.065576114
 --- !u!1 &7994991288277183465
 GameObject:
   m_ObjectHideFlags: 0
@@ -15297,70 +14711,6 @@ MonoBehaviour:
   angle: 34
   lineLengthDEBUG: 2
   hitStunFrames: 3
---- !u!1 &8134973460461266889
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6577393215884534332}
-  - component: {fileID: 7185959140745098445}
-  - component: {fileID: 725500205508063384}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6577393215884534332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134973460461266889}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.92, y: 0.71, z: 0}
-  m_LocalScale: {x: 9.910654, y: 9.878259, z: 1.4693}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7185959140745098445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134973460461266889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 1
---- !u!58 &725500205508063384
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134973460461266889}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &8143220134147156197
 GameObject:
   m_ObjectHideFlags: 0
@@ -15820,6 +15170,70 @@ Transform:
   m_Father: {fileID: 779896278493451464}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8248333771814570814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983508788385524107}
+  - component: {fileID: 8085501674802944428}
+  - component: {fileID: 715607705706026029}
+  m_Layer: 8
+  m_Name: Hurtbox1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &983508788385524107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248333771814570814}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3950005, y: 3.0489998, z: 0}
+  m_LocalScale: {x: 7.37832, y: 7.783813, z: 0.42198998}
+  m_Children: []
+  m_Father: {fileID: 5554089428490862981}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8085501674802944428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248333771814570814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &715607705706026029
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248333771814570814}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16217498, y: 0.038431562}
+  serializedVersion: 2
+  m_Radius: 0.07007518
 --- !u!1 &8262015729736314864
 GameObject:
   m_ObjectHideFlags: 0
@@ -16157,7 +15571,7 @@ GameObject:
   - component: {fileID: 8231812480707264393}
   - component: {fileID: 5033928750777100477}
   m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox4
+  m_Name: Hurtbox4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16206,9 +15620,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.101950474, y: -0.008541606}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.100059785
 --- !u!1 &8570275969628730386
 GameObject:
   m_ObjectHideFlags: 0
@@ -16273,70 +15687,6 @@ CircleCollider2D:
   m_Offset: {x: 0.009770409, y: 0}
   serializedVersion: 2
   m_Radius: 0.0997704
---- !u!1 &8599339382272487313
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2197363611962554001}
-  - component: {fileID: 8006251110769232059}
-  - component: {fileID: 8905159031497654955}
-  m_Layer: 8
-  m_Name: Huldra_Walk3_Hurtbox3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2197363611962554001
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599339382272487313}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.845, y: 0.876, z: 0}
-  m_LocalScale: {x: 6.8869133, y: 6.864402, z: 1.0210166}
-  m_Children: []
-  m_Father: {fileID: 5554089428490862981}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8006251110769232059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599339382272487313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 1
---- !u!58 &8905159031497654955
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599339382272487313}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1 &8612181927992803519
 GameObject:
   m_ObjectHideFlags: 0
@@ -16697,7 +16047,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &8748103827467399814
+--- !u!1 &8787269609943704329
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16705,37 +16055,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4697366658600911321}
-  - component: {fileID: 1669563809184466245}
-  - component: {fileID: 4683391499649886620}
+  - component: {fileID: 5804315006570008304}
+  - component: {fileID: 2248497061620675374}
+  - component: {fileID: 2652639958038212376}
   m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox1
+  m_Name: Hurtbox0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4697366658600911321
+--- !u!4 &5804315006570008304
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8748103827467399814}
+  m_GameObject: {fileID: 8787269609943704329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.412, y: 3.294, z: 0}
-  m_LocalScale: {x: 7.3783174, y: 7.7838135, z: 0.421989}
+  m_LocalPosition: {x: 0.97400033, y: 1.9930003, z: 0}
+  m_LocalScale: {x: 8.172747, y: 8.101034, z: 0.47698998}
   m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 1
+  m_Father: {fileID: 5554089428490862981}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1669563809184466245
+--- !u!114 &2248497061620675374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8748103827467399814}
+  m_GameObject: {fileID: 8787269609943704329}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
@@ -16745,22 +16095,86 @@ MonoBehaviour:
   characterController: {fileID: 0}
   characterIndex: 0
   canBeGrabbed: 0
---- !u!58 &4683391499649886620
+--- !u!58 &2652639958038212376
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8748103827467399814}
+  m_GameObject: {fileID: 8787269609943704329}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0559806, y: 0.036926687}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.13542132
+--- !u!1 &8800885355460700730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2882456533677477802}
+  - component: {fileID: 7542491082546337144}
+  - component: {fileID: 3189261603470079610}
+  m_Layer: 8
+  m_Name: Hurtbox4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2882456533677477802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8800885355460700730}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9180006, y: -0.100999996, z: 0}
+  m_LocalScale: {x: 6.2136397, y: 6.1803665, z: 0.9291}
+  m_Children: []
+  m_Father: {fileID: 5554089428490862981}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7542491082546337144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8800885355460700730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5071249388957047531}
+  characterController: {fileID: 0}
+  characterIndex: 0
+  canBeGrabbed: 0
+--- !u!58 &3189261603470079610
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8800885355460700730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.101950474, y: -0.008541606}
+  serializedVersion: 2
+  m_Radius: 0.100059785
 --- !u!1 &8857307121001650521
 GameObject:
   m_ObjectHideFlags: 0
@@ -16890,7 +16304,7 @@ GameObject:
   - component: {fileID: 5916134188397902882}
   - component: {fileID: 8928620990708033444}
   m_Layer: 8
-  m_Name: Huldra_Walk0_Hurtbox1
+  m_Name: Hurtbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16939,9 +16353,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.14960071, y: 0.01552633}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.07554924
 --- !u!1 &8972950171893949684
 GameObject:
   m_ObjectHideFlags: 0
@@ -17018,7 +16432,7 @@ GameObject:
   - component: {fileID: 4627923087121935177}
   - component: {fileID: 5321117931634957951}
   m_Layer: 8
-  m_Name: Huldra_Walk1_Hurtbox3
+  m_Name: Hurtbox3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17067,9 +16481,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.051101968, y: -0.037170444}
   serializedVersion: 2
-  m_Radius: 0.0859
+  m_Radius: 0.120393865
 --- !u!1 &9012882209920195254
 GameObject:
   m_ObjectHideFlags: 0
@@ -17483,73 +16897,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.14, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!1 &9182534952358943391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6166187996996426314}
-  - component: {fileID: 1370345233898542106}
-  - component: {fileID: 1571975163575553247}
-  m_Layer: 8
-  m_Name: Huldra_Walk2_Hurtbox4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6166187996996426314
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182534952358943391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.532, y: -0.294, z: 0}
-  m_LocalScale: {x: 6.2136374, y: 6.180365, z: 0.92909753}
-  m_Children: []
-  m_Father: {fileID: 7158414047502349049}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370345233898542106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182534952358943391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c30cfc7648f8f42b8419c39c79d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 5071249388957047531}
-  characterController: {fileID: 0}
-  characterIndex: 0
-  canBeGrabbed: 0
---- !u!58 &1571975163575553247
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182534952358943391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.0859
 --- !u!1001 &464858342778602577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17722,9 +17072,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193776, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617087096367193776, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617087096367193776, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d252fc293b3b3a43935fbd700c1fc55, type: 3}
+      objectReference: {fileID: 21300000, guid: 95d420139e195a846a1ef8b8c3ef6ad1, type: 3}
     - target: {fileID: 4617087096367193776, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -17763,11 +17121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.21
+      value: 0.153
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
@@ -17786,12 +17144,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.875
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4617087096367193790, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.875
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5132338485253031914, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17968,11 +17334,6 @@ PrefabInstance:
     - {fileID: 6454568618304643344, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
     - {fileID: 533438893171619160, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
---- !u!4 &2851230511932153990 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2441541677979706583, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6147251535244899237 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5997931039673890804, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
@@ -17984,19 +17345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091177ef8664fa347baeecf4af4c00a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5071249388957047531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4617087096367193786, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6821672986398753074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6402132140642731363, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &163897336955798956 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 303366190352302589, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6695192556203654382 stripped
@@ -18004,13 +17355,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6528416376974588095, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2261444288689162366 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1806437863497485359, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
-  m_PrefabInstance: {fileID: 464858342778602577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7386436195824848811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6985758838914305018, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5071249388957047531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4617087096367193786, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2851230511932153990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2441541677979706583, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &163897336955798956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 303366190352302589, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
+  m_PrefabInstance: {fileID: 464858342778602577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2261444288689162366 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1806437863497485359, guid: 858f4f96d7e7ce84ba071b4fe38ed295, type: 3}
   m_PrefabInstance: {fileID: 464858342778602577}
   m_PrefabAsset: {fileID: 0}
