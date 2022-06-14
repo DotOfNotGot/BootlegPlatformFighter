@@ -16,6 +16,11 @@ namespace BootlegPlatformFighter
         private Vector3 velocity;
         private Camera cam;
 
+        [SerializeField]
+        private float minPositionY;
+        [SerializeField]
+        private int maxPositionY;
+
         [SerializeField]private float minZoom = 40f;
         [SerializeField]private float maxZoom = 10f;
         [SerializeField] private float zoomLimiter = 50f;
@@ -27,13 +32,9 @@ namespace BootlegPlatformFighter
 
         void LateUpdate()
         {
-            if (targets.Count == 0) // will be false because you've set size to 2 in the editor
-            {
-                return;
-            }
-
             if (targets[0] == null) // this check will work tho
                 return;
+
 
             Move();
             Zoom();
@@ -59,7 +60,7 @@ namespace BootlegPlatformFighter
             var bounds = new Bounds(targets[0].position, Vector3.zero);
             foreach (var target in targets)
             {
-                bounds.Encapsulate(target.position);
+                    bounds.Encapsulate(target.position);
             }
 
             return bounds.size.x;
@@ -73,10 +74,28 @@ namespace BootlegPlatformFighter
                 return targets[0].position;
             }
 
-            var bounds = new Bounds(targets[0].position, Vector3.zero);
+            Bounds bounds;
+
+            if (targets[0].position.y < minPositionY)
+            {
+                bounds = new Bounds(new Vector3(targets[0].position.x, minPositionY), Vector3.zero);
+            }
+            else
+            {
+                bounds = new Bounds(targets[0].position, Vector3.zero);
+            }
+            
+
             foreach (var target in targets)
             {
-                bounds.Encapsulate(target.position);
+                if (target.position.y < minPositionY)
+                {
+                    bounds.Encapsulate(new Vector3(target.position.x, minPositionY, target.position.z));
+                }
+                else
+                {
+                    bounds.Encapsulate(target.position);
+                }
             }
 
             return bounds.center;
